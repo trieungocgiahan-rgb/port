@@ -1,0 +1,1094 @@
+<title>OpenDoor Vision</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+:root{
+  /* Layout: one long scroll story in a 1180px column. Each section carries one idea and one visual.
+     The corridor is a dark inset illustration in both themes; amber is the light behind an open door. */
+  --paper:#ECF0EB; --paper-2:#E1E7E1; --card:#F7F9F6;
+  --ink:#14213A; --ink-soft:#4E5A71; --line:rgba(20,33,58,.14);
+  --accent:#E2962A; --accent-ink:#93560A; --accent-wash:rgba(226,150,42,.15);
+  --alarm:#B4412E; --alarm-wash:rgba(180,65,46,.10);
+  --band1:#E2962A; --band2:#E9AB55; --band3:#EFC082; --band4:#F3D3A8; --band5:#F6E3C9;
+  --band-off:#D7DED7; --band-text:#2E1D04;
+  --f-display:"Bricolage Grotesque","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --f-body:"Instrument Sans","Helvetica Neue",Arial,system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --s-1:.8125rem; --s0:1.0625rem; --s1:1.3rem; --s2:1.7rem;
+  --s3:clamp(1.95rem,3.6vw,2.9rem); --s4:clamp(2.6rem,6.2vw,5rem);
+  --radius:16px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0C121C; --paper-2:#131B28; --card:#162030;
+    --ink:#E6EBF1; --ink-soft:#9DA9BB; --line:rgba(230,235,241,.12);
+    --accent:#F2B04A; --accent-ink:#F5BF6A; --accent-wash:rgba(242,176,74,.13);
+    --alarm:#EE7A62; --alarm-wash:rgba(238,122,98,.14);
+    --band1:#F2B04A; --band2:#E4A550; --band3:#D59A55; --band4:#C68F58; --band5:#B6865C;
+    --band-off:#232D3E; --band-text:#1A1206;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0C121C; --paper-2:#131B28; --card:#162030;
+  --ink:#E6EBF1; --ink-soft:#9DA9BB; --line:rgba(230,235,241,.12);
+  --accent:#F2B04A; --accent-ink:#F5BF6A; --accent-wash:rgba(242,176,74,.13);
+  --alarm:#EE7A62; --alarm-wash:rgba(238,122,98,.14);
+  --band1:#F2B04A; --band2:#E4A550; --band3:#D59A55; --band4:#C68F58; --band5:#B6865C;
+  --band-off:#232D3E; --band-text:#1A1206;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:var(--s0);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;letter-spacing:-.02em}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+
+.wrap{max-width:1180px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.eyebrow{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:9px;height:13px;border:1.5px solid currentColor;border-radius:2px 2px 0 0;flex:none}
+.sec{padding-block:clamp(64px,9vw,120px);border-top:1px solid var(--line)}
+.sec-head{display:grid;gap:16px;max-width:52rem}
+.sec-head h2{font-size:var(--s3);line-height:1.06;font-weight:700}
+.lede{font-size:var(--s1);line-height:1.5;color:var(--ink-soft);max-width:40rem}
+.mono{font-family:var(--f-mono)}
+.small{font-size:var(--s-1)}
+.muted{color:var(--ink-soft)}
+
+/* segmented toggle */
+.seg{display:inline-flex;padding:4px;border-radius:999px;background:var(--paper-2);border:1px solid var(--line);gap:2px;flex-wrap:wrap}
+.seg button{font:600 .875rem var(--f-body);border:0;background:transparent;color:var(--ink-soft);padding:9px 16px;border-radius:999px;cursor:pointer;transition:background .25s,color .25s}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+
+/* header */
+.top{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:20px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:800;font-size:1.2rem;letter-spacing:-.02em;text-decoration:none}
+.logo svg{width:22px;height:28px}
+.top nav{display:flex;gap:22px;flex-wrap:wrap}
+.top nav a{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none}
+.top nav a:hover{color:var(--ink)}
+@media (max-width:900px){.top nav{display:none}}
+
+/* hero */
+.hero{padding-block:clamp(24px,4vw,48px) 0}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(28px,4.5vw,64px);align-items:center}
+.hero-copy{display:grid;gap:26px;min-width:0}
+.hero h1{font-size:var(--s4);line-height:.98;font-weight:800;letter-spacing:-.04em}
+.hero h1 .hl{color:var(--accent-ink);background:linear-gradient(transparent 72%,var(--accent-wash) 72%)}
+.hero .lede{max-width:34rem}
+.pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;border-top:1px solid var(--line);padding-top:22px}
+.pillars div{display:grid;gap:4px;min-width:0}
+.pillars b{font-family:var(--f-display);font-size:1.05rem;font-weight:700}
+.pillars span{font-size:.92rem;color:var(--ink-soft);line-height:1.45}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;text-decoration:none;border:1px solid var(--ink);font-size:.95rem}
+.btn.primary{background:var(--ink);color:var(--paper)}
+.btn:hover{transform:translateY(-1px)}
+.corridor{position:relative;margin:0;aspect-ratio:4/5;border-radius:22px;overflow:hidden;background:#0A0F17;max-width:100%;box-shadow:0 30px 60px -30px rgba(10,15,23,.55)}
+.corridor canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.corridor figcaption{position:absolute;left:16px;right:16px;bottom:14px;display:flex;justify-content:space-between;gap:12px;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:#AEB8C7}
+.corridor figcaption b{color:#F5C16E;font-weight:500}
+.mrz{margin-top:clamp(36px,5vw,64px);border-top:1px dashed var(--line);border-bottom:1px dashed var(--line);padding-block:14px;font-family:var(--f-mono);font-size:min(1.3rem,calc((100vw - 48px) / 36));letter-spacing:.2em;line-height:1.6;color:var(--ink-soft);opacity:.75;white-space:pre;overflow:hidden}
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:minmax(0,1fr)}
+  .corridor{aspect-ratio:4/3}
+}
+@media (max-width:560px){.pillars{grid-template-columns:minmax(0,1fr)}.corridor{aspect-ratio:1/1}}
+
+/* moment */
+.map-panel{margin-top:44px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(14px,2.5vw,28px);display:grid;gap:14px}
+.map-panel canvas{width:100%;display:block}
+.legend{display:flex;flex-wrap:wrap;gap:8px 22px;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+.legend i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:7px;vertical-align:0}
+.legend .o{background:var(--accent)}
+.legend .d{border:1.5px solid var(--ink)}
+.legend .r{width:22px;height:2px;border-radius:2px;background:linear-gradient(90deg,transparent,var(--accent))}
+.stats{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px;margin-top:14px}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.t-3{grid-column:span 3}.t-2{grid-column:span 2}
+.big{font-family:var(--f-display);font-size:clamp(2.4rem,4.4vw,3.5rem);font-weight:800;line-height:1;letter-spacing:-.035em;font-variant-numeric:tabular-nums}
+.big small{font-size:.45em;letter-spacing:0;font-weight:700;color:var(--ink-soft);margin-left:4px}
+.tile p{color:var(--ink-soft);line-height:1.5;font-size:.98rem}
+.tile .src{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-top:auto;opacity:.85}
+.bars{display:grid;gap:10px}
+.bar-row{display:grid;grid-template-columns:4.2rem minmax(0,1fr) 4.4rem;align-items:center;gap:12px;font-family:var(--f-mono);font-size:.78rem;font-variant-numeric:tabular-nums}
+.bar-row span:last-child{text-align:right;font-weight:700}
+.bar{height:12px;border-radius:6px;background:var(--paper-2);overflow:hidden}
+.bar i{display:block;height:100%;border-radius:6px;background:var(--accent)}
+.bar i.proj{background:repeating-linear-gradient(135deg,var(--accent) 0 4px,transparent 4px 8px);box-shadow:inset 0 0 0 1.5px var(--accent)}
+.codes{display:flex;flex-wrap:wrap;gap:6px}
+.codes span{font-family:var(--f-mono);font-size:.78rem;padding:4px 10px;border-radius:999px;border:1px solid var(--line);background:var(--paper)}
+.codes span.hot{border-color:var(--accent);background:var(--accent-wash);color:var(--accent-ink);font-weight:700}
+.footnote{margin-top:16px;font-size:.8rem;color:var(--ink-soft)}
+@media (max-width:900px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.t-3{grid-column:span 2}.t-2{grid-column:span 1}.t-wide-sm{grid-column:span 2}}
+@media (max-width:560px){.stats{grid-template-columns:minmax(0,1fr)}.t-3,.t-2,.t-wide-sm{grid-column:span 1}}
+
+/* problem */
+.price{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:44px}
+.price .tile{padding:28px}
+.price .big.alarm{color:var(--alarm)}
+.vs{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+.leak{margin-top:14px;display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(20px,4vw,48px);align-items:center;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(20px,3.5vw,44px)}
+.leak-copy{display:grid;gap:18px;min-width:0}
+.leak-copy h3{font-size:var(--s2);line-height:1.12;font-weight:700}
+.leak-copy p{color:var(--ink-soft)}
+.leak-copy strong{color:var(--ink)}
+.leak-cap{min-height:4.8em;border-left:3px solid var(--accent);padding-left:14px;color:var(--ink) !important;font-weight:500}
+.leak-cap[data-m="today"]{border-color:var(--alarm)}
+.leak-stage{position:relative;aspect-ratio:5/4;width:100%;max-width:100%}
+.leak-stage canvas{position:absolute;inset:0;width:100%;height:100%}
+.leak-legend{display:flex;gap:16px;flex-wrap:wrap;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+.borders{margin-top:14px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(20px,4vw,48px);align-items:center;padding:clamp(20px,3.5vw,44px);border:1px dashed var(--line);border-radius:var(--radius)}
+.borders h3{font-size:var(--s2);line-height:1.12;font-weight:700}
+.borders p{color:var(--ink-soft);margin-top:12px}
+.dest-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.dest{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:12px 14px;border-radius:12px;background:var(--card);border:1px solid var(--line);font-weight:600;font-size:.95rem}
+.dest .mono{font-size:.72rem;color:var(--ink-soft)}
+.dest.hot{border-color:var(--accent);background:var(--accent-wash);grid-column:span 2}
+.dest.hot .mono{color:var(--accent-ink);font-weight:700}
+@media (max-width:900px){.leak,.borders{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:560px){.price{grid-template-columns:minmax(0,1fr)}}
+
+/* journey */
+.journey{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(24px,4vw,64px);align-items:center;margin-top:44px}
+.ring{position:relative;width:min(100%,560px);aspect-ratio:1/1;margin-inline:auto}
+.ring>svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.ring .track{fill:none;stroke:var(--line);stroke-width:.5}
+.ring .loop{fill:none;stroke:var(--accent);stroke-width:.7;stroke-dasharray:1.4 1.4}
+.ring .chev{fill:none;stroke:var(--ink-soft);stroke-width:.5;stroke-linecap:round;stroke-linejoin:round;opacity:.7}
+.ring .orbit{transform-box:view-box;transform-origin:50px 50px;animation:spin 18s linear infinite}
+.ring .orbit circle{fill:var(--accent);filter:drop-shadow(0 0 2px var(--accent))}
+@keyframes spin{to{transform:rotate(360deg)}}
+.stage-btn{position:absolute;transform:translate(-50%,-28px);display:flex;flex-direction:column;align-items:center;gap:6px;background:none;border:0;cursor:pointer;color:var(--ink);padding:0;width:104px;font:600 .82rem var(--f-body)}
+.stage-btn .ic{width:56px;height:56px;border-radius:50%;background:var(--card);border:1px solid var(--line);display:grid;place-items:center;transition:background .25s,border-color .25s,transform .25s}
+.stage-btn:hover .ic{transform:scale(1.06)}
+.stage-btn .ic svg{width:20px;height:28px}
+.stage-btn .ic .fr{fill:var(--accent-wash);stroke:var(--ink);stroke-width:1.5}
+.stage-btn .ic .lf{fill:var(--ink)}
+.stage-btn[aria-pressed="true"] .ic{background:var(--accent);border-color:var(--accent)}
+.stage-btn[aria-pressed="true"] .ic .fr{fill:#FFE6B8;stroke:#2A1A05}
+.stage-btn[aria-pressed="true"] .ic .lf{fill:#2A1A05}
+.stage-btn .lab{background:var(--paper);padding:1px 6px;border-radius:6px;white-space:nowrap}
+.stage-btn .lab i{font-style:normal;font-family:var(--f-mono);font-size:.7rem;color:var(--ink-soft);margin-right:5px}
+.ring-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:46%;text-align:center;display:grid;gap:6px;pointer-events:none}
+.ring-center .k{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+.ring-center .n{font-family:var(--f-display);font-size:clamp(1.5rem,3.6vw,2.4rem);font-weight:800;line-height:1;letter-spacing:-.03em}
+.ring-center .w{font-size:.9rem;color:var(--accent-ink);font-weight:600}
+.stage-panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(20px,3vw,36px);display:grid;gap:18px;min-width:0}
+.stage-panel h3{font-size:var(--s2);font-weight:800;line-height:1.05}
+.prod{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.prod li{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--paper);border-radius:10px;line-height:1.45}
+.prod li::before{content:"";flex:none;width:8px;height:12px;margin-top:5px;border-radius:2px 2px 0 0;background:var(--accent)}
+.stage-note{font-size:.95rem;color:var(--ink-soft)}
+.stage-nav{display:flex;justify-content:space-between;gap:8px}
+.stage-nav button{font:600 .875rem var(--f-body);background:transparent;border:1px solid var(--line);color:var(--ink);padding:9px 14px;border-radius:999px;cursor:pointer}
+.stage-nav button:hover{border-color:var(--ink)}
+.alumni{margin-top:clamp(36px,5vw,56px);display:flex;gap:20px;align-items:baseline;flex-wrap:wrap}
+.alumni p{font-family:var(--f-display);font-size:var(--s3);font-weight:800;letter-spacing:-.03em;line-height:1.05;max-width:22ch}
+.alumni p span{color:var(--accent-ink)}
+@media (max-width:900px){.journey{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:560px){
+  .stage-btn{width:78px;transform:translate(-50%,-21px);font-size:.72rem}
+  .stage-btn .ic{width:42px;height:42px}
+  .stage-btn .ic svg{width:15px;height:21px}
+  .stage-btn .lab i{display:none}
+  .ring-center{width:44%}
+  .ring-center .w{font-size:.78rem}
+}
+
+/* engines */
+.eng-bar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:36px}
+.eng-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:18px}
+.eng{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;gap:12px;min-width:0;transition:border-color .3s}
+.eng.wide{grid-column:span 2}
+.eng-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.eng-head .mono{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+.eng h3{font-size:var(--s1);font-weight:700;line-height:1.2}
+.eng p{color:var(--ink-soft);line-height:1.55}
+.verdict{align-self:flex-start;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.04em;padding:4px 10px;border-radius:999px;margin-top:auto}
+.verdict.t{color:var(--alarm);background:var(--alarm-wash)}
+.verdict.o{color:var(--accent-ink);background:var(--accent-wash)}
+[data-mode="od"] .eng .t,[data-mode="trad"] .eng .o{display:none}
+[data-mode="trad"] .eng{border-style:dashed}
+.gl{width:96px;height:56px;flex:none;overflow:visible}
+.gl .gm{stroke:var(--ink-soft);stroke-opacity:.5;fill:none;stroke-width:1.6;stroke-linecap:round}
+.gl .ga{stroke:var(--accent);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.gl .gr{stroke:var(--alarm);fill:none;stroke-width:2.2;stroke-linecap:round}
+.gl .fa{fill:var(--accent)}
+.gl .fm{fill:var(--ink-soft);fill-opacity:.35}
+.gl .fi{fill:var(--ink)}
+.gl .fr{fill:var(--alarm)}
+.gl text{font-family:var(--f-mono);font-size:8px;fill:var(--ink-soft)}
+.gl .pulse{animation:pulse 2.6s ease-in-out infinite}
+.gl .pulse:nth-of-type(2n){animation-delay:.9s}
+@keyframes pulse{50%{opacity:.35}}
+.anim .gl path,.anim .gl line{stroke-dasharray:100;animation:draw .9s ease both}
+.anim .gl circle,.anim .gl rect{animation:pop .6s ease both}
+@keyframes draw{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
+@keyframes pop{from{opacity:0}}
+@media (max-width:900px){.eng-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.eng.wide{grid-column:span 1}.eng.e1{grid-column:span 2}}
+@media (max-width:600px){.eng-grid{grid-template-columns:minmax(0,1fr)}.eng.e1{grid-column:span 1}}
+
+/* model */
+.model{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:center;margin-top:44px}
+.rings{width:min(100%,500px);margin-inline:auto;display:block}
+.rings .band{fill:none;stroke-width:34;transition:stroke .45s ease}
+.rings .lbl{font-family:var(--f-mono);font-size:12px;letter-spacing:1.6px;font-weight:700;fill:var(--band-text);transition:fill .45s ease}
+.rings .core{fill:var(--ink)}
+.rings .core-ic{fill:var(--paper)}
+.rings[data-sel] .band:not(.on),.rings.seq .band:not(.lit){stroke:var(--band-off) !important}
+.rings[data-sel] .lbl:not(.on),.rings.seq .lbl:not(.lit){fill:var(--ink-soft)}
+.waves{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.waves button{width:100%;text-align:left;display:grid;grid-template-columns:14px minmax(0,1fr);gap:14px;padding:14px 16px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;font:inherit;transition:border-color .25s,background .25s}
+.waves button:hover,.waves button[aria-pressed="true"]{border-color:var(--accent)}
+.waves button[aria-pressed="true"]{background:var(--accent-wash)}
+.waves .sw{width:14px;height:14px;border-radius:50%;margin-top:4px}
+.waves b{display:block;font-family:var(--f-display);font-size:1.08rem}
+.waves .tag{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-left:8px;font-weight:400}
+.waves span.d{display:block;color:var(--ink-soft);font-size:.95rem;line-height:1.5;margin-top:4px}
+.promise{margin-top:24px;display:flex;gap:14px;align-items:flex-start;padding:18px 20px;border-radius:12px;background:var(--ink);color:var(--paper)}
+.promise svg{flex:none;width:22px;height:22px;margin-top:2px}
+.promise b{font-family:var(--f-display)}
+@media (max-width:900px){.model{grid-template-columns:minmax(0,1fr)}}
+
+/* ladder */
+.note{display:inline-flex;gap:10px;align-items:center;border:1.5px dashed var(--accent-ink);color:var(--accent-ink);padding:8px 14px;border-radius:10px;font-family:var(--f-mono);font-size:.78rem;letter-spacing:.04em}
+.stairs{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:end;gap:12px;margin-top:24px;padding-top:56px}
+.step{display:flex;flex-direction:column;min-width:0}
+.step .tread{display:flex;align-items:flex-end;gap:10px;height:56px;padding-left:16px}
+.step .tread svg{width:30px;height:46px}
+.step .tread .fr{fill:var(--accent);stroke:var(--ink);stroke-width:1.5}
+.step .tread .lf{fill:var(--ink)}
+.step .block{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:4px 4px 0 0;padding:20px;display:flex;flex-direction:column;gap:10px;min-height:var(--h)}
+.step:nth-child(1) .block{--h:220px}
+.step:nth-child(2) .block{--h:300px}
+.step:nth-child(3) .block{--h:380px}
+.step:nth-child(4) .block{--h:460px}
+.step .yr{font-family:var(--f-display);font-size:clamp(2rem,3.4vw,2.8rem);font-weight:800;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+.step .kpi{font-family:var(--f-mono);font-size:.78rem;color:var(--accent-ink);font-weight:700;letter-spacing:.04em}
+.step ul{margin:0;padding:0;list-style:none;display:grid;gap:6px}
+.step li{font-size:.95rem;line-height:1.45;color:var(--ink-soft);padding-left:14px;position:relative}
+.step li::before{content:"";position:absolute;left:0;top:.6em;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.climber{position:absolute;left:0;top:0;width:26px;height:42px;pointer-events:none;transition:transform .12s linear}
+.climber .b{fill:var(--ink)}
+.climber .p{fill:var(--accent)}
+.ground{height:3px;background:var(--ink);border-radius:2px}
+@media (max-width:820px){
+  .stairs{grid-template-columns:minmax(0,1fr);padding-top:0;gap:10px}
+  .step .block{min-height:0 !important}
+  .step .tread{height:auto;padding:0 0 8px 0}
+  .climber,.ground{display:none}
+}
+
+/* closing */
+.closing{padding-block:clamp(80px,12vw,160px);border-top:1px solid var(--line)}
+.closing-grid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(24px,5vw,72px);align-items:center}
+.closing blockquote{margin:0;font-family:var(--f-display);font-size:clamp(2.1rem,5.2vw,4.2rem);font-weight:800;line-height:1.02;letter-spacing:-.04em;text-wrap:balance}
+.closing blockquote span{display:block;color:var(--accent-ink)}
+.closing svg{width:clamp(110px,16vw,190px);height:auto}
+.closing .fr{fill:none;stroke:var(--ink);stroke-width:3}
+.closing .lt{fill:var(--accent)}
+.closing .lf{fill:var(--ink)}
+.closing .sp{fill:var(--accent);opacity:.25}
+@media (max-width:700px){.closing-grid{grid-template-columns:minmax(0,1fr)}.closing svg{width:110px}}
+footer{border-top:1px solid var(--line);padding-block:28px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .ring .orbit,.gl .pulse,.anim .gl *{animation:none !important}
+  .climber{transition:none}
+}
+</style>
+
+<header class="wrap top">
+  <a class="logo" href="#top" aria-label="OpenDoor home">
+    <svg viewBox="0 0 22 28" aria-hidden="true"><rect x="1.5" y="1.5" width="19" height="25" rx="1.5" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M1.5 1.5 L13 4.5 V25 L1.5 26.5Z" fill="var(--accent)"/></svg>
+    OpenDoor
+  </a>
+  <nav aria-label="Sections">
+    <a href="#moment">The moment</a>
+    <a href="#problem">The problem</a>
+    <a href="#journey">The journey</a>
+    <a href="#engines">Why we win</a>
+    <a href="#model">Business model</a>
+    <a href="#ladder">10-year ladder</a>
+  </nav>
+</header>
+
+<main id="top">
+<!-- 1. Manifesto -->
+<section class="hero" aria-labelledby="h-hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">Manifesto</p>
+      <h1 id="h-hero">Where you're born shouldn't decide <span class="hl">where you can learn.</span></h1>
+      <p class="lede">OpenDoor is the open infrastructure for students who cross borders to study.</p>
+      <div class="pillars">
+        <div><b>Free knowledge</b><span>An open library of everything it takes to study abroad.</span></div>
+        <div><b>Last year's admits</b><span>Mentors who made it last year, often from your own country.</span></div>
+        <div><b>AI guidance</b><span>Brings the cost of great guidance close to zero.</span></div>
+      </div>
+      <div class="ctas">
+        <a class="btn primary" href="#journey">Follow the journey <span aria-hidden="true">→</span></a>
+        <a class="btn" href="#engines">Why this wins</a>
+      </div>
+    </div>
+    <figure class="corridor">
+      <canvas id="corridor" role="img" aria-label="A corridor of doors in perspective. Each open door glows and shows a destination: Seoul, Boston, Tokyo, Toronto, Melbourne, London, Abu Dhabi, Taipei."></canvas>
+      <figcaption><span>Scroll to open more doors</span><span>Open: <b id="corridor-open">—</b></span></figcaption>
+    </figure>
+  </div>
+  <div class="wrap"><div class="mrz" aria-hidden="true">P&lt;VNMOPENDOOR&lt;&lt;STUDENT&lt;CLASS&lt;OF&lt;2027&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+OD2027VNM&lt;0GRADE9&lt;TO&lt;FIRSTJOB&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;0</div></div>
+</section>
+
+<!-- 2. The size of the moment -->
+<section class="sec" id="moment" aria-labelledby="h-moment">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">The size of the moment</p>
+      <h2 id="h-moment">A generation is crossing borders to learn.</h2>
+      <p class="lede">International study is one of the largest movements of young people in the world, and much of the next decade's growth is coming from countries where good guidance is hardest to find.</p>
+    </div>
+
+    <div class="map-panel">
+      <canvas id="map" role="img" aria-label="World map with routes from Vietnam, India, Nigeria, Bangladesh, Nepal, Brazil and Mexico to study destinations in North America, Europe, East Asia, the Gulf and Australia."></canvas>
+      <div class="legend"><span><i class="o"></i>Rising source markets</span><span><i class="d"></i>Study destinations</span><span><i class="r"></i>Student flows (illustrative)</span></div>
+    </div>
+
+    <div class="stats">
+      <div class="tile t-3">
+        <div class="big"><span data-count="6.9" data-dec="1">6.9</span><small>M</small></div>
+        <p>Globally mobile students in 2024, nearly double the number of a decade earlier.</p>
+        <div class="bars" role="img" aria-label="6.9 million in 2024, projected 8.5 million by 2030">
+          <div class="bar-row"><span>2024</span><div class="bar"><i style="width:81.2%"></i></div><span>6.9M</span></div>
+          <div class="bar-row"><span>2030</span><div class="bar"><i class="proj" style="width:100%"></i></div><span>8.5M</span></div>
+        </div>
+        <span class="src">2030 figure: QS projection</span>
+      </div>
+      <div class="tile t-3">
+        <div class="big"><span data-count="16.2" data-dec="1" data-prefix="$">$16.2</span><small>B</small></div>
+        <p>One estimate of the global study abroad advisory market by 2034, up from $7.8B in 2026.</p>
+        <div class="bars" role="img" aria-label="7.8 billion dollars in 2026, 16.2 billion dollars by 2034">
+          <div class="bar-row"><span>2026</span><div class="bar"><i style="width:48.1%"></i></div><span>$7.8B</span></div>
+          <div class="bar-row"><span>2034</span><div class="bar"><i class="proj" style="width:100%"></i></div><span>$16.2B</span></div>
+        </div>
+        <span class="src">Third-party market estimate</span>
+      </div>
+      <div class="tile t-2">
+        <div class="big"><span data-count="250000" data-prefix="~">~250,000</span></div>
+        <p>Vietnamese studying abroad, a record high. Vietnam is now the <strong>5th-largest</strong> source of international students in the US.</p>
+      </div>
+      <div class="tile t-2">
+        <div class="big"><span data-count="363019">363,019</span></div>
+        <p>Students India sent to the United States in the 2024/25 academic year.</p>
+        <span class="src">IIE Open Doors</span>
+      </div>
+      <div class="tile t-2 t-wide-sm">
+        <div class="big">7 <small>markets</small></div>
+        <p>Where US growth over the next decade is expected to come from.</p>
+        <div class="codes"><span class="hot">IND</span><span class="hot">VNM</span><span>NGA</span><span>BGD</span><span>NPL</span><span>BRA</span><span>MEX</span></div>
+      </div>
+    </div>
+    <p class="footnote">Market sizes and 2030 figures are third-party estimates and projections, shown as reported.</p>
+  </div>
+</section>
+
+<!-- 3. The broken system -->
+<section class="sec" id="problem" aria-labelledby="h-problem">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">The broken system</p>
+      <h2 id="h-problem">Today, the guidance a student gets depends on what their family can pay.</h2>
+    </div>
+
+    <div class="price">
+      <div class="tile">
+        <span class="vs">With money</span>
+        <div class="big">$15,000–20,000</div>
+        <p>What a premium consulting firm such as Crimson charges a Vietnamese family for admissions support.</p>
+      </div>
+      <div class="tile">
+        <span class="vs">Without it</span>
+        <div class="big alarm">0 <small>counselors</small></div>
+        <p>What most public school students have. No one at school to explain the process, the essays or the aid.</p>
+      </div>
+    </div>
+
+    <div class="leak" id="leak-panel">
+      <div class="leak-copy">
+        <p class="eyebrow">The deeper failure</p>
+        <h3>Knowledge evaporates.</h3>
+        <p>Every year hundreds of thousands of students learn this whole process the hard way. They get in, they leave, and what they learned leaves with them. <strong>The next class starts from zero again.</strong> No one has built the system that catches this knowledge and hands it forward.</p>
+        <div class="seg" role="group" aria-label="Compare">
+          <button type="button" id="leak-today" aria-pressed="true" data-m="today">Today</button>
+          <button type="button" id="leak-od" aria-pressed="false" data-m="od">With OpenDoor</button>
+        </div>
+        <p class="leak-cap" id="leak-cap" data-m="today" aria-live="polite">Each class starts near empty. What it learns drains away when it graduates.</p>
+      </div>
+      <div>
+        <div class="leak-stage"><canvas id="leak" role="img" aria-label="Three buckets, one per graduating class, 2025 to 2027. Today knowledge drips out of each and is lost. With OpenDoor the drops are caught and poured into the next class, so each starts fuller."></canvas></div>
+        <div class="leak-legend"><span>Each bucket is one graduating class</span><span>Each drop is something a student learned</span></div>
+      </div>
+    </div>
+
+    <div class="borders">
+      <div>
+        <h3>Students no longer apply to one country.</h3>
+        <p>Vietnamese students now study across Asia, Australia and North America, and Vietnam ranks first among sources of international students in Korea. Most guidance is still built for a single destination, and for the wealthy.</p>
+      </div>
+      <div class="dest-list">
+        <div class="dest hot">South Korea <span class="mono">#1 source</span></div>
+        <div class="dest">Japan <span class="mono">JPN</span></div>
+        <div class="dest">Australia <span class="mono">AUS</span></div>
+        <div class="dest">United States <span class="mono">USA</span></div>
+        <div class="dest">Taiwan <span class="mono">TWN</span></div>
+        <div class="dest">China <span class="mono">CHN</span></div>
+        <div class="dest">Canada <span class="mono">CAN</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. The OpenDoor Journey -->
+<section class="sec" id="journey" aria-labelledby="h-journey">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">The vision</p>
+      <h2 id="h-journey">The OpenDoor Journey: seven stages, and the last one feeds the first.</h2>
+      <p class="lede">OpenDoor walks with a student from the first spark of curiosity in Grade 9 to their first job abroad, and then hands them the door to hold open for the next student.</p>
+    </div>
+    <div class="journey">
+      <div class="ring" id="ring">
+        <svg viewBox="0 0 100 100" aria-hidden="true" id="ring-svg"></svg>
+        <div class="ring-center" aria-hidden="true"><span class="k" id="rc-k">Stage 1 of 7</span><span class="n" id="rc-n">Discover</span><span class="w" id="rc-w">Grades 8–10</span></div>
+      </div>
+      <div class="stage-panel" id="stage-panel" aria-live="polite"></div>
+    </div>
+    <div class="alumni"><p>The alumni network <span>for people who never had one.</span></p></div>
+  </div>
+</section>
+
+<!-- 5. Why this wins -->
+<section class="sec" id="engines" aria-labelledby="h-engines">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Why this wins</p>
+      <h2 id="h-engines">Seven engines that get stronger as OpenDoor grows.</h2>
+      <p class="lede">Consulting gets more expensive as it scales. OpenDoor gets better. Switch the view to compare each engine.</p>
+    </div>
+    <div class="eng-bar">
+      <div class="seg" role="group" aria-label="Compare models">
+        <button type="button" data-mode="trad" aria-pressed="false">Traditional consulting</button>
+        <button type="button" data-mode="od" aria-pressed="true">OpenDoor</button>
+      </div>
+      <span class="mono small muted" id="eng-mode-label">Showing: OpenDoor</span>
+    </div>
+    <div class="eng-grid" id="eng-grid" data-mode="od"></div>
+  </div>
+</section>
+
+<!-- 6. Business model -->
+<section class="sec" id="model" aria-labelledby="h-model">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">How it makes money at scale</p>
+      <h2 id="h-model">Five customer groups around one student.</h2>
+      <p class="lede">Each ring is a group that pays, added in the order of the roadmap. The student stays at the center, and the core stays free.</p>
+    </div>
+    <div class="model">
+      <svg class="rings" id="rings" viewBox="0 0 480 480" role="img" aria-label="Five concentric rings around a student: students and families, schools, universities, employers, impact partners."></svg>
+      <div>
+        <ul class="waves" id="waves"></ul>
+        <div class="promise">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L20 5 V11 C20 16.5 16.5 20.5 12 22 C7.5 20.5 4 16.5 4 11 V5Z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8.5 12 L11 14.5 L15.5 9.5" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p><b>Students always own their profile.</b> No one can ever pay to influence an admission decision.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. The 10-year ladder -->
+<section class="sec" id="ladder" aria-labelledby="h-ladder">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">The 10-year ladder</p>
+      <h2 id="h-ladder">Each step is a door. Each door opens the next.</h2>
+      <p><span class="note"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M7 4v3.5M7 9.6v.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Ambitious targets, not forecasts</span></p>
+    </div>
+    <div class="stairs" id="stairs">
+      <div class="step">
+        <div class="tread"><svg viewBox="0 0 30 46" aria-hidden="true"><rect class="fr" x="2" y="2" width="26" height="42" rx="1"/><path class="lf" d="M2 2 L18 6 V42 L2 44Z"/></svg></div>
+        <div class="block"><span class="yr">2027</span><span class="kpi">First 50 mentors</span><ul><li>The Library launches in Vietnam and 2 more countries</li><li>First 50 peer mentors</li></ul></div>
+      </div>
+      <div class="step">
+        <div class="tread"><svg viewBox="0 0 30 46" aria-hidden="true"><rect class="fr" x="2" y="2" width="26" height="42" rx="1"/><path class="lf" d="M2 2 L16 7 V41 L2 44Z"/></svg></div>
+        <div class="block"><span class="yr">2028</span><span class="kpi">50,000 students</span><ul><li>10 countries</li><li>50,000 students</li><li>1,000 mentors</li><li>Paid plans live</li></ul></div>
+      </div>
+      <div class="step">
+        <div class="tread"><svg viewBox="0 0 30 46" aria-hidden="true"><rect class="fr" x="2" y="2" width="26" height="42" rx="1"/><path class="lf" d="M2 2 L13 8 V40 L2 44Z"/></svg></div>
+        <div class="block"><span class="yr">2030</span><span class="kpi">1M students reached</span><ul><li>1 million students have used the Library</li><li>10,000 mentors across 30 countries</li><li>First school licenses and university partners</li></ul></div>
+      </div>
+      <div class="step">
+        <div class="tread"><svg viewBox="0 0 30 46" aria-hidden="true"><rect class="fr" x="2" y="2" width="26" height="42" rx="1"/><path class="lf" d="M2 2 L9 9 V39 L2 44Z"/></svg></div>
+        <div class="block"><span class="yr">2035</span><span class="kpi">500 universities</span><ul><li>The default first stop for every first-generation international applicant</li><li>OpenDoor alumni at 500 universities, mentoring the next million</li></ul></div>
+      </div>
+      <svg class="climber" id="climber" viewBox="0 0 26 42" aria-hidden="true"><circle class="b" cx="13" cy="6" r="5"/><path class="b" d="M8 13 h10 l2 14 h-4 l-1 14 h-4 l-1-14 h-4z"/><rect class="p" x="16" y="14" width="6" height="10" rx="2"/></svg>
+    </div>
+    <div class="ground" aria-hidden="true"></div>
+  </div>
+</section>
+
+<!-- Closing -->
+<section class="closing" aria-label="Closing">
+  <div class="wrap closing-grid">
+    <blockquote>Every year, a new class gets through the door. <span>At OpenDoor, they hold it open for the next.</span></blockquote>
+    <svg viewBox="0 0 120 170" aria-hidden="true"><path class="sp" d="M10 160 L110 160 L120 170 L0 170Z"/><rect class="lt" x="10" y="10" width="100" height="150"/><path class="lf" d="M10 10 L50 22 V150 L10 160Z"/><rect class="fr" x="10" y="10" width="100" height="150"/></svg>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><span>OpenDoor · Vision 2027–2035</span><span>Targets are ambitions, not forecasts</span></div></footer>
+
+<script>
+(() => {
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const root = document.documentElement;
+  const tok = n => getComputedStyle(root).getPropertyValue(n).trim();
+  const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
+  const lerp = (a, b, t) => a + (b - a) * t;
+  const ease = t => t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+  const themeFns = [];
+  const onTheme = f => themeFns.push(f);
+  const fireTheme = () => themeFns.forEach(f => f());
+  try { matchMedia('(prefers-color-scheme: dark)').addEventListener('change', fireTheme); } catch (e) {}
+  new MutationObserver(fireTheme).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
+  function fit(cv) {
+    const r = cv.getBoundingClientRect();
+    const dpr = Math.min(2, window.devicePixelRatio || 1);
+    cv.width = Math.max(1, Math.round(r.width * dpr));
+    cv.height = Math.max(1, Math.round(r.height * dpr));
+    const ctx = cv.getContext('2d');
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    return { ctx, w: r.width, h: r.height };
+  }
+  function whenVisible(el, cb) {
+    if (!('IntersectionObserver' in window)) { cb(true); return; }
+    new IntersectionObserver(es => es.forEach(e => cb(e.isIntersecting)), { threshold: 0.05 }).observe(el);
+  }
+  const MONO = '"JetBrains Mono", ui-monospace, Menlo, monospace';
+
+  /* ---------- 1. Corridor ---------- */
+  (function corridor() {
+    const cv = document.getElementById('corridor');
+    const out = document.getElementById('corridor-open');
+    const hero = cv.closest('.hero');
+    const DEST = [['SEOUL', 'KOR'], ['BOSTON', 'USA'], ['TOKYO', 'JPN'], ['TORONTO', 'CAN'], ['MELBOURNE', 'AUS'], ['LONDON', 'GBR'], ['ABU DHABI', 'ARE'], ['TAIPEI', 'TWN']];
+    const CW = 1.6, FL = -1.35, CE = 1.6, DT = .85, DD = 1.05, ZF = 13.8;
+    let seed = 11; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+    const doors = DEST.map((d, i) => ({
+      city: d[0], code: d[1], side: i % 2 ? 1 : -1, z: 2.9 + i * 1.22,
+      sky: Array.from({ length: 7 }, (_, j) => ({ w: .07 + rnd() * .1, h: .16 + rnd() * .4, dome: j === 3 }))
+    }));
+    let g, p = 0, target = .5, raf = 0;
+    const P = (x, y, z) => [g.w / 2 + g.f * x / z, g.vy - g.f * y / z];
+    function path(pts) { const c = g.ctx; c.beginPath(); pts.forEach((q, i) => { const s = P(q[0], q[1], q[2]); i ? c.lineTo(s[0], s[1]) : c.moveTo(s[0], s[1]); }); c.closePath(); }
+    function resize() { const s = fit(cv); g = Object.assign(s, { f: Math.min(s.w * .6, s.h * .7), vy: s.h * .47 }); draw(); }
+    function draw() {
+      if (!g) return;
+      const c = g.ctx, w = g.w, h = g.h, zn = .45;
+      c.clearRect(0, 0, w, h);
+      c.fillStyle = '#0A0F17'; c.fillRect(0, 0, w, h);
+      path([[-CW, CE, zn], [CW, CE, zn], [CW, CE, ZF], [-CW, CE, ZF]]); c.fillStyle = '#101724'; c.fill();
+      path([[-CW, FL, zn], [CW, FL, zn], [CW, FL, ZF], [-CW, FL, ZF]]);
+      let gr = c.createLinearGradient(0, h, 0, g.vy); gr.addColorStop(0, '#131A26'); gr.addColorStop(1, '#3A2D1C'); c.fillStyle = gr; c.fill();
+      for (const s of [-1, 1]) {
+        path([[s * CW, FL, zn], [s * CW, CE, zn], [s * CW, CE, ZF], [s * CW, FL, ZF]]);
+        const a = P(s * CW, 0, 1), b = P(s * CW, 0, ZF);
+        gr = c.createLinearGradient(a[0], 0, b[0], 0); gr.addColorStop(0, '#151D2B'); gr.addColorStop(1, '#2B3242'); c.fillStyle = gr; c.fill();
+      }
+      c.lineWidth = 1; c.strokeStyle = 'rgba(255,255,255,.045)';
+      for (let z = 1.2; z < ZF; z += .9) { const a = P(-CW, FL, z), b = P(CW, FL, z); c.beginPath(); c.moveTo(a[0], a[1]); c.lineTo(b[0], b[1]); c.stroke(); }
+      for (const y of [FL, CE]) for (const s of [-1, 1]) { const a = P(s * CW, y, zn), b = P(s * CW, y, ZF); c.beginPath(); c.moveTo(a[0], a[1]); c.lineTo(b[0], b[1]); c.strokeStyle = 'rgba(255,255,255,.07)'; c.stroke(); }
+      path([[-CW, FL, ZF], [CW, FL, ZF], [CW, CE, ZF], [-CW, CE, ZF]]); c.fillStyle = '#2D3445'; c.fill();
+      path([[-.48, FL, ZF], [.48, FL, ZF], [.48, DT + .1, ZF], [-.48, DT + .1, ZF]]);
+      const e1 = P(0, DT, ZF), e2 = P(0, FL, ZF);
+      gr = c.createLinearGradient(0, e1[1], 0, e2[1]); gr.addColorStop(0, '#FFE4AE'); gr.addColorStop(1, '#F2A33C'); c.fillStyle = gr; c.fill();
+      const ec = P(0, -.3, ZF);
+      const rg = c.createRadialGradient(ec[0], ec[1], 0, ec[0], ec[1], Math.max(w, h) * .6);
+      rg.addColorStop(0, 'rgba(245,178,80,.30)'); rg.addColorStop(1, 'rgba(245,178,80,0)'); c.fillStyle = rg; c.fillRect(0, 0, w, h);
+      const os = doors.map((d, i) => ease(clamp((p * (doors.length + 1.4) - i) / 1.6)));
+      for (let i = doors.length - 1; i >= 0; i--) drawDoor(doors[i], os[i]);
+      const open = doors.filter((d, i) => os[i] > .5).map(d => d.code);
+      if (out) out.textContent = open.length ? open.join(' · ') : 'none yet';
+    }
+    function drawDoor(d, o) {
+      const c = g.ctx, s = d.side, x = s * CW, z0 = d.z, z1 = d.z + DD;
+      const A = P(x, FL, z0), B = P(x, DT, z0), C = P(x, DT, z1), D = P(x, FL, z1);
+      if (o > 0) {
+        path([[x, FL, z0 + .05], [x, FL, z1], [x - s * 1.25, FL, z1 + .5], [x - s * 1.25, FL, z0 + .5]]);
+        c.fillStyle = `rgba(245,170,70,${.24 * o})`; c.fill();
+      }
+      c.save();
+      c.beginPath(); c.moveTo(A[0], A[1]); c.lineTo(B[0], B[1]); c.lineTo(C[0], C[1]); c.lineTo(D[0], D[1]); c.closePath(); c.clip();
+      const top = Math.min(B[1], C[1]), bot = Math.max(A[1], D[1]);
+      let gr = c.createLinearGradient(0, top, 0, bot); gr.addColorStop(0, '#FFE6B2'); gr.addColorStop(1, '#EE9C35');
+      c.fillStyle = gr; c.fillRect(Math.min(A[0], D[0]) - 2, top - 2, Math.abs(D[0] - A[0]) + 4, bot - top + 4);
+      c.fillStyle = 'rgba(150,84,14,.5)';
+      let t = .04;
+      for (const b of d.sky) {
+        const t0 = t, t1 = Math.min(.97, t + b.w); t = t1 + .012; if (t0 >= .97) break;
+        const x0 = lerp(A[0], D[0], t0), x1 = lerp(A[0], D[0], t1);
+        const y0 = lerp(A[1], D[1], t0), y1 = lerp(A[1], D[1], t1);
+        const h0 = lerp(A[1] - B[1], D[1] - C[1], t0) * b.h, h1 = lerp(A[1] - B[1], D[1] - C[1], t1) * b.h;
+        c.beginPath(); c.moveTo(x0, y0); c.lineTo(x0, y0 - h0);
+        if (b.dome) c.quadraticCurveTo((x0 + x1) / 2, (y0 - h0 + y1 - h1) / 2 - Math.abs(x1 - x0) * 1.1, x1, y1 - h1);
+        else c.lineTo(x1, y1 - h1);
+        c.lineTo(x1, y1); c.closePath(); c.fill();
+      }
+      c.restore();
+      // door leaf swings into the corridor, hinged on the far edge
+      const th = o * 1.3, xf = x - s * DD * Math.sin(th), zf = z1 - DD * Math.cos(th);
+      path([[x, FL, z1], [x, DT, z1], [xf, DT, zf], [xf, FL, zf]]);
+      const L1 = P(x, 0, z1), L2 = P(xf, 0, zf);
+      gr = c.createLinearGradient(L1[0], 0, L2[0], 0); gr.addColorStop(0, '#2C3648'); gr.addColorStop(1, o > 0 ? '#4A5469' : '#3A4558'); c.fillStyle = gr; c.fill();
+      if (o > .02) {
+        const a = P(xf, FL, zf), b = P(xf, DT, zf);
+        c.strokeStyle = `rgba(255,200,120,${.7 * o})`; c.lineWidth = Math.max(1, g.f * .02 / zf);
+        c.beginPath(); c.moveTo(a[0], a[1]); c.lineTo(b[0], b[1]); c.stroke();
+      }
+      const hz = z1 - .86 * DD * Math.cos(th), hx = x - s * .86 * DD * Math.sin(th), hp = P(hx, -.25, hz);
+      c.fillStyle = '#E9A646'; c.beginPath(); c.arc(hp[0], hp[1], Math.max(1.2, g.f * .03 / hz), 0, Math.PI * 2); c.fill();
+      c.strokeStyle = '#4C566B'; c.lineWidth = Math.max(1, g.f * .028 / z0);
+      c.beginPath(); c.moveTo(A[0], A[1]); c.lineTo(B[0], B[1]); c.lineTo(C[0], C[1]); c.lineTo(D[0], D[1]); c.stroke();
+      const m = P(x, DT + .3, (z0 + z1) / 2), fs = clamp(g.f * .18 / ((z0 + z1) / 2), 6, 15);
+      c.font = `700 ${fs}px ${MONO}`; c.textAlign = 'center'; c.textBaseline = 'middle';
+      c.fillStyle = o > .5 ? '#F5C16E' : '#6E788C'; c.fillText(d.code, m[0], m[1]);
+    }
+    function computeTarget() {
+      const r = hero.getBoundingClientRect();
+      const sp = clamp(-r.top / Math.max(1, r.height * .7));
+      target = .5 + .5 * sp;
+    }
+    function tick() {
+      p += (target - p) * (RM ? 1 : .045);
+      draw();
+      raf = Math.abs(target - p) > .0008 ? requestAnimationFrame(tick) : 0;
+    }
+    function kick() { computeTarget(); if (!raf) raf = requestAnimationFrame(tick); }
+    addEventListener('scroll', kick, { passive: true });
+    new ResizeObserver(resize).observe(cv);
+    if (RM) p = .5;
+    resize(); kick();
+    document.fonts && document.fonts.ready.then(draw);
+  })();
+
+  /* ---------- 2. Map ---------- */
+  (function map() {
+    const cv = document.getElementById('map');
+    const B64 = 'AAAAACFB5////wAAZAAAAAAAAAAAAAAAAABNmYAA///wAAAAAA4ABf4AGAAAAAAADwAQAAP//wAAAAAGAAf/gAAAAAAAAAHfzH+AP//AAAAAAMDd///8D4AAAH/gof8x3wH//gAAD4AADf//////wQwf///w59h4H/wAAAP/yf//////////e//////+B2H/AuAA/+P///////////AD/////5Q4D8AcAB9/f//////////+Af/////gHAB4AAAH5///////////78AP8f///gHkAAAAAH5H/////////+GAABgB///wH+AAAAEAw/////////8AYAACAA///8D/AAAAECh/////////4A4AAAABf///v/gAAAZD//////////8AwAAAAAP///n/wAAAXv///////////AgAAAAAL////4QAAAA///////////9AAAAAAAB////48AAAD///////////8AAAAAAAD////9AAAAB//4fH//////4AAAAAAAD////kAAAAB9PwPf//////xgAAAAAAD////gAAAAfyzxHP/////+CAAAAAAAD///+AAAAAfCCf/n/////cCAAAAAAAB///8AAAAAPAxf/n////+MAAAAAAAAB///8AAAAAA+AA///////GMAAAAAAAAf//4AAAAAP+AA///////BgAAAAAAAAP//wAAAAAf/zB///////hAAAAAAAAAL/5gAAAAAf////f/////gAAAAAAAAAH/AQAAAAA///+/P/////gAAAAAAAAAB+AQAAAAB///+/h/////AAAAAAAAAAA+AAAAAAD////f+D///+gAAAAAAAAAAeAIAAAAD////P/B/7/4AAAAAAAAAAAfEGAAAAD////v+A/j+AAAAAAAAAAAAH8EIAAAD////n8AfB+AgAAAAAAAAAABcAAAAAD////3wAcBfAgAAAAAAAAAAAPAAAAAD////7AAcAfgwAAAAAAAAAAABAAAAAD////8QAMAXgIAAAAAAAAAAABD+AAAB/////gAMASBQAAAAAAAAAAAAX/AAAB/////gACAQAYAAAAAAAAAAAAH/oAAAfv///AAAAICIAAAAAAAAAAAAH/8AAAAD///AAAAsGAAAAAAAAAAAAAH/+AAAAB//+AAAAcOAAAAAAAAAAAAAP/+AAAAB//4AAAAMeAAAAAAAAAAAAAP//wAAAB//4AAAAMcgsAAAAAAAAAAAf//+AAAA//wAAAAGEA/CAAAAAAAAAAf///AAAA//gAAAABAAH5AAAAAAAAAAP///gAAAf/wAAAAAYAHQQAAAAAAAAAH///AAAAf/wAAAAAAAAIAAAAAAAAAAH//+AAAAf/wAAAAAAAhAAAAAAAAAAAD//+AAAA//wgAAAAAFxAAAAAAAAAAAB//+AAAA//xgAAAAAP5gAAAAAAAAAAAf/8AAAA//DgAAAAAf/gAAAAAAAAAAAf/8AAAA/+DAAAAAA//wAAAAAAAAAAAf/4AAAAf/DAAAAAH//4AAAAAAAAAAAf/gAAAAf/DAAAAAH//8AAAAAAAAAAAf/AAAAAf8AAAAAAH//+AAAAAAAAAAA//AAAAAP8AAAAAAH//+AAAAAAAAAAA/+AAAAAH4AAAAAAD//+AAAAAAAAAAA/8AAAAAH4AAAAAAD8/8AAAAAAAAAAA/4AAAAAGAAAAAAADAH8AAAAAAAAAAA/gAAAAAAAAAAAAAAAD4AAAAAAAAAAB/gAAAAAAAAAAAAAAADQAGAAAAAAAAB+AAAAAAAAAAAAAAAAAAAEAAAAAAAAB8AAAAAAAAAAAAAAAAAQAIAAAAAAAAB4AAAAAAAAAAAAAAAAAAAwAAAAAAAABwAAAAAAAAAAAAAAAAAABgAAAAAAAAD4AAAAAAAAAAAAAAAAAAAAAAAAAAAADwAAAAAAAAAAAAAAAAAAAAAAAAAAAADxgAAAAAAAAAAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA';
+    const COLS = 180, ROWS = 68, STEP = 2, LAT0 = 78;
+    const raw = atob(B64);
+    const land = [];
+    for (let i = 0; i < COLS * ROWS; i++) if ((raw.charCodeAt(i >> 3) >> (7 - (i & 7))) & 1) land.push([i % COLS, (i / COLS) | 0]);
+    const O = { VNM: [21.0, 105.8], IND: [28.6, 77.2], NGA: [6.5, 3.4], BGD: [23.8, 90.4], NPL: [27.7, 85.3], BRA: [-23.5, -46.6], MEX: [19.4, -99.1] };
+    const D = { USA: [42.4, -71.1], CAN: [43.7, -79.4], GBR: [51.5, -0.1], DEU: [52.5, 13.4], KOR: [37.6, 127.0], JPN: [35.7, 139.7], AUS: [-33.9, 151.2], TWN: [25.0, 121.5], ARE: [24.5, 54.4] };
+    const R = [['VNM', 'USA'], ['VNM', 'KOR'], ['VNM', 'JPN'], ['VNM', 'AUS'], ['VNM', 'TWN'], ['VNM', 'CAN'], ['IND', 'USA'], ['IND', 'GBR'], ['IND', 'ARE'], ['IND', 'CAN'], ['IND', 'AUS'], ['IND', 'DEU'], ['NGA', 'GBR'], ['NGA', 'USA'], ['NGA', 'KOR'], ['NGA', 'CAN'], ['BGD', 'USA'], ['BGD', 'AUS'], ['NPL', 'JPN'], ['NPL', 'AUS'], ['BRA', 'USA'], ['BRA', 'DEU'], ['MEX', 'USA'], ['MEX', 'CAN']];
+    const LABEL_O = ['VNM', 'IND', 'NGA', 'BRA', 'MEX'], LABEL_D = ['USA', 'GBR', 'DEU', 'KOR', 'JPN', 'AUS', 'ARE', 'CAN'];
+    let g, dots, arcs, running = false, raf = 0, col = {};
+    const proj = (lat, lon) => [(lon + 180) / STEP * g.s, ((LAT0 - lat) / STEP + .5) * g.s];
+    function colors() { col = { ink: tok('--ink'), soft: tok('--ink-soft'), acc: tok('--accent'), accInk: tok('--accent-ink'), card: tok('--card') }; }
+    function resize() {
+      const w = cv.getBoundingClientRect().width;
+      cv.style.height = (w * ROWS / COLS) + 'px';
+      g = fit(cv); g.s = g.w / COLS;
+      dots = new Path2D();
+      const r = Math.max(.7, g.s * .27);
+      for (const [c, rr] of land) { const x = (c + .5) * g.s, y = (rr + .5) * g.s; dots.moveTo(x + r, y); dots.arc(x, y, r, 0, Math.PI * 2); }
+      arcs = R.map(([o, d], i) => {
+        const a = proj(...O[o]), b = proj(...D[d]);
+        const dx = b[0] - a[0], dy = b[1] - a[1], len = Math.hypot(dx, dy);
+        let nx = -dy / len, ny = dx / len; if (ny > 0) { nx = -nx; ny = -ny; }
+        const k = len * .24, cp = [(a[0] + b[0]) / 2 + nx * k, Math.max(4, (a[1] + b[1]) / 2 + ny * k)];
+        return { a, b, cp, period: 4.6 + (i % 5) * .55, phase: (i * .173) % 1 };
+      });
+      draw(performance.now());
+    }
+    const bz = (A, i) => { const t = i, u = 1 - t; return [u * u * A.a[0] + 2 * u * t * A.cp[0] + t * t * A.b[0], u * u * A.a[1] + 2 * u * t * A.cp[1] + t * t * A.b[1]]; };
+    function draw(now) {
+      if (!g) return;
+      const c = g.ctx; c.clearRect(0, 0, g.w, g.h);
+      c.globalAlpha = .2; c.fillStyle = col.ink; c.fill(dots); c.globalAlpha = 1;
+      const lw = Math.max(1, g.s * .45);
+      for (const A of arcs) {
+        c.globalAlpha = RM ? .55 : .14; c.strokeStyle = col.acc; c.lineWidth = lw * .8;
+        c.beginPath(); c.moveTo(A.a[0], A.a[1]); c.quadraticCurveTo(A.cp[0], A.cp[1], A.b[0], A.b[1]); c.stroke();
+        if (RM) continue;
+        const t = ((now / 1000 / A.period) + A.phase) % 1 * 1.35;
+        const head = Math.min(t, 1), tail = Math.max(0, t - .32);
+        if (tail < 1) {
+          const N = 18;
+          for (let k = 0; k < N; k++) {
+            const u0 = lerp(tail, head, k / N), u1 = lerp(tail, head, (k + 1) / N);
+            const p0 = bz(A, u0), p1 = bz(A, u1);
+            c.globalAlpha = (k + 1) / N * .95; c.lineWidth = lw * 1.3; c.lineCap = 'round';
+            c.beginPath(); c.moveTo(p0[0], p0[1]); c.lineTo(p1[0], p1[1]); c.stroke();
+          }
+          if (t <= 1) { const hp = bz(A, head); c.globalAlpha = 1; c.fillStyle = col.acc; c.beginPath(); c.arc(hp[0], hp[1], lw * 1.6, 0, Math.PI * 2); c.fill(); }
+        }
+        if (t > 1 && t < 1.3) {
+          const k = (t - 1) / .3; c.globalAlpha = (1 - k) * .8; c.strokeStyle = col.acc; c.lineWidth = lw;
+          c.beginPath(); c.arc(A.b[0], A.b[1], g.s * (1 + k * 3), 0, Math.PI * 2); c.stroke();
+        }
+      }
+      c.globalAlpha = 1;
+      const fs = clamp(g.s * 2.1, 8, 12);
+      c.font = `700 ${fs}px ${MONO}`; c.textBaseline = 'middle';
+      for (const k in D) {
+        const q = proj(...D[k]); c.strokeStyle = col.ink; c.lineWidth = 1.4; c.fillStyle = col.card;
+        c.beginPath(); c.arc(q[0], q[1], Math.max(2.5, g.s * .75), 0, Math.PI * 2); c.fill(); c.stroke();
+        if (LABEL_D.includes(k)) { c.fillStyle = col.soft; c.textAlign = 'left'; c.fillText(k, q[0] + g.s * 1.3, q[1] - g.s * .9); }
+      }
+      for (const k in O) {
+        const q = proj(...O[k]);
+        c.globalAlpha = .25; c.fillStyle = col.acc; c.beginPath(); c.arc(q[0], q[1], Math.max(5, g.s * 1.8), 0, Math.PI * 2); c.fill();
+        c.globalAlpha = 1; c.beginPath(); c.arc(q[0], q[1], Math.max(2.8, g.s * .85), 0, Math.PI * 2); c.fill();
+        if (LABEL_O.includes(k)) { c.fillStyle = col.accInk; c.textAlign = 'right'; c.fillText(k, q[0] - g.s * 1.4, q[1] + g.s * 1.2); }
+      }
+    }
+    function loop(now) { draw(now); raf = running ? requestAnimationFrame(loop) : 0; }
+    colors();
+    new ResizeObserver(resize).observe(cv.parentElement);
+    onTheme(() => { colors(); draw(performance.now()); });
+    whenVisible(cv, v => { running = v && !RM; if (running && !raf) raf = requestAnimationFrame(loop); });
+    document.fonts && document.fonts.ready.then(() => draw(performance.now()));
+  })();
+
+  /* ---------- Counters ---------- */
+  (function counters() {
+    const els = [...document.querySelectorAll('[data-count]')];
+    const fmt = (v, el) => (el.dataset.prefix || '') + Number(v).toLocaleString('en-US', { minimumFractionDigits: +(el.dataset.dec || 0), maximumFractionDigits: +(el.dataset.dec || 0) });
+    if (RM || !('IntersectionObserver' in window)) return;
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (!e.isIntersecting) return; io.unobserve(e.target);
+      const el = e.target, to = +el.dataset.count, t0 = performance.now(), dur = 1400;
+      const step = now => { const k = clamp((now - t0) / dur), v = to * (1 - Math.pow(1 - k, 3)); el.textContent = fmt(k < 1 ? v : to, el); if (k < 1) requestAnimationFrame(step); };
+      requestAnimationFrame(step);
+    }), { threshold: .6 });
+    els.forEach(el => io.observe(el));
+  })();
+
+  /* ---------- 3. Leaking buckets ---------- */
+  (function leak() {
+    const cv = document.getElementById('leak');
+    const cap = document.getElementById('leak-cap');
+    const btns = [document.getElementById('leak-today'), document.getElementById('leak-od')];
+    const CAPS = {
+      today: 'Each class starts near empty. What it learns drains away when it graduates.',
+      od: 'OpenDoor catches what each class learns and pours it into the next. Every class starts further ahead.'
+    };
+    const TGT = { today: [.24, .24, .24], od: [.3, .56, .84] };
+    const YEARS = ['2025', '2026', '2027'];
+    let mode = 'today', mf = 0, levels = [.24, .24, .24], parts = [], splashes = [], g, running = false, raf = 0, last = 0, acc = [0, .14, .28], col = {};
+    function colors() { col = { ink: tok('--ink'), soft: tok('--ink-soft'), acc: tok('--accent'), accInk: tok('--accent-ink'), alarm: tok('--alarm'), paper: tok('--paper'), card: tok('--card') }; }
+    function geom() { const w = g.w, h = g.h, tw = Math.min(w * .19, 150); return [0, 1, 2].map(i => ({ cx: w * (.18 + .31 * i), top: h * (.08 + .27 * i), tw, bw: tw * .7, bh: h * .2 })); }
+    function route(i, m) {
+      const B = geom(), b = B[i], h = g.h, w = g.w, x = b.cx, y = b.top + b.bh + 1, sy = y + h * .025;
+      if (m === 'today') return [[x, y], [x, h * .95]];
+      if (i < 2) { const n = B[i + 1]; return [[x, y], [x, sy], [n.cx - n.tw * .12, n.top - h * .03], [n.cx, n.top - h * .015], [n.cx, n.top + n.bh * (1 - levels[i + 1])]]; }
+      return [[x, y], [x, sy], [w + 12, sy + h * .05]];
+    }
+    function mk(pts, m) { const seg = []; let tot = 0; for (let k = 1; k < pts.length; k++) { const l = Math.hypot(pts[k][0] - pts[k - 1][0], pts[k][1] - pts[k - 1][1]); seg.push(l); tot += l; } return { pts, seg, tot, d: 0, m }; }
+    function at(pr, d) { let k = 0; while (k < pr.seg.length - 1 && d > pr.seg[k]) { d -= pr.seg[k]; k++; } const t = pr.seg[k] ? clamp(d / pr.seg[k]) : 1; return [lerp(pr.pts[k][0], pr.pts[k + 1][0], t), lerp(pr.pts[k][1], pr.pts[k + 1][1], t)]; }
+    function bucket(c, b) { c.beginPath(); c.moveTo(b.cx - b.tw / 2, b.top); c.lineTo(b.cx - b.bw / 2, b.top + b.bh); c.lineTo(b.cx + b.bw / 2, b.top + b.bh); c.lineTo(b.cx + b.tw / 2, b.top); }
+    function draw(now) {
+      if (!g) return;
+      const c = g.ctx, w = g.w, h = g.h, B = geom(), r = Math.max(2.4, w * .0065);
+      c.clearRect(0, 0, w, h);
+      // floor
+      c.globalAlpha = 1 - mf * .7; c.strokeStyle = col.alarm; c.setLineDash([4, 5]); c.lineWidth = 1.2;
+      c.beginPath(); c.moveTo(0, h * .95 + r); c.lineTo(w, h * .95 + r); c.stroke(); c.setLineDash([]);
+      c.fillStyle = col.alarm; c.font = `700 ${clamp(w * .022, 9, 12)}px ${MONO}`; c.textAlign = 'left'; c.textBaseline = 'bottom';
+      c.fillText('LOST EVERY YEAR', 4, h * .95 - 2); c.globalAlpha = 1;
+      // chutes
+      if (mf > .01) {
+        c.globalAlpha = mf; c.strokeStyle = col.accInk; c.lineWidth = 2.2; c.lineCap = 'round';
+        for (let i = 0; i < 3; i++) { const pts = route(i, 'od'); c.beginPath(); c.moveTo(pts[1][0] - 6, pts[1][1] + 3); c.lineTo(pts[2][0], pts[2][1] + 4); c.stroke(); }
+        c.fillStyle = col.accInk; c.font = `700 ${clamp(w * .02, 8, 11)}px ${MONO}`; c.textAlign = 'right'; c.textBaseline = 'top';
+        c.fillText('CLASS OF 2028 →', w - 2, B[2].top + B[2].bh + h * .1);
+        c.globalAlpha = 1;
+      }
+      // buckets
+      B.forEach((b, i) => {
+        const lv = levels[i];
+        c.save(); bucket(c, b); c.closePath(); c.clip();
+        const ly = b.top + b.bh * (1 - lv);
+        c.fillStyle = col.acc; c.globalAlpha = .9;
+        c.beginPath(); c.moveTo(b.cx - b.tw, b.top + b.bh + 2);
+        for (let x = -b.tw; x <= b.tw; x += 4) c.lineTo(b.cx + x, ly + Math.sin(x * .12 + now / 420 + i) * (RM ? 0 : 1.6));
+        c.lineTo(b.cx + b.tw, b.top + b.bh + 2); c.closePath(); c.fill(); c.globalAlpha = 1;
+        c.restore();
+        bucket(c, b); c.strokeStyle = col.ink; c.lineWidth = 2.2; c.lineJoin = 'round'; c.stroke();
+        c.beginPath(); c.ellipse(b.cx, b.top, b.tw / 2, 3, 0, 0, Math.PI * 2); c.lineWidth = 1.4; c.stroke();
+        // label pill
+        const fs = clamp(w * .024, 9, 12); c.font = `700 ${fs}px ${MONO}`;
+        const tx = 'CLASS ' + YEARS[i], tw = c.measureText(tx).width + 12, ty = b.top + b.bh * .42;
+        if (tw < b.tw * 1.6) {
+          c.fillStyle = col.card; c.beginPath(); c.roundRect ? c.roundRect(b.cx - tw / 2, ty - fs * .8, tw, fs * 1.6, 6) : c.rect(b.cx - tw / 2, ty - fs * .8, tw, fs * 1.6); c.fill();
+          c.fillStyle = col.ink; c.textAlign = 'center'; c.textBaseline = 'middle'; c.fillText(tx, b.cx, ty + .5);
+        }
+      });
+      // drops
+      c.fillStyle = col.acc;
+      for (const pr of parts) { const q = at(pr, pr.d); c.beginPath(); c.arc(q[0], q[1], r, 0, Math.PI * 2); c.fill(); }
+      for (const s of splashes) { c.globalAlpha = 1 - s.t; c.strokeStyle = col.alarm; c.lineWidth = 1.4; c.beginPath(); c.ellipse(s.x, s.y + r, r * (1 + s.t * 3), r * .6 * (1 + s.t), 0, 0, Math.PI * 2); c.stroke(); }
+      c.globalAlpha = 1;
+    }
+    function step(now) {
+      const dt = Math.min(.05, (now - (last || now)) / 1000); last = now;
+      const tg = TGT[mode];
+      levels = levels.map((l, i) => l + (tg[i] - l) * Math.min(1, dt * 1.6));
+      mf += ((mode === 'od' ? 1 : 0) - mf) * Math.min(1, dt * 3);
+      for (let i = 0; i < 3; i++) { acc[i] += dt; if (acc[i] > .42) { acc[i] = 0; parts.push(mk(route(i, mode), mode)); } }
+      const v = g.h * .6;
+      parts = parts.filter(pr => { pr.d += v * dt; if (pr.d >= pr.tot) { if (pr.m === 'today') { const q = pr.pts[pr.pts.length - 1]; splashes.push({ x: q[0], y: q[1], t: 0 }); } return false; } return true; });
+      splashes = splashes.filter(s => (s.t += dt * 2.2) < 1);
+      draw(now);
+      raf = running ? requestAnimationFrame(step) : 0;
+      if (!running) last = 0;
+    }
+    function staticFrame() {
+      parts = [];
+      for (let i = 0; i < 3; i++) for (const k of [.25, .55, .85]) { const pr = mk(route(i, mode), mode); pr.d = pr.tot * k; parts.push(pr); }
+      levels = TGT[mode].slice(); mf = mode === 'od' ? 1 : 0; draw(0);
+    }
+    function setMode(m) {
+      mode = m;
+      btns.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.m === m)));
+      cap.textContent = CAPS[m]; cap.dataset.m = m;
+      if (RM) staticFrame();
+    }
+    btns.forEach(b => b.addEventListener('click', () => setMode(b.dataset.m)));
+    colors();
+    new ResizeObserver(() => { g = fit(cv); parts = []; RM ? staticFrame() : draw(performance.now()); }).observe(cv);
+    onTheme(() => { colors(); RM ? staticFrame() : draw(performance.now()); });
+    whenVisible(cv, v => { running = v && !RM; if (running && !raf) raf = requestAnimationFrame(step); });
+  })();
+
+  /* ---------- 4. Journey ---------- */
+  (function journey() {
+    const S = [
+      { name: 'Discover', when: 'Grades 8–10', items: ['Archetype quiz', 'Country and university explorer', 'Real stories from students like them'] },
+      { name: 'Build', when: 'Grades 10–11', items: ['Pathways', 'Opportunity Hub for local internships and research', 'Cold outreach kit'] },
+      { name: 'Apply', when: 'Grade 12', items: ['The Library', 'School list builder', 'Peer mentors', 'AI Review'], note: 'Across the US, Asia, Europe and beyond.' },
+      { name: 'Fund', when: 'Offer season', items: ['Open international aid database', 'Scholarship matching', 'Help appealing aid offers'] },
+      { name: 'Go', when: 'Before departure', items: ['Visa guides', 'Pre-departure prep', 'Arrival buddy: a senior from your home country at your new school'] },
+      { name: 'Thrive', when: 'University and after', items: ['Internship and job referrals through the network', 'Work-visa guidance after graduation'] },
+      { name: 'Give back', when: 'Every year after', items: ['Become a mentor', 'Write for the Library', 'Fund a scholarship spot'], note: 'The loop closes and the next student begins.' }
+    ];
+    const ring = document.getElementById('ring'), svg = document.getElementById('ring-svg'), panel = document.getElementById('stage-panel');
+    const R = 38, N = S.length, ang = k => (-90 + k * 360 / N) * Math.PI / 180;
+    const pt = (a, r = R) => [50 + r * Math.cos(a), 50 + r * Math.sin(a)];
+    let html = `<circle class="track" cx="50" cy="50" r="${R}"/>`;
+    const a6 = ang(N - 1), a0 = ang(N) , p6 = pt(a6 + .16), p0 = pt(a0 - .16);
+    html += `<path class="loop" d="M${p6[0].toFixed(2)} ${p6[1].toFixed(2)} A${R} ${R} 0 0 1 ${p0[0].toFixed(2)} ${p0[1].toFixed(2)}"/>`;
+    for (let k = 0; k < N; k++) {
+      const am = (ang(k) + ang(k + 1)) / 2, c = pt(am), dx = -Math.sin(am), dy = Math.cos(am), nx = Math.cos(am), ny = Math.sin(am), s = 1.3;
+      html += `<path class="chev" d="M${(c[0] - dx * s + nx * s).toFixed(2)} ${(c[1] - dy * s + ny * s).toFixed(2)} L${c[0].toFixed(2)} ${c[1].toFixed(2)} L${(c[0] - dx * s - nx * s).toFixed(2)} ${(c[1] - dy * s - ny * s).toFixed(2)}" style="${k === N - 1 ? 'stroke:var(--accent);opacity:1' : ''}"/>`;
+    }
+    html += `<g class="orbit"><circle cx="50" cy="${50 - R}" r="1.3"/></g>`;
+    svg.innerHTML = html;
+    const doorIc = `<svg viewBox="0 0 20 28" aria-hidden="true"><rect class="fr" x="1" y="1" width="18" height="26" rx="1"/><path class="lf" d="M1 1 L12 4 V25 L1 27Z"/></svg>`;
+    const btns = S.map((st, k) => {
+      const b = document.createElement('button'); b.type = 'button'; b.className = 'stage-btn';
+      const q = pt(ang(k)); b.style.left = q[0] + '%'; b.style.top = q[1] + '%';
+      b.setAttribute('aria-label', `Stage ${k + 1}: ${st.name}`);
+      b.innerHTML = `<span class="ic">${doorIc}</span><span class="lab"><i>${k + 1}</i>${st.name}</span>`;
+      b.addEventListener('click', () => select(k));
+      ring.appendChild(b); return b;
+    });
+    const rk = document.getElementById('rc-k'), rn = document.getElementById('rc-n'), rw = document.getElementById('rc-w');
+    function select(k) {
+      const st = S[k];
+      btns.forEach((b, i) => b.setAttribute('aria-pressed', String(i === k)));
+      rk.textContent = `Stage ${k + 1} of ${N}`; rn.textContent = st.name; rw.textContent = st.when;
+      panel.innerHTML = `<p class="eyebrow">Stage ${k + 1} · ${st.when}</p><h3>${st.name}</h3>
+        <ul class="prod">${st.items.map(i => `<li>${i}</li>`).join('')}</ul>
+        ${st.note ? `<p class="stage-note">${st.note}</p>` : ''}
+        <div class="stage-nav"><button type="button" data-d="-1">← ${S[(k + N - 1) % N].name}</button><button type="button" data-d="1">${S[(k + 1) % N].name} →</button></div>`;
+      panel.querySelectorAll('[data-d]').forEach(b => b.addEventListener('click', () => select((k + N + +b.dataset.d) % N)));
+    }
+    select(0);
+  })();
+
+  /* ---------- 5. Engines ---------- */
+  (function engines() {
+    const pl = (d, c) => `<path pathLength="100" class="${c}" d="${d}"/>`;
+    const dot = (x, y, r, c, extra = '') => `<circle cx="${x}" cy="${y}" r="${r}" class="${c} ${extra}"/>`;
+    const G = [];
+    // 1 supply
+    G.push({
+      t: pl('M6 52 H90', 'gm') + pl('M6 48 L90 16', 'gm') + pl('M6 50 C40 48 62 34 90 6', 'gr'),
+      o: pl('M6 52 H90', 'gm') + pl('M6 48 L90 16', 'gm') + pl('M6 44 L90 12', 'ga') + [20, 38, 56, 74].map(x => dot(x, (44 - (x - 6) * 32 / 84).toFixed(1), 2.6, 'fa', 'pulse')).join('')
+    });
+    // 2 network
+    (() => {
+      const hub = [28, 28], sp = [[10, 12], [10, 44], [46, 12], [46, 44]], iso = [[72, 14], [86, 34], [66, 44]];
+      const t = sp.map(q => pl(`M${hub[0]} ${hub[1]} L${q[0]} ${q[1]}`, 'gm')).join('') + dot(hub[0], hub[1], 4, 'fi') + sp.map(q => dot(q[0], q[1], 2.6, 'fm')).join('') + iso.map(q => dot(q[0], q[1], 2.6, 'fm')).join('');
+      const N = [[10, 16], [28, 42], [46, 12], [62, 36], [84, 14], [82, 46]], E = [[0, 1], [0, 2], [1, 2], [1, 3], [2, 3], [2, 4], [3, 4], [3, 5], [4, 5], [1, 5], [0, 3]];
+      const o = E.map(([a, b]) => pl(`M${N[a][0]} ${N[a][1]} L${N[b][0]} ${N[b][1]}`, 'ga" stroke-opacity=".5')).join('') + N.map((q, i) => dot(q[0], q[1], 3.4, 'fa', i % 2 ? 'pulse' : '')).join('');
+      G.push({ t, o });
+    })();
+    // 3 knowledge
+    G.push({
+      t: [10, 28, 46, 64, 82].map(x => `<rect x="${x - 5}" y="40" width="10" height="12" rx="1.5" class="fm"/>`).join('') + pl('M4 53 H92', 'gm'),
+      o: [10, 28, 46, 64, 82].map((x, i) => `<rect x="${x - 5}" y="${44 - i * 9}" width="10" height="${8 + i * 9}" rx="1.5" class="fa"/>`).join('') + pl('M4 53 H92', 'gm')
+    });
+    // 4 data
+    (() => {
+      let t = '', o = '';
+      for (let i = 0; i < 9; i++) for (let j = 0; j < 4; j++) {
+        const x = 8 + i * 10, y = 10 + j * 12;
+        t += dot(x, y, 2.4, (i < 2 && j < 2) || (i === 2 && j === 0) ? 'fi' : 'fm');
+        o += `<circle cx="${x}" cy="${y}" r="2.6" class="fa" fill-opacity="${(.45 + ((i * 7 + j * 3) % 6) / 10).toFixed(2)}"/>`;
+      }
+      G.push({ t, o });
+    })();
+    // 5 distribution
+    (() => {
+      const t = [[60, 12], [60, 28], [60, 44]].map(q => pl(`M14 28 L${q[0]} ${q[1]}`, 'gm')).join('') + `<rect x="4" y="22" width="12" height="12" rx="2" class="fi"/>` + [[60, 12], [60, 28], [60, 44]].map(q => dot(q[0] + 4, q[1], 2.8, 'fm')).join('');
+      const L1 = [[30, 16], [30, 40]], L2 = [[54, 9], [54, 23], [54, 33], [54, 47]], L3 = [];
+      L2.forEach(q => { L3.push([82, q[1] - 4.5]); L3.push([82, q[1] + 4.5]); });
+      let o = L1.map(q => pl(`M8 28 L${q[0]} ${q[1]}`, 'ga')).join('');
+      L2.forEach((q, i) => { o += pl(`M${L1[i >> 1][0]} ${L1[i >> 1][1]} L${q[0]} ${q[1]}`, 'ga'); });
+      L3.forEach((q, i) => { o += pl(`M${L2[i >> 1][0]} ${L2[i >> 1][1]} L${q[0]} ${q[1]}`, 'ga" stroke-opacity=".55'); });
+      o += dot(8, 28, 3.6, 'fa') + [...L1, ...L2].map(q => dot(q[0], q[1], 2.8, 'fa')).join('') + L3.map(q => dot(q[0], q[1], 2, 'fa', 'pulse')).join('');
+      G.push({ t, o });
+    })();
+    // 6 relationship
+    (() => {
+      const X = [8, 24, 40, 56, 72, 88];
+      const base = pl('M8 26 H88', 'gm') + X.map(x => `<line x1="${x}" y1="22" x2="${x}" y2="30" class="gm"/>`).join('') + `<text x="8" y="44" text-anchor="middle">G9</text><text x="56" y="44" text-anchor="middle">G12</text><text x="88" y="44" text-anchor="middle">JOB</text>`;
+      G.push({ t: base + pl('M44 26 H58', 'gr" stroke-width="5'), o: base + pl('M8 26 H88', 'ga" stroke-width="4') + X.map(x => dot(x, 26, 3.2, 'fa')).join('') });
+    })();
+    // 7 two-sided
+    (() => {
+      const stu = dot(14, 22, 5, 'fi') + `<path pathLength="100" class="gm" d="M6 38 C8 30 20 30 22 38"/>`;
+      const uni = (c) => `<path pathLength="100" class="${c}" d="M68 26 L80 18 L92 26 M70 26 V40 M76 26 V40 M84 26 V40 M90 26 V40 M67 41 H93"/>`;
+      G.push({ t: stu + pl('M24 30 H40', 'gm') + `<rect x="40" y="24" width="12" height="12" rx="2" class="fm"/>` + uni('gm'), o: stu + pl('M26 24 C40 10 54 10 64 22', 'ga') + pl('M58 18 L64 22 L57 25', 'ga') + pl('M64 40 C52 52 36 50 26 38', 'ga') + pl('M32 37 L26 38 L28 44', 'ga') + uni('ga') });
+    })();
+    const E = [
+      { t: 'Supply that creates itself', cls: 'e1', vt: 'Cost rises per student', vo: 'Supply grows with demand',
+        pt: 'Every new student needs an expert the firm has to hire and pay. Cost climbs with each client, so growth means higher prices or thinner advice.',
+        po: "Consulting firms must hire every expert, so costs rise with every new student. OpenDoor's mentors come out of its own results. Each admitted student becomes next year's mentor, so supply grows exactly when demand grows." },
+      { t: 'Cross-border network effects', cls: 'wide', vt: 'One market at a time', vo: 'Each country adds value to all',
+        pt: 'Firms are built country by country. Advice in one market rarely connects to students or alumni in another.',
+        po: 'Each new country makes OpenDoor more valuable for every other country. An applicant from Pune gets advice from a Vietnamese student already at her dream school in Abu Dhabi. A student from Lagos lands in Seoul and is met by an OpenDoor buddy.' },
+      { t: 'Knowledge that compounds', cls: '', vt: 'Rewritten every year', vo: 'Written once, read by thousands',
+        pt: 'Advice is given in private sessions and stays there. Next year, the same explanations are written again for the next client.',
+        po: 'Every guide is written once and read by thousands, then improved each year by the people who used it. Like Wikipedia, the open library grows stronger the more people use it, and it ranks in search for free.' },
+      { t: 'The data no one else has', cls: '', vt: 'Sees only paying clients', vo: 'Sees the whole field',
+        pt: 'A firm sees only its own paying clients, a small and wealthy slice of applicants. Its picture of admissions and aid is narrow.',
+        po: 'The Profile Bank and aid outcomes become the largest open dataset on international admissions and financial aid. Firms only see their own paying clients. OpenDoor sees the whole field, and its AI Review gets sharper every cycle.' },
+      { t: 'Trust-based distribution', cls: '', vt: 'Paid acquisition', vo: 'Peers bring the next wave',
+        pt: 'Growth is bought through ads, agents and fairs. Every new family costs marketing money, and families are wary of sales pitches.',
+        po: 'Students trust a peer who got in over an agency ad. Every mentor and every admitted student is a creator who brings in the next wave on TikTok, Threads and in school group chats.' },
+      { t: 'A relationship that lasts years', cls: '', vt: 'One package, once', vo: 'Grade 9 to first job',
+        pt: 'Consulting sells one package, once, around Grades 11 and 12. When the offer letter arrives, the relationship ends.',
+        po: 'Consulting sells one package once. OpenDoor is with a student from Grade 9 until their first job, with many points where value is created and paid for.' },
+      { t: 'Both sides need it', cls: 'wide', vt: 'One side served', vo: 'Students and institutions',
+        pt: 'Firms serve one side, the paying family. Institutions get no direct, trusted channel to talented students who cannot pay.',
+        po: 'Students need guidance, and institutions need students. IIE warns US colleges could be left with "empty seats" as domestic high school graduates decline, while universities and governments compete for the best international talent. AI has made personal guidance cheap for the first time, and CollegeVine has shifted toward selling AI to universities, leaving the student side open.' }
+    ];
+    const grid = document.getElementById('eng-grid');
+    grid.innerHTML = E.map((e, i) => `<article class="eng ${e.cls}">
+      <div class="eng-head"><span class="mono">Engine ${i + 1}</span><svg class="gl" viewBox="0 0 96 56" aria-hidden="true"><g class="t">${G[i].t}</g><g class="o">${G[i].o}</g></svg></div>
+      <h3>${e.t}</h3>
+      <p class="t">${e.pt}</p><p class="o">${e.po}</p>
+      <span class="verdict t">${e.vt}</span><span class="verdict o">${e.vo}</span>
+    </article>`).join('');
+    const label = document.getElementById('eng-mode-label');
+    const tbtns = document.querySelectorAll('#engines .seg button');
+    tbtns.forEach(b => b.addEventListener('click', () => {
+      const m = b.dataset.mode;
+      grid.dataset.mode = m;
+      tbtns.forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+      label.textContent = 'Showing: ' + (m === 'od' ? 'OpenDoor' : 'Traditional consulting');
+      if (!RM) { grid.classList.remove('anim'); void grid.offsetWidth; grid.classList.add('anim'); }
+    }));
+  })();
+
+  /* ---------- 6. Rings ---------- */
+  (function rings() {
+    const W = [
+      { name: 'Students and families', short: 'STUDENTS & FAMILIES', tag: 'Wave 1', d: 'Free core. Paid mentor sessions with a platform fee, season plans priced by local purchasing power, and AI Review credits.' },
+      { name: 'Schools and learning centers', short: 'SCHOOLS & CENTERS', tag: 'Wave 2', d: 'A "counselor in a box" license for schools that have no counselor, with dashboards for teachers.' },
+      { name: 'Universities', short: 'UNIVERSITIES', tag: 'Wave 3', d: 'An opt-in, student-controlled talent pool and sponsored info sessions.' },
+      { name: 'Employers', short: 'EMPLOYERS', tag: 'Wave 4', d: 'Internship listings and access to globally minded graduates through the Thrive stage.' },
+      { name: 'Impact partners', short: 'IMPACT PARTNERS', tag: 'Wave 5', d: "Foundations and government programs that fund scholarship spots, such as Vietnam's plan to send around 1,500 students abroad each year in strategic fields." }
+    ];
+    const svg = document.getElementById('rings'), list = document.getElementById('waves');
+    const RAD = [74, 112, 150, 188, 226], C = 240;
+    let s = '';
+    W.forEach((w, i) => {
+      const r = RAD[i];
+      s += `<path id="rp${i}" d="M${C - r} ${C} A${r} ${r} 0 0 1 ${C + r} ${C}" fill="none"/>`;
+      s += `<circle class="band" data-i="${i}" cx="${C}" cy="${C}" r="${r}" style="stroke:var(--band${i + 1})"/>`;
+      s += `<text class="lbl" data-i="${i}" dominant-baseline="central"><textPath href="#rp${i}" startOffset="50%" text-anchor="middle">${w.short}</textPath></text>`;
+    });
+    s += `<circle class="core" cx="${C}" cy="${C}" r="44"/><circle class="core-ic" cx="${C}" cy="${C - 12}" r="9"/><path class="core-ic" d="M${C - 17} ${C + 22} C${C - 15} ${C + 4} ${C + 15} ${C + 4} ${C + 17} ${C + 22}Z"/>`;
+    svg.insertAdjacentHTML('beforeend', s);
+    list.innerHTML = W.map((w, i) => `<li><button type="button" data-i="${i}" aria-pressed="false"><span class="sw" style="background:var(--band${i + 1})"></span><span><b>${w.name}<span class="tag">${w.tag}</span></b><span class="d">${w.d}</span></span></button></li>`).join('');
+    const bands = svg.querySelectorAll('.band'), lbls = svg.querySelectorAll('.lbl'), lbtn = list.querySelectorAll('button');
+    let locked = null;
+    function show(i) {
+      if (i == null) svg.removeAttribute('data-sel'); else svg.setAttribute('data-sel', i);
+      bands.forEach(b => b.classList.toggle('on', +b.dataset.i === i));
+      lbls.forEach(b => b.classList.toggle('on', +b.dataset.i === i));
+      lbtn.forEach(b => b.setAttribute('aria-pressed', String(+b.dataset.i === i)));
+    }
+    lbtn.forEach(b => {
+      b.addEventListener('mouseenter', () => locked == null && show(+b.dataset.i));
+      b.addEventListener('mouseleave', () => locked == null && show(null));
+      b.addEventListener('click', () => { const i = +b.dataset.i; locked = locked === i ? null : i; show(locked); });
+    });
+    bands.forEach(b => b.addEventListener('click', () => { const i = +b.dataset.i; locked = locked === i ? null : i; show(locked); }));
+    if (!RM && 'IntersectionObserver' in window) {
+      const io = new IntersectionObserver(es => {
+        if (!es[0].isIntersecting) return; io.disconnect();
+        svg.classList.add('seq');
+        W.forEach((_, i) => setTimeout(() => { bands[i].classList.add('lit'); lbls[i].classList.add('lit'); if (i === W.length - 1) setTimeout(() => svg.classList.remove('seq'), 600); }, 250 + i * 420));
+      }, { threshold: .45 });
+      io.observe(svg);
+    }
+  })();
+
+  /* ---------- 7. Ladder climber ---------- */
+  (function ladder() {
+    const box = document.getElementById('stairs'), fig = document.getElementById('climber');
+    const treads = [...box.querySelectorAll('.step')];
+    function place() {
+      if (getComputedStyle(fig).display === 'none') return;
+      const br = box.getBoundingClientRect();
+      const pts = treads.map(s => { const b = s.querySelector('.block').getBoundingClientRect(); return [b.left - br.left + b.width * .62, b.top - br.top - 42]; });
+      const vh = innerHeight;
+      const prog = RM ? 1 : clamp((vh * .8 - br.top) / (br.height * .9));
+      const f = prog * (pts.length - 1), i = Math.min(pts.length - 2, Math.floor(f)), k = f - i;
+      const a = pts[i], b = pts[i + 1];
+      const hop = k > .35 && k < .65 ? (k - .35) / .3 : (k >= .65 ? 1 : 0);
+      const x = lerp(a[0], b[0], k), y = lerp(a[1], b[1], hop) - Math.sin(hop * Math.PI) * 14;
+      fig.style.transform = `translate(${x}px, ${y}px)`;
+    }
+    addEventListener('scroll', () => requestAnimationFrame(place), { passive: true });
+    new ResizeObserver(place).observe(box);
+    place();
+  })();
+})();
+</script>
