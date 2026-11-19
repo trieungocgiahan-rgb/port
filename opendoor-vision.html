@@ -11,13 +11,12 @@
   --ink:#14213A; --ink-soft:#4E5A71; --line:rgba(20,33,58,.14);
   --accent:#E2962A; --accent-ink:#93560A; --accent-wash:rgba(226,150,42,.15);
   --alarm:#B4412E; --alarm-wash:rgba(180,65,46,.10);
-  --band1:#E2962A; --band2:#E9AB55; --band3:#EFC082; --band4:#F3D3A8; --band5:#F6E3C9;
-  --band-off:#D7DED7; --band-text:#2E1D04;
+  --ok:#2E7D5B; --ok-wash:rgba(46,125,91,.12);
   --f-display:"Bricolage Grotesque","Avenir Next","Segoe UI",system-ui,sans-serif;
   --f-body:"Instrument Sans","Helvetica Neue",Arial,system-ui,sans-serif;
   --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
   --s-1:.8125rem; --s0:1.0625rem; --s1:1.3rem; --s2:1.7rem;
-  --s3:clamp(1.95rem,3.6vw,2.9rem); --s4:clamp(2.6rem,6.2vw,5rem);
+  --s3:clamp(1.95rem,3.6vw,2.9rem); --s4:clamp(2.5rem,5.8vw,4.7rem);
   --radius:16px;
 }
 @media (prefers-color-scheme: dark){
@@ -26,8 +25,7 @@
     --ink:#E6EBF1; --ink-soft:#9DA9BB; --line:rgba(230,235,241,.12);
     --accent:#F2B04A; --accent-ink:#F5BF6A; --accent-wash:rgba(242,176,74,.13);
     --alarm:#EE7A62; --alarm-wash:rgba(238,122,98,.14);
-    --band1:#F2B04A; --band2:#E4A550; --band3:#D59A55; --band4:#C68F58; --band5:#B6865C;
-    --band-off:#232D3E; --band-text:#1A1206;
+    --ok:#5BC496; --ok-wash:rgba(91,196,150,.14);
     color-scheme:dark;
   }
 }
@@ -36,15 +34,14 @@
   --ink:#E6EBF1; --ink-soft:#9DA9BB; --line:rgba(230,235,241,.12);
   --accent:#F2B04A; --accent-ink:#F5BF6A; --accent-wash:rgba(242,176,74,.13);
   --alarm:#EE7A62; --alarm-wash:rgba(238,122,98,.14);
-  --band1:#F2B04A; --band2:#E4A550; --band3:#D59A55; --band4:#C68F58; --band5:#B6865C;
-  --band-off:#232D3E; --band-text:#1A1206;
+  --ok:#5BC496; --ok-wash:rgba(91,196,150,.14);
   color-scheme:dark;
 }
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:var(--s0);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;letter-spacing:-.02em}
+h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;margin:0;letter-spacing:-.02em}
 p{margin:0}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
@@ -53,14 +50,18 @@ a{color:inherit}
 .eyebrow{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);display:flex;align-items:center;gap:10px}
 .eyebrow::before{content:"";width:9px;height:13px;border:1.5px solid currentColor;border-radius:2px 2px 0 0;flex:none}
 .sec{padding-block:clamp(64px,9vw,120px);border-top:1px solid var(--line)}
-.sec-head{display:grid;gap:16px;max-width:52rem}
+.sec-head{display:grid;gap:16px;max-width:54rem}
 .sec-head h2{font-size:var(--s3);line-height:1.06;font-weight:700}
-.lede{font-size:var(--s1);line-height:1.5;color:var(--ink-soft);max-width:40rem}
+.lede{font-size:var(--s1);line-height:1.5;color:var(--ink-soft);max-width:42rem}
 .mono{font-family:var(--f-mono)}
 .small{font-size:var(--s-1)}
 .muted{color:var(--ink-soft)}
+.chip{display:inline-flex;align-items:center;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:999px;white-space:nowrap;font-weight:700}
+.chip.now{color:var(--ok);background:var(--ok-wash)}
+.chip.next{color:var(--accent-ink);background:var(--accent-wash)}
+.chip.later{color:var(--ink-soft);background:var(--paper-2)}
+.sample{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);border:1px dashed var(--line);padding:3px 8px;border-radius:6px}
 
-/* segmented toggle */
 .seg{display:inline-flex;padding:4px;border-radius:999px;background:var(--paper-2);border:1px solid var(--line);gap:2px;flex-wrap:wrap}
 .seg button{font:600 .875rem var(--f-body);border:0;background:transparent;color:var(--ink-soft);padding:9px 16px;border-radius:999px;cursor:pointer;transition:background .25s,color .25s}
 .seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
@@ -72,7 +73,7 @@ a{color:inherit}
 .top nav{display:flex;gap:22px;flex-wrap:wrap}
 .top nav a{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none}
 .top nav a:hover{color:var(--ink)}
-@media (max-width:900px){.top nav{display:none}}
+@media (max-width:960px){.top nav{display:none}}
 
 /* hero */
 .hero{padding-block:clamp(24px,4vw,48px) 0}
@@ -80,11 +81,8 @@ a{color:inherit}
 .hero-copy{display:grid;gap:26px;min-width:0}
 .hero h1{font-size:var(--s4);line-height:.98;font-weight:800;letter-spacing:-.04em}
 .hero h1 .hl{color:var(--accent-ink);background:linear-gradient(transparent 72%,var(--accent-wash) 72%)}
-.hero .lede{max-width:34rem}
-.pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;border-top:1px solid var(--line);padding-top:22px}
-.pillars div{display:grid;gap:4px;min-width:0}
-.pillars b{font-family:var(--f-display);font-size:1.05rem;font-weight:700}
-.pillars span{font-size:.92rem;color:var(--ink-soft);line-height:1.45}
+.hero .lede{max-width:34rem;font-style:normal}
+.hero .lede q{quotes:none}
 .ctas{display:flex;gap:12px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;text-decoration:none;border:1px solid var(--ink);font-size:.95rem}
 .btn.primary{background:var(--ink);color:var(--paper)}
@@ -93,12 +91,34 @@ a{color:inherit}
 .corridor canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
 .corridor figcaption{position:absolute;left:16px;right:16px;bottom:14px;display:flex;justify-content:space-between;gap:12px;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:#AEB8C7}
 .corridor figcaption b{color:#F5C16E;font-weight:500}
-.mrz{margin-top:clamp(36px,5vw,64px);border-top:1px dashed var(--line);border-bottom:1px dashed var(--line);padding-block:14px;font-family:var(--f-mono);font-size:min(1.3rem,calc((100vw - 48px) / 36));letter-spacing:.2em;line-height:1.6;color:var(--ink-soft);opacity:.75;white-space:pre;overflow:hidden}
-@media (max-width:900px){
-  .hero-grid{grid-template-columns:minmax(0,1fr)}
-  .corridor{aspect-ratio:4/3}
-}
-@media (max-width:560px){.pillars{grid-template-columns:minmax(0,1fr)}.corridor{aspect-ratio:1/1}}
+@media (max-width:900px){.hero-grid{grid-template-columns:minmax(0,1fr)}.corridor{aspect-ratio:4/3}}
+@media (max-width:560px){.corridor{aspect-ratio:1/1}}
+
+/* thesis cards */
+.thesis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:clamp(36px,5vw,56px)}
+.tc{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.tc .vis{height:92px;display:flex;align-items:center;border-bottom:1px dashed var(--line);padding-bottom:14px}
+.tc h3{font-size:1.35rem;font-weight:800;line-height:1.15}
+.tc p{color:var(--ink-soft);line-height:1.55}
+.zero{display:flex;align-items:center;gap:16px;width:100%}
+.zero b{font-family:var(--f-display);font-size:3.6rem;font-weight:800;letter-spacing:-.05em;line-height:1;color:var(--accent-ink)}
+.zero ul{list-style:none;margin:0;padding:0;display:grid;gap:3px;font-family:var(--f-mono);font-size:.72rem;color:var(--ink-soft);flex:1;min-width:0}
+.zero li{display:flex;justify-content:space-between;gap:8px;border-bottom:1px dotted var(--line)}
+.zero li span:last-child{color:var(--ink);font-weight:700}
+.tabsvis{position:relative;width:100%;height:70px}
+.tabsvis .tb{position:absolute;top:0;height:26px;padding:0 8px;display:flex;align-items:center;font-family:var(--f-mono);font-size:.62rem;border:1px solid var(--line);border-bottom:0;border-radius:7px 7px 0 0;background:var(--paper);color:var(--ink-soft);white-space:nowrap;max-width:46%;overflow:hidden;text-overflow:ellipsis;animation:merge 5s ease-in-out infinite}
+.tabsvis .one{position:absolute;left:0;top:34px;height:30px;padding:0 12px;display:flex;align-items:center;gap:8px;border-radius:8px;background:var(--ink);color:var(--paper);font-weight:700;font-size:.82rem;animation:appear 5s ease-in-out infinite}
+.tabsvis .one i{width:8px;height:11px;background:var(--accent);border-radius:2px 2px 0 0}
+@keyframes merge{0%,50%{transform:none;opacity:1}62%,88%{transform:translateX(var(--to,0)) translateY(34px);opacity:0}100%{transform:none;opacity:1}}
+@keyframes appear{0%,40%{opacity:.35}55%,85%{opacity:1}100%{opacity:.35}}
+.loopvis{display:flex;align-items:center;gap:14px;width:100%}
+.loopvis svg{width:84px;height:84px;flex:none}
+.loopvis .tr{fill:none;stroke:var(--line);stroke-width:6}
+.loopvis .ar{fill:none;stroke:var(--accent);stroke-width:6;stroke-linecap:round;stroke-dasharray:150 400;transform-origin:42px 42px;animation:spin 6s linear infinite}
+.loopvis ol{margin:0;padding:0;list-style:none;font-family:var(--f-mono);font-size:.7rem;color:var(--ink-soft);display:grid;gap:3px;min-width:0}
+.loopvis ol b{color:var(--ink)}
+.mrz{margin-top:clamp(36px,5vw,56px);border-top:1px dashed var(--line);border-bottom:1px dashed var(--line);padding-block:14px;font-family:var(--f-mono);font-size:min(1.3rem,calc((100vw - 48px) / 36));letter-spacing:.2em;line-height:1.6;color:var(--ink-soft);opacity:.75;white-space:pre;overflow:hidden}
+@media (max-width:900px){.thesis{grid-template-columns:minmax(0,1fr)}}
 
 /* moment */
 .map-panel{margin-top:44px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(14px,2.5vw,28px);display:grid;gap:14px}
@@ -154,6 +174,89 @@ a{color:inherit}
 @media (max-width:900px){.leak,.borders{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:560px){.price{grid-template-columns:minmax(0,1fr)}}
 
+/* inside: app mockup */
+.inside-bar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:36px}
+.browser{margin-top:16px;border:1px solid var(--line);border-radius:18px;background:var(--card);overflow:hidden;box-shadow:0 30px 60px -40px rgba(20,33,58,.45)}
+.chrome{display:flex;align-items:flex-end;gap:10px;padding:10px 12px 0;background:var(--paper-2);border-bottom:1px solid var(--line)}
+.dots{display:flex;gap:6px;padding-bottom:12px;flex:none}
+.dots i{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.tabstrip{display:flex;gap:2px;min-width:0;flex:1;overflow:hidden}
+.tab{flex:0 1 220px;min-width:0;display:flex;align-items:center;gap:7px;padding:8px 10px;border-radius:9px 9px 0 0;font-size:.78rem;color:var(--ink-soft);background:transparent;white-space:nowrap;overflow:hidden}
+.tab span{overflow:hidden;text-overflow:ellipsis}
+.tab i{flex:none;width:10px;height:10px;border-radius:3px;background:var(--ink-soft);opacity:.45}
+.tab.on{background:var(--card);color:var(--ink);font-weight:600}
+.tab.on i{background:var(--accent);opacity:1;width:8px;height:11px;border-radius:2px 2px 0 0}
+.browser[data-mode="chaos"] .tab{flex:1 1 0;padding:8px 6px;font-size:.7rem}
+.screen{min-height:470px}
+.chaos{padding:clamp(18px,3vw,32px);display:flex;flex-wrap:wrap;gap:14px;align-content:flex-start;background:repeating-linear-gradient(0deg,transparent 0 27px,var(--line) 27px 28px)}
+.note-c{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:12px 14px;width:min(100%,250px);box-shadow:0 8px 20px -14px rgba(0,0,0,.4);display:grid;gap:6px}
+.note-c:nth-child(odd){transform:rotate(-1.6deg)}
+.note-c:nth-child(3n){transform:rotate(1.4deg)}
+.note-c .mono{font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+.note-c p{font-size:.95rem;line-height:1.4}
+.chaos-sum{width:100%;margin-top:6px;font-family:var(--f-mono);font-size:.78rem;color:var(--alarm)}
+.app{display:grid;grid-template-columns:210px minmax(0,1fr);min-height:470px}
+.side{border-right:1px solid var(--line);padding:18px 12px;display:flex;flex-direction:column;gap:4px;background:var(--paper)}
+.side .who{display:flex;gap:10px;align-items:center;padding:6px 8px 14px;border-bottom:1px solid var(--line);margin-bottom:8px}
+.avatar{width:32px;height:32px;border-radius:50%;background:var(--accent);color:#2A1A05;display:grid;place-items:center;font-weight:800;font-family:var(--f-display);flex:none}
+.who b{display:block;font-size:.9rem;line-height:1.2}
+.who span{font-size:.72rem;color:var(--ink-soft)}
+.nav-i{display:flex;justify-content:space-between;align-items:center;gap:8px;width:100%;text-align:left;padding:9px 10px;border-radius:9px;border:0;background:transparent;color:var(--ink-soft);font:500 .9rem var(--f-body);cursor:pointer}
+.nav-i:hover{background:var(--paper-2);color:var(--ink)}
+.nav-i[aria-pressed="true"]{background:var(--card);color:var(--ink);font-weight:700;box-shadow:inset 3px 0 0 var(--accent)}
+.nav-i small{font-family:var(--f-mono);font-size:.62rem;opacity:.8}
+.pane{padding:clamp(18px,3vw,32px);display:grid;gap:18px;align-content:start;min-width:0}
+.pane-h{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
+.pane-h h3{font-size:1.5rem;font-weight:800}
+.pane-h p{color:var(--ink-soft);font-size:.95rem;margin-top:2px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.box{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--paper);display:grid;gap:8px;min-width:0}
+.box h4{font-size:.95rem;font-weight:700}
+.box .mono{font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+.prog{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.prog div{display:grid;gap:5px;font-size:.66rem;color:var(--ink-soft);text-align:center;min-width:0}
+.prog i{height:8px;border-radius:4px;background:var(--paper-2)}
+.prog .done i{background:var(--ink)}
+.prog .cur i{background:var(--accent)}
+.prog .cur{color:var(--ink);font-weight:700}
+.todo{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.todo li{display:flex;gap:10px;align-items:flex-start;font-size:.9rem;line-height:1.4}
+.todo li::before{content:"";flex:none;width:14px;height:14px;border-radius:4px;border:1.5px solid var(--ink-soft);margin-top:2px}
+.todo li.d{color:var(--ink-soft);text-decoration:line-through}
+.todo li.d::before{background:var(--ok);border-color:var(--ok)}
+.rowlist{display:grid;gap:8px}
+.rowi{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--paper);min-width:0}
+.rowi>div{min-width:0}
+.rowi b{display:block;font-size:.95rem;line-height:1.3}
+.rowi span.m{font-size:.78rem;color:var(--ink-soft)}
+.search{display:flex;align-items:center;gap:10px;padding:11px 14px;border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink-soft);font-size:.92rem}
+.fit{font-family:var(--f-mono);font-size:.68rem;font-weight:700;text-transform:uppercase;padding:3px 8px;border-radius:999px}
+.fit.r{color:var(--alarm);background:var(--alarm-wash)}
+.fit.t{color:var(--accent-ink);background:var(--accent-wash)}
+.fit.l{color:var(--ok);background:var(--ok-wash)}
+.tbl{width:100%;border-collapse:collapse;font-size:.9rem}
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+.tbl th,.tbl td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+.tbl th{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);font-weight:500;background:var(--paper)}
+.tbl tr:last-child td{border-bottom:0}
+.mentor{display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;align-items:start}
+.essay{border:1px solid var(--line);border-radius:12px;padding:18px;background:var(--paper);font-family:Georgia,"Times New Roman",serif;font-size:1rem;line-height:1.75}
+.essay mark{background:var(--accent-wash);color:inherit;border-bottom:2px solid var(--accent);padding:0 2px}
+.essay mark.w{background:var(--alarm-wash);border-color:var(--alarm)}
+.cmts{display:grid;gap:8px}
+.cmt{display:grid;grid-template-columns:22px minmax(0,1fr);gap:10px;font-size:.88rem;line-height:1.45;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--paper)}
+.cmt b{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-family:var(--f-mono);font-size:.7rem;background:var(--accent);color:#2A1A05}
+.cmt.w b{background:var(--alarm);color:#fff}
+@media (max-width:820px){
+  .app{grid-template-columns:minmax(0,1fr)}
+  .side{border-right:0;border-bottom:1px solid var(--line);flex-direction:row;overflow-x:auto;padding:10px}
+  .side .who{display:none}
+  .nav-i{width:auto;white-space:nowrap;flex:none}
+  .nav-i small{display:none}
+  .grid2{grid-template-columns:minmax(0,1fr)}
+  .browser[data-mode="chaos"] .tab:nth-child(n+6){display:none}
+}
+
 /* journey */
 .journey{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(24px,4vw,64px);align-items:center;margin-top:44px}
 .ring{position:relative;width:min(100%,560px);aspect-ratio:1/1;margin-inline:auto}
@@ -182,15 +285,12 @@ a{color:inherit}
 .stage-panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(20px,3vw,36px);display:grid;gap:18px;min-width:0}
 .stage-panel h3{font-size:var(--s2);font-weight:800;line-height:1.05}
 .prod{list-style:none;padding:0;margin:0;display:grid;gap:8px}
-.prod li{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--paper);border-radius:10px;line-height:1.45}
-.prod li::before{content:"";flex:none;width:8px;height:12px;margin-top:5px;border-radius:2px 2px 0 0;background:var(--accent)}
+.prod li{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:12px 14px;background:var(--paper);border-radius:10px;line-height:1.4}
 .stage-note{font-size:.95rem;color:var(--ink-soft)}
 .stage-nav{display:flex;justify-content:space-between;gap:8px}
 .stage-nav button{font:600 .875rem var(--f-body);background:transparent;border:1px solid var(--line);color:var(--ink);padding:9px 14px;border-radius:999px;cursor:pointer}
 .stage-nav button:hover{border-color:var(--ink)}
-.alumni{margin-top:clamp(36px,5vw,56px);display:flex;gap:20px;align-items:baseline;flex-wrap:wrap}
-.alumni p{font-family:var(--f-display);font-size:var(--s3);font-weight:800;letter-spacing:-.03em;line-height:1.05;max-width:22ch}
-.alumni p span{color:var(--accent-ink)}
+.status-key{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:20px;font-size:.85rem;color:var(--ink-soft)}
 @media (max-width:900px){.journey{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:560px){
   .stage-btn{width:78px;transform:translate(-50%,-21px);font-size:.72rem}
@@ -201,89 +301,82 @@ a{color:inherit}
   .ring-center .w{font-size:.78rem}
 }
 
-/* engines */
-.eng-bar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:36px}
-.eng-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:18px}
-.eng{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;gap:12px;min-width:0;transition:border-color .3s}
-.eng.wide{grid-column:span 2}
-.eng-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
-.eng-head .mono{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
-.eng h3{font-size:var(--s1);font-weight:700;line-height:1.2}
-.eng p{color:var(--ink-soft);line-height:1.55}
-.verdict{align-self:flex-start;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.04em;padding:4px 10px;border-radius:999px;margin-top:auto}
-.verdict.t{color:var(--alarm);background:var(--alarm-wash)}
-.verdict.o{color:var(--accent-ink);background:var(--accent-wash)}
-[data-mode="od"] .eng .t,[data-mode="trad"] .eng .o{display:none}
-[data-mode="trad"] .eng{border-style:dashed}
-.gl{width:96px;height:56px;flex:none;overflow:visible}
-.gl .gm{stroke:var(--ink-soft);stroke-opacity:.5;fill:none;stroke-width:1.6;stroke-linecap:round}
-.gl .ga{stroke:var(--accent);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.gl .gr{stroke:var(--alarm);fill:none;stroke-width:2.2;stroke-linecap:round}
-.gl .fa{fill:var(--accent)}
-.gl .fm{fill:var(--ink-soft);fill-opacity:.35}
-.gl .fi{fill:var(--ink)}
-.gl .fr{fill:var(--alarm)}
-.gl text{font-family:var(--f-mono);font-size:8px;fill:var(--ink-soft)}
-.gl .pulse{animation:pulse 2.6s ease-in-out infinite}
-.gl .pulse:nth-of-type(2n){animation-delay:.9s}
-@keyframes pulse{50%{opacity:.35}}
-.anim .gl path,.anim .gl line{stroke-dasharray:100;animation:draw .9s ease both}
-.anim .gl circle,.anim .gl rect{animation:pop .6s ease both}
-@keyframes draw{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
-@keyframes pop{from{opacity:0}}
-@media (max-width:900px){.eng-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.eng.wide{grid-column:span 1}.eng.e1{grid-column:span 2}}
-@media (max-width:600px){.eng-grid{grid-template-columns:minmax(0,1fr)}.eng.e1{grid-column:span 1}}
+/* stays free */
+.free-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:14px;margin-top:44px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(20px,3vw,32px);display:grid;gap:14px;min-width:0;align-content:start}
+.panel h3{font-size:1.35rem;font-weight:800;line-height:1.2}
+.cost svg{width:100%;height:auto;display:block}
+.cost .ax{stroke:var(--ink-soft);stroke-opacity:.5;stroke-width:1.2;fill:none}
+.cost .grid{stroke:var(--line);stroke-width:1}
+.cost .cons{stroke:var(--alarm);stroke-width:3.5;fill:none;stroke-linecap:round}
+.cost .consband{fill:var(--alarm-wash)}
+.cost .od{stroke:var(--accent);stroke-width:3.5;fill:none;stroke-linecap:round}
+.cost .odfill{fill:var(--accent-wash)}
+.cost text{font-family:var(--f-mono);font-size:12px;fill:var(--ink-soft)}
+.cost .lbl-c{fill:var(--alarm);font-weight:700}
+.cost .lbl-o{fill:var(--accent-ink);font-weight:700}
+.cost .pt{fill:var(--card);stroke-width:2.5}
+.wheel{position:relative;width:min(100%,400px);aspect-ratio:1/1;margin:8px auto 0}
+.wheel svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.wheel .wt{fill:none;stroke:var(--line);stroke-width:10}
+.wheel .wa{fill:none;stroke:var(--accent);stroke-width:2;stroke-dasharray:3 5}
+.wheel .orbit{transform-box:view-box;transform-origin:100px 100px;animation:spin 10s linear infinite}
+.wheel .orbit circle{fill:var(--accent)}
+.wn{position:absolute;width:40%;transform:translate(-50%,-50%);background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:8px 10px;font-size:.82rem;line-height:1.3;text-align:center}
+.wn b{display:block;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:2px}
+.wheel-c{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;font-family:var(--f-display);font-weight:800;font-size:1.1rem;line-height:1.1;width:30%}
+.money{margin-top:14px;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(20px,4vw,48px);padding:clamp(20px,3.5vw,40px);border-radius:var(--radius);background:var(--ink);color:var(--paper)}
+.money h3{font-size:var(--s2);font-weight:800;line-height:1.1}
+.money p{opacity:.82;margin-top:12px}
+.money .rule{margin-top:18px;padding:14px 16px;border-radius:12px;border:1px solid color-mix(in srgb,var(--paper) 25%,transparent);font-weight:600;opacity:1}
+.opts{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.opts li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;padding:12px 14px;border-radius:12px;background:color-mix(in srgb,var(--paper) 8%,transparent);border:1px solid color-mix(in srgb,var(--paper) 16%,transparent)}
+.opts b{font-size:.98rem}
+.opts span{grid-column:1/-1;font-size:.88rem;opacity:.78;line-height:1.45}
+.opts .chip.later{background:color-mix(in srgb,var(--paper) 14%,transparent);color:var(--paper);justify-self:end;align-self:start}
+@media (max-width:900px){.free-grid,.money{grid-template-columns:minmax(0,1fr)}}
 
-/* model */
-.model{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:center;margin-top:44px}
-.rings{width:min(100%,500px);margin-inline:auto;display:block}
-.rings .band{fill:none;stroke-width:34;transition:stroke .45s ease}
-.rings .lbl{font-family:var(--f-mono);font-size:12px;letter-spacing:1.6px;font-weight:700;fill:var(--band-text);transition:fill .45s ease}
-.rings .core{fill:var(--ink)}
-.rings .core-ic{fill:var(--paper)}
-.rings[data-sel] .band:not(.on),.rings.seq .band:not(.lit){stroke:var(--band-off) !important}
-.rings[data-sel] .lbl:not(.on),.rings.seq .lbl:not(.lit){fill:var(--ink-soft)}
-.waves{list-style:none;padding:0;margin:0;display:grid;gap:8px}
-.waves button{width:100%;text-align:left;display:grid;grid-template-columns:14px minmax(0,1fr);gap:14px;padding:14px 16px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;font:inherit;transition:border-color .25s,background .25s}
-.waves button:hover,.waves button[aria-pressed="true"]{border-color:var(--accent)}
-.waves button[aria-pressed="true"]{background:var(--accent-wash)}
-.waves .sw{width:14px;height:14px;border-radius:50%;margin-top:4px}
-.waves b{display:block;font-family:var(--f-display);font-size:1.08rem}
-.waves .tag{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-left:8px;font-weight:400}
-.waves span.d{display:block;color:var(--ink-soft);font-size:.95rem;line-height:1.5;margin-top:4px}
-.promise{margin-top:24px;display:flex;gap:14px;align-items:flex-start;padding:18px 20px;border-radius:12px;background:var(--ink);color:var(--paper)}
-.promise svg{flex:none;width:22px;height:22px;margin-top:2px}
-.promise b{font-family:var(--f-display)}
-@media (max-width:900px){.model{grid-template-columns:minmax(0,1fr)}}
-
-/* ladder */
-.note{display:inline-flex;gap:10px;align-items:center;border:1.5px dashed var(--accent-ink);color:var(--accent-ink);padding:8px 14px;border-radius:10px;font-family:var(--f-mono);font-size:.78rem;letter-spacing:.04em}
-.stairs{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:end;gap:12px;margin-top:24px;padding-top:56px}
-.step{display:flex;flex-direction:column;min-width:0}
-.step .tread{display:flex;align-items:flex-end;gap:10px;height:56px;padding-left:16px}
-.step .tread svg{width:30px;height:46px}
-.step .tread .fr{fill:var(--accent);stroke:var(--ink);stroke-width:1.5}
-.step .tread .lf{fill:var(--ink)}
-.step .block{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:4px 4px 0 0;padding:20px;display:flex;flex-direction:column;gap:10px;min-height:var(--h)}
-.step:nth-child(1) .block{--h:220px}
-.step:nth-child(2) .block{--h:300px}
-.step:nth-child(3) .block{--h:380px}
-.step:nth-child(4) .block{--h:460px}
-.step .yr{font-family:var(--f-display);font-size:clamp(2rem,3.4vw,2.8rem);font-weight:800;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
-.step .kpi{font-family:var(--f-mono);font-size:.78rem;color:var(--accent-ink);font-weight:700;letter-spacing:.04em}
-.step ul{margin:0;padding:0;list-style:none;display:grid;gap:6px}
-.step li{font-size:.95rem;line-height:1.45;color:var(--ink-soft);padding-left:14px;position:relative}
-.step li::before{content:"";position:absolute;left:0;top:.6em;width:6px;height:6px;border-radius:50%;background:var(--accent)}
-.climber{position:absolute;left:0;top:0;width:26px;height:42px;pointer-events:none;transition:transform .12s linear}
-.climber .b{fill:var(--ink)}
-.climber .p{fill:var(--accent)}
-.ground{height:3px;background:var(--ink);border-radius:2px}
-@media (max-width:820px){
-  .stairs{grid-template-columns:minmax(0,1fr);padding-top:0;gap:10px}
-  .step .block{min-height:0 !important}
-  .step .tread{height:auto;padding:0 0 8px 0}
-  .climber,.ground{display:none}
-}
+/* first steps */
+.rail{margin-top:40px;display:grid;grid-template-columns:2fr 4fr 3fr 3fr;gap:4px}
+.rail div{height:10px;border-radius:5px;background:var(--accent)}
+.rail div:nth-child(2){background:color-mix(in srgb,var(--accent) 75%,var(--paper))}
+.rail div:nth-child(3){background:color-mix(in srgb,var(--accent) 52%,var(--paper))}
+.rail div:nth-child(4){background:color-mix(in srgb,var(--accent) 32%,var(--paper))}
+.weeks{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));margin-top:6px;font-family:var(--f-mono);font-size:.66rem;color:var(--ink-soft)}
+.weeks span{border-left:1px solid var(--line);padding-left:4px}
+.phases{display:grid;grid-template-columns:2fr 4fr 3fr 3fr;gap:12px;margin-top:16px}
+.phase{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.phase .wk{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink);font-weight:700}
+.phase h3{font-size:1.2rem;font-weight:800;line-height:1.2}
+.phase ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.phase li{font-size:.92rem;line-height:1.45;color:var(--ink-soft);padding-left:16px;position:relative}
+.phase li::before{content:"";position:absolute;left:0;top:.45em;width:8px;height:8px;border-radius:2px;border:1.5px solid var(--accent-ink)}
+.phase .done{margin-top:auto;padding-top:12px;border-top:1px dashed var(--line);font-size:.86rem;line-height:1.4}
+.phase .done b{display:block;font-family:var(--f-mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ok);margin-bottom:2px}
+.targets{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:14px}
+.targets .tile{padding:20px}
+.targets .big{font-size:clamp(2rem,3.6vw,2.8rem)}
+.tgt-h{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:44px}
+.tgt-h h3{font-size:1.35rem;font-weight:800}
+.board{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}
+.col{border-radius:var(--radius);padding:18px;border:1px solid var(--line);display:grid;gap:10px;align-content:start;min-width:0}
+.col.now{background:var(--ok-wash);border-color:transparent}
+.col.next{background:var(--accent-wash);border-color:transparent}
+.col.later{border-style:dashed}
+.col h4{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:1.1rem;font-weight:800}
+.col h4 span{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+.feat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:.9rem;line-height:1.35}
+.feat b{display:block;font-size:.95rem}
+.feat span{font-size:.8rem;color:var(--ink-soft)}
+.longview{margin-top:44px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:20px;align-items:center;padding:22px 24px;border:1.5px dashed var(--accent-ink);border-radius:var(--radius)}
+.longview svg{width:34px;height:50px}
+.longview .fr{fill:var(--accent-wash);stroke:var(--accent-ink);stroke-width:1.5}
+.longview .lf{fill:var(--accent-ink)}
+.longview p{color:var(--ink-soft)}
+.longview b{color:var(--ink);font-family:var(--f-display);font-size:1.15rem;display:block;margin-bottom:4px}
+@media (max-width:960px){.phases{grid-template-columns:repeat(2,minmax(0,1fr))}.rail,.weeks{display:none}.targets{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:700px){.board{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:560px){.phases{grid-template-columns:minmax(0,1fr)}}
 
 /* closing */
 .closing{padding-block:clamp(80px,12vw,160px);border-top:1px solid var(--line)}
@@ -301,8 +394,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
-  .ring .orbit,.gl .pulse,.anim .gl *{animation:none !important}
-  .climber{transition:none}
+  .ring .orbit,.wheel .orbit,.loopvis .ar,.tabsvis .tb,.tabsvis .one{animation:none !important}
 }
 </style>
 
@@ -314,29 +406,24 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   <nav aria-label="Sections">
     <a href="#moment">The moment</a>
     <a href="#problem">The problem</a>
+    <a href="#inside">Inside OpenDoor</a>
     <a href="#journey">The journey</a>
-    <a href="#engines">Why we win</a>
-    <a href="#model">Business model</a>
-    <a href="#ladder">10-year ladder</a>
+    <a href="#free">How it stays free</a>
+    <a href="#first-steps">First steps</a>
   </nav>
 </header>
 
 <main id="top">
-<!-- 1. Manifesto -->
+<!-- Thesis -->
 <section class="hero" aria-labelledby="h-hero">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <p class="eyebrow">Manifesto</p>
-      <h1 id="h-hero">Where you're born shouldn't decide <span class="hl">where you can learn.</span></h1>
-      <p class="lede">OpenDoor is the open infrastructure for students who cross borders to study.</p>
-      <div class="pillars">
-        <div><b>Free knowledge</b><span>An open library of everything it takes to study abroad.</span></div>
-        <div><b>Last year's admits</b><span>Mentors who made it last year, often from your own country.</span></div>
-        <div><b>AI guidance</b><span>Brings the cost of great guidance close to zero.</span></div>
-      </div>
+      <p class="eyebrow">Our thesis</p>
+      <h1 id="h-hero">Everything we had to figure out alone, <span class="hl">in one place, for free.</span></h1>
+      <p class="lede">We spent months digging through Reddit threads and random blogs to apply. You shouldn't have to.</p>
       <div class="ctas">
-        <a class="btn primary" href="#journey">Follow the journey <span aria-hidden="true">→</span></a>
-        <a class="btn" href="#engines">Why this wins</a>
+        <a class="btn primary" href="#inside">See what's inside <span aria-hidden="true">→</span></a>
+        <a class="btn" href="#first-steps">Our first steps</a>
       </div>
     </div>
     <figure class="corridor">
@@ -344,11 +431,38 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
       <figcaption><span>Scroll to open more doors</span><span>Open: <b id="corridor-open">—</b></span></figcaption>
     </figure>
   </div>
-  <div class="wrap"><div class="mrz" aria-hidden="true">P&lt;VNMOPENDOOR&lt;&lt;STUDENT&lt;CLASS&lt;OF&lt;2027&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
-OD2027VNM&lt;0GRADE9&lt;TO&lt;FIRSTJOB&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;0</div></div>
+
+  <div class="wrap">
+    <div class="thesis">
+      <article class="tc">
+        <div class="vis"><div class="zero" aria-hidden="true"><b>$0</b><ul><li><span>Guides</span><span>$0</span></li><li><span>Mentor answers</span><span>$0</span></li><li><span>Account</span><span>$0</span></li><li><span>Trial ends</span><span>never</span></li></ul></div></div>
+        <h3>It's free. Actually free.</h3>
+        <p>No trial, no paywall halfway through a guide. If you're a kid at a school with no counselor, you can open OpenDoor tonight and start.</p>
+      </article>
+      <article class="tc">
+        <div class="vis"><div class="tabsvis" aria-hidden="true">
+          <span class="tb" style="left:0;--to:0px">r/ApplyingToCollege</span>
+          <span class="tb" style="left:22%;--to:-60px">Scholarships</span>
+          <span class="tb" style="left:44%;--to:-120px">Visa forum</span>
+          <span class="tb" style="left:64%;--to:-170px">Deadlines.doc</span>
+          <span class="tb" style="left:82%;--to:-220px">Group chat</span>
+          <span class="one"><i></i>OpenDoor</span>
+        </div></div>
+        <h3>You don't need 10 tabs open.</h3>
+        <p>When we applied, we had Reddit in one tab, a scholarship site in another, a visa forum, a Google Doc of deadlines, and a group chat of people as lost as us. OpenDoor puts all of that in one place, from figuring out what you like in Grade 9 to landing your first internship.</p>
+      </article>
+      <article class="tc">
+        <div class="vis"><div class="loopvis" aria-hidden="true"><svg viewBox="0 0 84 84"><circle class="tr" cx="42" cy="42" r="34"/><circle class="ar" cx="42" cy="42" r="34"/></svg><ol><li><b>2027</b> gets in</li><li>comes back as mentors</li><li><b>2028</b> starts further ahead</li></ol></div></div>
+        <h3>The people who get in come back.</h3>
+        <p>This is how it stays free. Every year, students who got in come back to answer questions, review essays and update the guides. So next year's version is always better than ours was.</p>
+      </article>
+    </div>
+    <div class="mrz" aria-hidden="true">P&lt;VNMOPENDOOR&lt;&lt;STUDENT&lt;CLASS&lt;OF&lt;2027&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+OD2027VNM&lt;0GRADE9&lt;TO&lt;FIRSTJOB&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;0</div>
+  </div>
 </section>
 
-<!-- 2. The size of the moment -->
+<!-- The size of the moment -->
 <section class="sec" id="moment" aria-labelledby="h-moment">
   <div class="wrap">
     <div class="sec-head">
@@ -356,12 +470,10 @@ OD2027VNM&lt;0GRADE9&lt;TO&lt;FIRSTJOB&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&l
       <h2 id="h-moment">A generation is crossing borders to learn.</h2>
       <p class="lede">International study is one of the largest movements of young people in the world, and much of the next decade's growth is coming from countries where good guidance is hardest to find.</p>
     </div>
-
     <div class="map-panel">
       <canvas id="map" role="img" aria-label="World map with routes from Vietnam, India, Nigeria, Bangladesh, Nepal, Brazil and Mexico to study destinations in North America, Europe, East Asia, the Gulf and Australia."></canvas>
       <div class="legend"><span><i class="o"></i>Rising source markets</span><span><i class="d"></i>Study destinations</span><span><i class="r"></i>Student flows (illustrative)</span></div>
     </div>
-
     <div class="stats">
       <div class="tile t-3">
         <div class="big"><span data-count="6.9" data-dec="1">6.9</span><small>M</small></div>
@@ -400,14 +512,13 @@ OD2027VNM&lt;0GRADE9&lt;TO&lt;FIRSTJOB&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&l
   </div>
 </section>
 
-<!-- 3. The broken system -->
+<!-- The broken system -->
 <section class="sec" id="problem" aria-labelledby="h-problem">
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">The broken system</p>
       <h2 id="h-problem">Today, the guidance a student gets depends on what their family can pay.</h2>
     </div>
-
     <div class="price">
       <div class="tile">
         <span class="vs">With money</span>
@@ -420,7 +531,6 @@ OD2027VNM&lt;0GRADE9&lt;TO&lt;FIRSTJOB&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&l
         <p>What most public school students have. No one at school to explain the process, the essays or the aid.</p>
       </div>
     </div>
-
     <div class="leak" id="leak-panel">
       <div class="leak-copy">
         <p class="eyebrow">The deeper failure</p>
@@ -437,7 +547,6 @@ OD2027VNM&lt;0GRADE9&lt;TO&lt;FIRSTJOB&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&l
         <div class="leak-legend"><span>Each bucket is one graduating class</span><span>Each drop is something a student learned</span></div>
       </div>
     </div>
-
     <div class="borders">
       <div>
         <h3>Students no longer apply to one country.</h3>
@@ -456,13 +565,35 @@ OD2027VNM&lt;0GRADE9&lt;TO&lt;FIRSTJOB&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&l
   </div>
 </section>
 
-<!-- 4. The OpenDoor Journey -->
+<!-- Inside OpenDoor -->
+<section class="sec" id="inside" aria-labelledby="h-inside">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Inside OpenDoor</p>
+      <h2 id="h-inside">One tab instead of ten.</h2>
+      <p class="lede">This is what a student sees when they open OpenDoor. Switch between how we applied and how it works on OpenDoor, then click around the sidebar.</p>
+    </div>
+    <div class="inside-bar">
+      <div class="seg" role="group" aria-label="Compare">
+        <button type="button" data-v="chaos" aria-pressed="false">When we applied</button>
+        <button type="button" data-v="app" aria-pressed="true">With OpenDoor</button>
+      </div>
+      <span class="sample">Concept screens · sample data</span>
+    </div>
+    <div class="browser" id="browser" data-mode="app">
+      <div class="chrome"><div class="dots" aria-hidden="true"><i></i><i></i><i></i></div><div class="tabstrip" id="tabstrip"></div></div>
+      <div class="screen" id="screen"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Journey -->
 <section class="sec" id="journey" aria-labelledby="h-journey">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">The vision</p>
-      <h2 id="h-journey">The OpenDoor Journey: seven stages, and the last one feeds the first.</h2>
-      <p class="lede">OpenDoor walks with a student from the first spark of curiosity in Grade 9 to their first job abroad, and then hands them the door to hold open for the next student.</p>
+      <p class="eyebrow">The full journey</p>
+      <h2 id="h-journey">Seven stages, from Grade 9 to the first job. The last one feeds the first.</h2>
+      <p class="lede">Every feature has a place on the journey and a label for when we build it. Most of what ships first is the knowledge we already have.</p>
     </div>
     <div class="journey">
       <div class="ring" id="ring">
@@ -471,82 +602,159 @@ OD2027VNM&lt;0GRADE9&lt;TO&lt;FIRSTJOB&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&l
       </div>
       <div class="stage-panel" id="stage-panel" aria-live="polite"></div>
     </div>
-    <div class="alumni"><p>The alumni network <span>for people who never had one.</span></p></div>
+    <div class="status-key"><span class="chip now">Now</span>first 12 weeks <span class="chip next">Next</span>after launch <span class="chip later">Later</span>when the network is big enough</div>
   </div>
 </section>
 
-<!-- 5. Why this wins -->
-<section class="sec" id="engines" aria-labelledby="h-engines">
+<!-- How it stays free -->
+<section class="sec" id="free" aria-labelledby="h-free">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">Why this wins</p>
-      <h2 id="h-engines">Seven engines that get stronger as OpenDoor grows.</h2>
-      <p class="lede">Consulting gets more expensive as it scales. OpenDoor gets better. Switch the view to compare each engine.</p>
+      <p class="eyebrow">How it stays free</p>
+      <h2 id="h-free">The bigger Crimson gets, the more it costs. The bigger OpenDoor gets, the cheaper it gets.</h2>
+      <p class="lede">A consulting firm has to hire an expert for every new family. OpenDoor's experts are last year's students, and a guide written once can be read by thousands.</p>
     </div>
-    <div class="eng-bar">
-      <div class="seg" role="group" aria-label="Compare models">
-        <button type="button" data-mode="trad" aria-pressed="false">Traditional consulting</button>
-        <button type="button" data-mode="od" aria-pressed="true">OpenDoor</button>
+    <div class="free-grid">
+      <div class="panel cost">
+        <h3>Cost to help one more student</h3>
+        <svg viewBox="0 0 560 300" role="img" aria-label="Concept sketch. Consulting cost per student stays high, around 15 to 20 thousand dollars, as it grows. OpenDoor cost per student falls toward zero as more students use it.">
+          <line class="grid" x1="70" y1="40" x2="540" y2="40"/><line class="grid" x1="70" y1="110" x2="540" y2="110"/><line class="grid" x1="70" y1="180" x2="540" y2="180"/>
+          <path class="consband" d="M70 46 L540 30 L540 78 L70 92Z"/>
+          <path class="cons" d="M70 70 C200 66 380 60 540 52"/>
+          <path class="odfill" d="M70 150 C150 205 260 236 540 246 L540 250 L70 250Z"/>
+          <path class="od" d="M70 150 C150 205 260 236 540 246"/>
+          <path class="ax" d="M70 20 V250 H545"/>
+          <circle class="pt" cx="540" cy="52" r="5" style="stroke:var(--alarm)"/>
+          <circle class="pt" cx="540" cy="246" r="5" style="stroke:var(--accent)"/>
+          <text class="lbl-c" x="80" y="30">Consulting · $15–20k per family</text>
+          <text class="lbl-o" x="80" y="138">OpenDoor</text>
+          <text x="400" y="232" text-anchor="middle">close to $0</text>
+          <text x="540" y="276" text-anchor="end">More students →</text>
+          <text x="60" y="150" text-anchor="middle" transform="rotate(-90 60 150)" dy="-14">Cost per student</text>
+        </svg>
+        <p class="small muted">Concept sketch. It shows the direction of each curve, not measured data.</p>
       </div>
-      <span class="mono small muted" id="eng-mode-label">Showing: OpenDoor</span>
-    </div>
-    <div class="eng-grid" id="eng-grid" data-mode="od"></div>
-  </div>
-</section>
-
-<!-- 6. Business model -->
-<section class="sec" id="model" aria-labelledby="h-model">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">How it makes money at scale</p>
-      <h2 id="h-model">Five customer groups around one student.</h2>
-      <p class="lede">Each ring is a group that pays, added in the order of the roadmap. The student stays at the center, and the core stays free.</p>
-    </div>
-    <div class="model">
-      <svg class="rings" id="rings" viewBox="0 0 480 480" role="img" aria-label="Five concentric rings around a student: students and families, schools, universities, employers, impact partners."></svg>
-      <div>
-        <ul class="waves" id="waves"></ul>
-        <div class="promise">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L20 5 V11 C20 16.5 16.5 20.5 12 22 C7.5 20.5 4 16.5 4 11 V5Z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8.5 12 L11 14.5 L15.5 9.5" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <p><b>Students always own their profile.</b> No one can ever pay to influence an admission decision.</p>
+      <div class="panel">
+        <h3>The loop that pays for it</h3>
+        <div class="wheel">
+          <svg viewBox="0 0 200 200" aria-hidden="true"><circle class="wt" cx="100" cy="100" r="70"/><circle class="wa" cx="100" cy="100" r="70"/><g class="orbit"><circle cx="100" cy="30" r="5"/></g></svg>
+          <div class="wn" style="left:50%;top:15%"><b>1 · Use</b>Students use the free guides and mentors</div>
+          <div class="wn" style="left:80%;top:50%"><b>2 · Get in</b>They get into schools abroad</div>
+          <div class="wn" style="left:50%;top:85%"><b>3 · Come back</b>They answer, review essays and update guides</div>
+          <div class="wn" style="left:20%;top:50%"><b>4 · Improve</b>Next year's version is better than ours</div>
         </div>
       </div>
     </div>
+    <div class="money">
+      <div>
+        <h3>And money?</h3>
+        <p>We don't need to make money to start. Year one runs on free tools and our own time, so the only costs are a domain, hosting and some AI usage. Later, money only has to cover running costs and pay the people who keep OpenDoor going. We'll pick a model once students are actually using it.</p>
+        <p class="rule">The guides, the Library and the community stay free, forever.</p>
+      </div>
+      <ul class="opts">
+        <li><b>Optional 1:1 mentor sessions</b><span class="chip later">Later</span><span>For students who want more time. Most of the fee goes to the mentor.</span></li>
+        <li><b>Licenses for schools with no counselor</b><span class="chip later">Later</span><span>Teacher dashboards that use the same free content.</span></li>
+        <li><b>Sponsors and foundations</b><span class="chip later">Later</span><span>Funding scholarship spots and paying for AI Review for students who can't.</span></li>
+        <li><b>University info sessions</b><span class="chip later">Later</span><span>Opt-in only. No one can ever pay to influence an admission decision.</span></li>
+      </ul>
+    </div>
   </div>
 </section>
 
-<!-- 7. The 10-year ladder -->
-<section class="sec" id="ladder" aria-labelledby="h-ladder">
+<!-- First steps -->
+<section class="sec" id="first-steps" aria-labelledby="h-steps">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">The 10-year ladder</p>
-      <h2 id="h-ladder">Each step is a door. Each door opens the next.</h2>
-      <p><span class="note"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M7 4v3.5M7 9.6v.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Ambitious targets, not forecasts</span></p>
+      <p class="eyebrow">First steps</p>
+      <h2 id="h-steps">Start small. Here's the next 12 weeks.</h2>
+      <p class="lede">We start with what we already have: what we learned from applying. Each phase ends with a check we can actually measure.</p>
     </div>
-    <div class="stairs" id="stairs">
-      <div class="step">
-        <div class="tread"><svg viewBox="0 0 30 46" aria-hidden="true"><rect class="fr" x="2" y="2" width="26" height="42" rx="1"/><path class="lf" d="M2 2 L18 6 V42 L2 44Z"/></svg></div>
-        <div class="block"><span class="yr">2027</span><span class="kpi">First 50 mentors</span><ul><li>The Library launches in Vietnam and 2 more countries</li><li>First 50 peer mentors</li></ul></div>
-      </div>
-      <div class="step">
-        <div class="tread"><svg viewBox="0 0 30 46" aria-hidden="true"><rect class="fr" x="2" y="2" width="26" height="42" rx="1"/><path class="lf" d="M2 2 L16 7 V41 L2 44Z"/></svg></div>
-        <div class="block"><span class="yr">2028</span><span class="kpi">50,000 students</span><ul><li>10 countries</li><li>50,000 students</li><li>1,000 mentors</li><li>Paid plans live</li></ul></div>
-      </div>
-      <div class="step">
-        <div class="tread"><svg viewBox="0 0 30 46" aria-hidden="true"><rect class="fr" x="2" y="2" width="26" height="42" rx="1"/><path class="lf" d="M2 2 L13 8 V40 L2 44Z"/></svg></div>
-        <div class="block"><span class="yr">2030</span><span class="kpi">1M students reached</span><ul><li>1 million students have used the Library</li><li>10,000 mentors across 30 countries</li><li>First school licenses and university partners</li></ul></div>
-      </div>
-      <div class="step">
-        <div class="tread"><svg viewBox="0 0 30 46" aria-hidden="true"><rect class="fr" x="2" y="2" width="26" height="42" rx="1"/><path class="lf" d="M2 2 L9 9 V39 L2 44Z"/></svg></div>
-        <div class="block"><span class="yr">2035</span><span class="kpi">500 universities</span><ul><li>The default first stop for every first-generation international applicant</li><li>OpenDoor alumni at 500 universities, mentoring the next million</li></ul></div>
-      </div>
-      <svg class="climber" id="climber" viewBox="0 0 26 42" aria-hidden="true"><circle class="b" cx="13" cy="6" r="5"/><path class="b" d="M8 13 h10 l2 14 h-4 l-1 14 h-4 l-1-14 h-4z"/><rect class="p" x="16" y="14" width="6" height="10" rx="2"/></svg>
+    <div class="rail" aria-hidden="true"><div></div><div></div><div></div><div></div></div>
+    <div class="weeks" aria-hidden="true"><span>W1</span><span>W2</span><span>W3</span><span>W4</span><span>W5</span><span>W6</span><span>W7</span><span>W8</span><span>W9</span><span>W10</span><span>W11</span><span>W12</span></div>
+    <div class="phases">
+      <article class="phase">
+        <span class="wk">Weeks 1–2</span>
+        <h3>Write down what we know</h3>
+        <ul>
+          <li>Each of us writes our own application story and the 3 things we wish we'd known</li>
+          <li>Pick the first 10 guides</li>
+          <li>Anonymize our own profiles as the first Profile Bank entries</li>
+        </ul>
+        <p class="done"><b>Done when</b>10 guide outlines and 5 profiles exist.</p>
+      </article>
+      <article class="phase">
+        <span class="wk">Weeks 3–6</span>
+        <h3>Ship a simple website</h3>
+        <ul>
+          <li>The Library with the first 10 guides, in Vietnamese and English</li>
+          <li>A shared deadline calendar and a school list template</li>
+          <li>An "Ask a question" form that comes straight to us</li>
+          <li>Host it on a free tier. No login needed to read.</li>
+        </ul>
+        <p class="done"><b>Done when</b>The site is live and a friend finds the guide they need in under a minute.</p>
+      </article>
+      <article class="phase">
+        <span class="wk">Weeks 7–9</span>
+        <h3>Bring back the people who got in</h3>
+        <ul>
+          <li>Invite 15–20 friends and seniors who got in as founding mentors</li>
+          <li>Each mentor answers questions and updates one guide</li>
+          <li>Test AI Review on 10 real essays, with a mentor checking every comment</li>
+        </ul>
+        <p class="done"><b>Done when</b>Every question gets a real answer within 48 hours.</p>
+      </article>
+      <article class="phase">
+        <span class="wk">Weeks 10–12</span>
+        <h3>Find the first 500 students</h3>
+        <ul>
+          <li>Share in school group chats, Threads and TikTok, starting with our own schools</li>
+          <li>Watch 20 students at schools with no counselor use the site</li>
+          <li>Turn their most common questions into the next 10 guides</li>
+        </ul>
+        <p class="done"><b>Done when</b>500 students opened a guide and 50 asked a question.</p>
+      </article>
     </div>
-    <div class="ground" aria-hidden="true"></div>
+
+    <div class="tgt-h"><h3>Where we want to be at week 12</h3><span class="sample">Targets, not results</span></div>
+    <div class="targets">
+      <div class="tile"><div class="big">20</div><p>Guides live in the Library</p></div>
+      <div class="tile"><div class="big">20</div><p>Founding mentors who got in</p></div>
+      <div class="tile"><div class="big">500</div><p>Students who opened a guide</p></div>
+      <div class="tile"><div class="big">50</div><p>Questions answered within 48 hours</p></div>
+    </div>
+
+    <div class="tgt-h"><h3>Build order</h3></div>
+    <div class="board">
+      <div class="col now">
+        <h4>Now <span>Weeks 1–12</span></h4>
+        <div class="feat"><b>The Library</b><span>Step-by-step guides written by students who just did it</span></div>
+        <div class="feat"><b>Deadline calendar</b><span>Every deadline in one place, in your time zone</span></div>
+        <div class="feat"><b>School list template</b><span>Reach, target and likely, with notes from mentors</span></div>
+        <div class="feat"><b>Ask a mentor</b><span>A simple form at first, answered by founding mentors</span></div>
+      </div>
+      <div class="col next">
+        <h4>Next <span>After launch</span></h4>
+        <div class="feat"><b>Profile Bank</b><span>Real, anonymized profiles and results</span></div>
+        <div class="feat"><b>AI Review</b><span>Essay feedback, checked by mentors</span></div>
+        <div class="feat"><b>Aid and scholarship finder</b><span>Matches across countries</span></div>
+        <div class="feat"><b>Archetype quiz and Opportunity Hub</b><span>For Grades 9 to 11</span></div>
+      </div>
+      <div class="col later">
+        <h4>Later <span>When the network is bigger</span></h4>
+        <div class="feat"><b>Arrival buddies</b><span>A senior from home at your new school</span></div>
+        <div class="feat"><b>Internship referrals</b><span>Through the alumni network</span></div>
+        <div class="feat"><b>More countries</b><span>One community at a time</span></div>
+        <div class="feat"><b>Scholarship spots</b><span>Funded by alumni and partners</span></div>
+      </div>
+    </div>
+
+    <div class="longview">
+      <svg viewBox="0 0 30 46" aria-hidden="true"><rect class="fr" x="2" y="2" width="26" height="42" rx="1"/><path class="lf" d="M2 2 L14 7 V41 L2 44Z"/></svg>
+      <p><b>The long view can wait.</b>If the first 500 students find it useful, we grow one school and one country at a time. The big picture is the alumni network for people who never had one, but the first year has to work first.</p>
+    </div>
   </div>
 </section>
 
-<!-- Closing -->
 <section class="closing" aria-label="Closing">
   <div class="wrap closing-grid">
     <blockquote>Every year, a new class gets through the door. <span>At OpenDoor, they hold it open for the next.</span></blockquote>
@@ -555,7 +763,7 @@ OD2027VNM&lt;0GRADE9&lt;TO&lt;FIRSTJOB&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&l
 </section>
 </main>
 
-<footer><div class="wrap"><span>OpenDoor · Vision 2027–2035</span><span>Targets are ambitions, not forecasts</span></div></footer>
+<footer><div class="wrap"><span>OpenDoor · Vision draft · 2026</span><span>Product screens are concepts with sample data</span></div></footer>
 
 <script>
 (() => {
@@ -585,7 +793,7 @@ OD2027VNM&lt;0GRADE9&lt;TO&lt;FIRSTJOB&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&l
   }
   const MONO = '"JetBrains Mono", ui-monospace, Menlo, monospace';
 
-  /* ---------- 1. Corridor ---------- */
+  /* ---------- Corridor ---------- */
   (function corridor() {
     const cv = document.getElementById('corridor');
     const out = document.getElementById('corridor-open');
@@ -654,7 +862,6 @@ OD2027VNM&lt;0GRADE9&lt;TO&lt;FIRSTJOB&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&l
         c.lineTo(x1, y1); c.closePath(); c.fill();
       }
       c.restore();
-      // door leaf swings into the corridor, hinged on the far edge
       const th = o * 1.3, xf = x - s * DD * Math.sin(th), zf = z1 - DD * Math.cos(th);
       path([[x, FL, z1], [x, DT, z1], [xf, DT, zf], [xf, FL, zf]]);
       const L1 = P(x, 0, z1), L2 = P(xf, 0, zf);
@@ -674,7 +881,7 @@ OD2027VNM&lt;0GRADE9&lt;TO&lt;FIRSTJOB&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&l
     }
     function computeTarget() {
       const r = hero.getBoundingClientRect();
-      const sp = clamp(-r.top / Math.max(1, r.height * .7));
+      const sp = clamp(-r.top / Math.max(1, r.height * .5));
       target = .5 + .5 * sp;
     }
     function tick() {
@@ -690,7 +897,7 @@ OD2027VNM&lt;0GRADE9&lt;TO&lt;FIRSTJOB&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&l
     document.fonts && document.fonts.ready.then(draw);
   })();
 
-  /* ---------- 2. Map ---------- */
+  /* ---------- Map ---------- */
   (function map() {
     const cv = document.getElementById('map');
     const B64 = 'AAAAACFB5////wAAZAAAAAAAAAAAAAAAAABNmYAA///wAAAAAA4ABf4AGAAAAAAADwAQAAP//wAAAAAGAAf/gAAAAAAAAAHfzH+AP//AAAAAAMDd///8D4AAAH/gof8x3wH//gAAD4AADf//////wQwf///w59h4H/wAAAP/yf//////////e//////+B2H/AuAA/+P///////////AD/////5Q4D8AcAB9/f//////////+Af/////gHAB4AAAH5///////////78AP8f///gHkAAAAAH5H/////////+GAABgB///wH+AAAAEAw/////////8AYAACAA///8D/AAAAECh/////////4A4AAAABf///v/gAAAZD//////////8AwAAAAAP///n/wAAAXv///////////AgAAAAAL////4QAAAA///////////9AAAAAAAB////48AAAD///////////8AAAAAAAD////9AAAAB//4fH//////4AAAAAAAD////kAAAAB9PwPf//////xgAAAAAAD////gAAAAfyzxHP/////+CAAAAAAAD///+AAAAAfCCf/n/////cCAAAAAAAB///8AAAAAPAxf/n////+MAAAAAAAAB///8AAAAAA+AA///////GMAAAAAAAAf//4AAAAAP+AA///////BgAAAAAAAAP//wAAAAAf/zB///////hAAAAAAAAAL/5gAAAAAf////f/////gAAAAAAAAAH/AQAAAAA///+/P/////gAAAAAAAAAB+AQAAAAB///+/h/////AAAAAAAAAAA+AAAAAAD////f+D///+gAAAAAAAAAAeAIAAAAD////P/B/7/4AAAAAAAAAAAfEGAAAAD////v+A/j+AAAAAAAAAAAAH8EIAAAD////n8AfB+AgAAAAAAAAAABcAAAAAD////3wAcBfAgAAAAAAAAAAAPAAAAAD////7AAcAfgwAAAAAAAAAAABAAAAAD////8QAMAXgIAAAAAAAAAAABD+AAAB/////gAMASBQAAAAAAAAAAAAX/AAAB/////gACAQAYAAAAAAAAAAAAH/oAAAfv///AAAAICIAAAAAAAAAAAAH/8AAAAD///AAAAsGAAAAAAAAAAAAAH/+AAAAB//+AAAAcOAAAAAAAAAAAAAP/+AAAAB//4AAAAMeAAAAAAAAAAAAAP//wAAAB//4AAAAMcgsAAAAAAAAAAAf//+AAAA//wAAAAGEA/CAAAAAAAAAAf///AAAA//gAAAABAAH5AAAAAAAAAAP///gAAAf/wAAAAAYAHQQAAAAAAAAAH///AAAAf/wAAAAAAAAIAAAAAAAAAAH//+AAAAf/wAAAAAAAhAAAAAAAAAAAD//+AAAA//wgAAAAAFxAAAAAAAAAAAB//+AAAA//xgAAAAAP5gAAAAAAAAAAAf/8AAAA//DgAAAAAf/gAAAAAAAAAAAf/8AAAA/+DAAAAAA//wAAAAAAAAAAAf/4AAAAf/DAAAAAH//4AAAAAAAAAAAf/gAAAAf/DAAAAAH//8AAAAAAAAAAAf/AAAAAf8AAAAAAH//+AAAAAAAAAAA//AAAAAP8AAAAAAH//+AAAAAAAAAAA/+AAAAAH4AAAAAAD//+AAAAAAAAAAA/8AAAAAH4AAAAAAD8/8AAAAAAAAAAA/4AAAAAGAAAAAAADAH8AAAAAAAAAAA/gAAAAAAAAAAAAAAAD4AAAAAAAAAAB/gAAAAAAAAAAAAAAADQAGAAAAAAAAB+AAAAAAAAAAAAAAAAAAAEAAAAAAAAB8AAAAAAAAAAAAAAAAAQAIAAAAAAAAB4AAAAAAAAAAAAAAAAAAAwAAAAAAAABwAAAAAAAAAAAAAAAAAABgAAAAAAAAD4AAAAAAAAAAAAAAAAAAAAAAAAAAAADwAAAAAAAAAAAAAAAAAAAAAAAAAAAADxgAAAAAAAAAAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA';
@@ -701,7 +908,7 @@ OD2027VNM&lt;0GRADE9&lt;TO&lt;FIRSTJOB&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&l
     const O = { VNM: [21.0, 105.8], IND: [28.6, 77.2], NGA: [6.5, 3.4], BGD: [23.8, 90.4], NPL: [27.7, 85.3], BRA: [-23.5, -46.6], MEX: [19.4, -99.1] };
     const D = { USA: [42.4, -71.1], CAN: [43.7, -79.4], GBR: [51.5, -0.1], DEU: [52.5, 13.4], KOR: [37.6, 127.0], JPN: [35.7, 139.7], AUS: [-33.9, 151.2], TWN: [25.0, 121.5], ARE: [24.5, 54.4] };
     const R = [['VNM', 'USA'], ['VNM', 'KOR'], ['VNM', 'JPN'], ['VNM', 'AUS'], ['VNM', 'TWN'], ['VNM', 'CAN'], ['IND', 'USA'], ['IND', 'GBR'], ['IND', 'ARE'], ['IND', 'CAN'], ['IND', 'AUS'], ['IND', 'DEU'], ['NGA', 'GBR'], ['NGA', 'USA'], ['NGA', 'KOR'], ['NGA', 'CAN'], ['BGD', 'USA'], ['BGD', 'AUS'], ['NPL', 'JPN'], ['NPL', 'AUS'], ['BRA', 'USA'], ['BRA', 'DEU'], ['MEX', 'USA'], ['MEX', 'CAN']];
-    const LABEL_O = ['VNM', 'IND', 'NGA', 'BRA', 'MEX'], LABEL_D = ['USA', 'GBR', 'DEU', 'KOR', 'JPN', 'AUS', 'ARE', 'CAN'];
+    const LABEL_O = ['VNM', 'IND', 'NGA', 'BRA', 'MEX'], LABEL_D = ['USA', 'GBR', 'DEU', 'KOR', 'JPN', 'AUS', 'ARE'];
     let g, dots, arcs, running = false, raf = 0, col = {};
     const proj = (lat, lon) => [(lon + 180) / STEP * g.s, ((LAT0 - lat) / STEP + .5) * g.s];
     function colors() { col = { ink: tok('--ink'), soft: tok('--ink-soft'), acc: tok('--accent'), accInk: tok('--accent-ink'), card: tok('--card') }; }
@@ -721,7 +928,7 @@ OD2027VNM&lt;0GRADE9&lt;TO&lt;FIRSTJOB&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&l
       });
       draw(performance.now());
     }
-    const bz = (A, i) => { const t = i, u = 1 - t; return [u * u * A.a[0] + 2 * u * t * A.cp[0] + t * t * A.b[0], u * u * A.a[1] + 2 * u * t * A.cp[1] + t * t * A.b[1]]; };
+    const bz = (A, t) => { const u = 1 - t; return [u * u * A.a[0] + 2 * u * t * A.cp[0] + t * t * A.b[0], u * u * A.a[1] + 2 * u * t * A.cp[1] + t * t * A.b[1]]; };
     function draw(now) {
       if (!g) return;
       const c = g.ctx; c.clearRect(0, 0, g.w, g.h);
@@ -736,8 +943,7 @@ OD2027VNM&lt;0GRADE9&lt;TO&lt;FIRSTJOB&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&l
         if (tail < 1) {
           const N = 18;
           for (let k = 0; k < N; k++) {
-            const u0 = lerp(tail, head, k / N), u1 = lerp(tail, head, (k + 1) / N);
-            const p0 = bz(A, u0), p1 = bz(A, u1);
+            const p0 = bz(A, lerp(tail, head, k / N)), p1 = bz(A, lerp(tail, head, (k + 1) / N));
             c.globalAlpha = (k + 1) / N * .95; c.lineWidth = lw * 1.3; c.lineCap = 'round';
             c.beginPath(); c.moveTo(p0[0], p0[1]); c.lineTo(p1[0], p1[1]); c.stroke();
           }
@@ -785,7 +991,7 @@ OD2027VNM&lt;0GRADE9&lt;TO&lt;FIRSTJOB&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&l
     els.forEach(el => io.observe(el));
   })();
 
-  /* ---------- 3. Leaking buckets ---------- */
+  /* ---------- Leaking buckets ---------- */
   (function leak() {
     const cv = document.getElementById('leak');
     const cap = document.getElementById('leak-cap');
@@ -812,12 +1018,10 @@ OD2027VNM&lt;0GRADE9&lt;TO&lt;FIRSTJOB&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&l
       if (!g) return;
       const c = g.ctx, w = g.w, h = g.h, B = geom(), r = Math.max(2.4, w * .0065);
       c.clearRect(0, 0, w, h);
-      // floor
       c.globalAlpha = 1 - mf * .7; c.strokeStyle = col.alarm; c.setLineDash([4, 5]); c.lineWidth = 1.2;
       c.beginPath(); c.moveTo(0, h * .95 + r); c.lineTo(w, h * .95 + r); c.stroke(); c.setLineDash([]);
       c.fillStyle = col.alarm; c.font = `700 ${clamp(w * .022, 9, 12)}px ${MONO}`; c.textAlign = 'left'; c.textBaseline = 'bottom';
       c.fillText('LOST EVERY YEAR', 4, h * .95 - 2); c.globalAlpha = 1;
-      // chutes
       if (mf > .01) {
         c.globalAlpha = mf; c.strokeStyle = col.accInk; c.lineWidth = 2.2; c.lineCap = 'round';
         for (let i = 0; i < 3; i++) { const pts = route(i, 'od'); c.beginPath(); c.moveTo(pts[1][0] - 6, pts[1][1] + 3); c.lineTo(pts[2][0], pts[2][1] + 4); c.stroke(); }
@@ -825,7 +1029,6 @@ OD2027VNM&lt;0GRADE9&lt;TO&lt;FIRSTJOB&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&l
         c.fillText('CLASS OF 2028 →', w - 2, B[2].top + B[2].bh + h * .1);
         c.globalAlpha = 1;
       }
-      // buckets
       B.forEach((b, i) => {
         const lv = levels[i];
         c.save(); bucket(c, b); c.closePath(); c.clip();
@@ -837,7 +1040,6 @@ OD2027VNM&lt;0GRADE9&lt;TO&lt;FIRSTJOB&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&l
         c.restore();
         bucket(c, b); c.strokeStyle = col.ink; c.lineWidth = 2.2; c.lineJoin = 'round'; c.stroke();
         c.beginPath(); c.ellipse(b.cx, b.top, b.tw / 2, 3, 0, 0, Math.PI * 2); c.lineWidth = 1.4; c.stroke();
-        // label pill
         const fs = clamp(w * .024, 9, 12); c.font = `700 ${fs}px ${MONO}`;
         const tx = 'CLASS ' + YEARS[i], tw = c.measureText(tx).width + 12, ty = b.top + b.bh * .42;
         if (tw < b.tw * 1.6) {
@@ -845,7 +1047,6 @@ OD2027VNM&lt;0GRADE9&lt;TO&lt;FIRSTJOB&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&l
           c.fillStyle = col.ink; c.textAlign = 'center'; c.textBaseline = 'middle'; c.fillText(tx, b.cx, ty + .5);
         }
       });
-      // drops
       c.fillStyle = col.acc;
       for (const pr of parts) { const q = at(pr, pr.d); c.beginPath(); c.arc(q[0], q[1], r, 0, Math.PI * 2); c.fill(); }
       for (const s of splashes) { c.globalAlpha = 1 - s.t; c.strokeStyle = col.alarm; c.lineWidth = 1.4; c.beginPath(); c.ellipse(s.x, s.y + r, r * (1 + s.t * 3), r * .6 * (1 + s.t), 0, 0, Math.PI * 2); c.stroke(); }
@@ -882,22 +1083,119 @@ OD2027VNM&lt;0GRADE9&lt;TO&lt;FIRSTJOB&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&l
     whenVisible(cv, v => { running = v && !RM; if (running && !raf) raf = requestAnimationFrame(step); });
   })();
 
-  /* ---------- 4. Journey ---------- */
+  /* ---------- Inside: app mockup ---------- */
+  (function inside() {
+    const br = document.getElementById('browser'), strip = document.getElementById('tabstrip'), screen = document.getElementById('screen');
+    const CHAOS_TABS = ['r/ApplyingToCollege', 'Scholarship portal', 'Visa interview forum', 'Deadlines – Google Doc', 'Group chat (412 unread)', 'CSS Profile help?', 'GKS 2027 notice', 'Common App prompts', 'how to email a professor', 'random blog: SAT or not'];
+    const NOTES = [
+      ['Group chat', 'is the SAT required this year or not??'],
+      ['Reddit thread', 'someone said CSS Profile is optional for internationals at some schools? which ones'],
+      ['Random blog', 'Deadline Jan 1 or Jan 5? two blogs say different things'],
+      ['Forum', 'GKS embassy track vs university track, which one should I pick'],
+      ['Google search', 'how to email a professor for research without sounding weird'],
+      ['Visa forum', 'interview tomorrow, what do they actually ask'],
+      ['Deadlines.doc', 'last edited 3 months ago by someone who already left'],
+      ['Group chat', 'anyone got into Korea without IELTS?']
+    ];
+    const NAV = [
+      { id: 'plan', name: 'My plan', st: 'All stages' },
+      { id: 'library', name: 'Library', st: 'Apply' },
+      { id: 'list', name: 'School list', st: 'Apply' },
+      { id: 'aid', name: 'Aid & scholarships', st: 'Fund' },
+      { id: 'mentors', name: 'Mentors', st: 'Apply' },
+      { id: 'review', name: 'AI Review', st: 'Apply' }
+    ];
+    const SCREENS = {
+      plan: () => `
+        <div class="pane-h"><div><h3>Hi Linh, here's your plan</h3><p>Grade 11 · Hanoi · interested in engineering in Korea, Japan or the US</p></div><span class="chip next">Stage 2 · Build</span></div>
+        <div class="box"><span class="mono">Your journey</span><div class="prog">${['Discover', 'Build', 'Apply', 'Fund', 'Go', 'Thrive', 'Give back'].map((s, i) => `<div class="${i < 1 ? 'done' : i === 1 ? 'cur' : ''}"><i></i>${s}</div>`).join('')}</div></div>
+        <div class="grid2">
+          <div class="box"><span class="mono">This week</span><ul class="todo"><li class="d">Take the archetype quiz</li><li>Read "Cold-emailing a professor" in the Library</li><li>Shortlist 3 summer research programs in the Opportunity Hub</li><li>Ask Minh about KAIST's engineering intro year</li></ul></div>
+          <div class="box"><span class="mono">Coming up</span><div class="rowlist">
+            <div class="rowi"><div><b>Summer research applications</b><span class="m">3 programs on your list</span></div><span class="fit t">in 6 wks</span></div>
+            <div class="rowi"><div><b>IELTS test date</b><span class="m">Booked by you</span></div><span class="fit l">in 9 wks</span></div>
+          </div></div>
+        </div>`,
+      library: () => `
+        <div class="pane-h"><div><h3>Library</h3><p>Written by students who just did it. Updated every year by the next ones.</p></div></div>
+        <div class="search"><span aria-hidden="true">⌕</span>Search guides, e.g. "aid appeal" or "MEXT interview"</div>
+        <div class="rowlist">${[
+          ['Common App personal essay, from blank page to final draft', 'Written by a 2026 admit · improved by 6 students', 'Apply'],
+          ['CSS Profile for Vietnamese families, line by line', 'Written by a 2025 admit · improved by 4 students', 'Fund'],
+          ['Korea GKS scholarship, step by step', 'Written by a 2026 admit · improved by 3 students', 'Fund'],
+          ['Japan MEXT: the embassy track', 'Written by a 2025 admit · improved by 5 students', 'Fund'],
+          ['Your F-1 visa interview: what they actually ask', 'Written by a 2026 admit · improved by 8 students', 'Go'],
+          ['Cold-emailing a professor for research', 'Written by a 2025 admit · improved by 2 students', 'Build']
+        ].map(g => `<div class="rowi"><div><b>${g[0]}</b><span class="m">${g[1]}</span></div><span class="chip later">${g[2]}</span></div>`).join('')}</div>`,
+      list: () => `
+        <div class="pane-h"><div><h3>School list</h3><p>Balanced across countries. Fit is estimated from the Profile Bank and checked by a mentor.</p></div></div>
+        <div class="tbl-wrap"><table class="tbl"><thead><tr><th>School</th><th>Country</th><th>Fit</th><th>OpenDoor mentors there</th></tr></thead><tbody>
+          ${[['KAIST', 'South Korea', 't', 'Target', 4], ['NYU Abu Dhabi', 'UAE', 'r', 'Reach', 2], ['University of Toronto', 'Canada', 't', 'Target', 5], ['Waseda University', 'Japan', 't', 'Target', 3], ['University of Melbourne', 'Australia', 'l', 'Likely', 6], ['Macalester College', 'USA', 'r', 'Reach', 1]]
+            .map(r => `<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td><span class="fit ${r[2]}">${r[3]}</span></td><td class="mono">${r[4]}</td></tr>`).join('')}
+        </tbody></table></div>`,
+      aid: () => `
+        <div class="pane-h"><div><h3>Aid & scholarships</h3><p>Matched to your profile, across every country on your list.</p></div></div>
+        <div class="rowlist">
+          <div class="rowi"><div><b>Global Korea Scholarship (GKS)</b><span class="m">Government scholarship · guide + 3 past recipients to ask</span></div><span class="fit l">Strong match</span></div>
+          <div class="rowi"><div><b>MEXT (Japan)</b><span class="m">Government scholarship · embassy track guide</span></div><span class="fit l">Strong match</span></div>
+          <div class="rowi"><div><b>Need-based aid at US colleges</b><span class="m">CSS Profile guide · aid outcomes from the Profile Bank</span></div><span class="fit t">Check fit</span></div>
+          <div class="rowi"><div><b>Aid appeal helper</b><span class="m">Got an offer that's not enough? Draft an appeal with a mentor.</span></div><span class="chip later">Fund</span></div>
+        </div>`,
+      mentors: () => `
+        <div class="pane-h"><div><h3>Mentors</h3><p>Students who got in last year, matched by country, major and where you're from.</p></div></div>
+        <div class="grid2">${[
+          ['M', 'Minh', "KAIST · Class of '29 · from Da Nang", 'Engineering, GKS, life in Daejeon', 'Replies in about a day'],
+          ['P', 'Priya', "NYU Abu Dhabi · Class of '28 · from Pune", 'Essays, interviews, full-aid offers', 'Replies in about 2 days'],
+          ['T', 'Tunde', "Yonsei · Class of '29 · from Lagos", 'Korea without Korean, arrival', 'Replies in about a day'],
+          ['H', 'Hà', "Waseda · Class of '28 · from Hanoi", 'MEXT, Japanese track, housing', 'Replies in about 3 days']
+        ].map(m => `<div class="box mentor"><span class="avatar">${m[0]}</span><div><h4>${m[1]}</h4><span class="m small muted">${m[2]}</span><p class="small" style="margin-top:6px">Ask about: ${m[3]}</p><span class="mono">${m[4]}</span></div></div>`).join('')}</div>`,
+      review: () => `
+        <div class="pane-h"><div><h3>AI Review</h3><p>Instant feedback on your draft. A mentor checks it before you submit.</p></div><span class="fit t">Draft 2 · 702 / 650 words</span></div>
+        <div class="grid2">
+          <div class="essay"><mark>The power went out at 9 p.m., the night before my physics exam.</mark> I lit a candle and kept going. <mark class="w">I have always been a very hardworking and passionate person.</mark> By midnight I had rebuilt my grandmother's broken radio from the parts in her drawer, and the whole street could hear the news again.</div>
+          <div class="cmts">
+            <div class="cmt"><b>1</b><span>Strong opening. A specific moment pulls the reader in.</span></div>
+            <div class="cmt w"><b>2</b><span>This tells instead of shows. The radio story already proves it, so cut this line.</span></div>
+            <div class="cmt"><b>3</b><span>You're 52 words over. Trim the second paragraph first.</span></div>
+            <div class="cmt"><b>✓</b><span>Mentor Priya will check these comments within 2 days.</span></div>
+          </div>
+        </div>`
+    };
+    let view = 'app', cur = 'plan';
+    function render() {
+      br.dataset.mode = view;
+      if (view === 'chaos') {
+        strip.innerHTML = CHAOS_TABS.map((t, i) => `<span class="tab${i === 4 ? ' on' : ''}"><i></i><span>${t}</span></span>`).join('');
+        screen.innerHTML = `<div class="chaos">${NOTES.map(n => `<div class="note-c"><span class="mono">${n[0]}</span><p>${n[1]}</p></div>`).join('')}<p class="chaos-sum">10 tabs · 4 sources that disagree · 0 people who already did it</p></div>`;
+      } else {
+        const n = NAV.find(x => x.id === cur);
+        strip.innerHTML = `<span class="tab on"><i></i><span>OpenDoor · ${n.name}</span></span>`;
+        screen.innerHTML = `<div class="app"><nav class="side" aria-label="OpenDoor app sections"><div class="who"><span class="avatar">L</span><div><b>Linh</b><span>Example student</span></div></div>${NAV.map(x => `<button type="button" class="nav-i" data-id="${x.id}" aria-pressed="${x.id === cur}">${x.name}<small>${x.st}</small></button>`).join('')}</nav><div class="pane">${SCREENS[cur]()}</div></div>`;
+        screen.querySelectorAll('.nav-i').forEach(b => b.addEventListener('click', () => { cur = b.dataset.id; render(); const nb = screen.querySelector(`.nav-i[data-id="${cur}"]`); nb && nb.focus({ preventScroll: true }); }));
+      }
+    }
+    const vb = document.querySelectorAll('#inside .seg button');
+    vb.forEach(b => b.addEventListener('click', () => { view = b.dataset.v; vb.forEach(x => x.setAttribute('aria-pressed', String(x === b))); render(); }));
+    render();
+  })();
+
+  /* ---------- Journey ---------- */
   (function journey() {
     const S = [
-      { name: 'Discover', when: 'Grades 8–10', items: ['Archetype quiz', 'Country and university explorer', 'Real stories from students like them'] },
-      { name: 'Build', when: 'Grades 10–11', items: ['Pathways', 'Opportunity Hub for local internships and research', 'Cold outreach kit'] },
-      { name: 'Apply', when: 'Grade 12', items: ['The Library', 'School list builder', 'Peer mentors', 'AI Review'], note: 'Across the US, Asia, Europe and beyond.' },
-      { name: 'Fund', when: 'Offer season', items: ['Open international aid database', 'Scholarship matching', 'Help appealing aid offers'] },
-      { name: 'Go', when: 'Before departure', items: ['Visa guides', 'Pre-departure prep', 'Arrival buddy: a senior from your home country at your new school'] },
-      { name: 'Thrive', when: 'University and after', items: ['Internship and job referrals through the network', 'Work-visa guidance after graduation'] },
-      { name: 'Give back', when: 'Every year after', items: ['Become a mentor', 'Write for the Library', 'Fund a scholarship spot'], note: 'The loop closes and the next student begins.' }
+      { name: 'Discover', when: 'Grades 8–10', items: [['Archetype quiz', 'next'], ['Country and university explorer', 'next'], ['Real stories from students like them', 'now']] },
+      { name: 'Build', when: 'Grades 10–11', items: [['Pathways', 'next'], ['Opportunity Hub for local internships and research', 'next'], ['Cold outreach kit', 'now']] },
+      { name: 'Apply', when: 'Grade 12', items: [['The Library', 'now'], ['School list builder', 'now'], ['Peer mentors', 'now'], ['AI Review', 'next']], note: 'Across the US, Asia, Europe and beyond.' },
+      { name: 'Fund', when: 'Offer season', items: [['Open international aid database', 'next'], ['Scholarship matching', 'next'], ['Help appealing aid offers', 'now']] },
+      { name: 'Go', when: 'Before departure', items: [['Visa guides', 'now'], ['Pre-departure prep', 'next'], ['Arrival buddy: a senior from your home country', 'later']] },
+      { name: 'Thrive', when: 'University and after', items: [['Internship and job referrals through the network', 'later'], ['Work-visa guidance after graduation', 'later']] },
+      { name: 'Give back', when: 'Every year after', items: [['Become a mentor', 'now'], ['Write for the Library', 'now'], ['Fund a scholarship spot', 'later']], note: 'The loop closes and the next student begins.' }
     ];
+    const LBL = { now: 'Now', next: 'Next', later: 'Later' };
     const ring = document.getElementById('ring'), svg = document.getElementById('ring-svg'), panel = document.getElementById('stage-panel');
     const R = 38, N = S.length, ang = k => (-90 + k * 360 / N) * Math.PI / 180;
     const pt = (a, r = R) => [50 + r * Math.cos(a), 50 + r * Math.sin(a)];
     let html = `<circle class="track" cx="50" cy="50" r="${R}"/>`;
-    const a6 = ang(N - 1), a0 = ang(N) , p6 = pt(a6 + .16), p0 = pt(a0 - .16);
+    const p6 = pt(ang(N - 1) + .16), p0 = pt(ang(N) - .16);
     html += `<path class="loop" d="M${p6[0].toFixed(2)} ${p6[1].toFixed(2)} A${R} ${R} 0 0 1 ${p0[0].toFixed(2)} ${p0[1].toFixed(2)}"/>`;
     for (let k = 0; k < N; k++) {
       const am = (ang(k) + ang(k + 1)) / 2, c = pt(am), dx = -Math.sin(am), dy = Math.cos(am), nx = Math.cos(am), ny = Math.sin(am), s = 1.3;
@@ -920,175 +1218,12 @@ OD2027VNM&lt;0GRADE9&lt;TO&lt;FIRSTJOB&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&l
       btns.forEach((b, i) => b.setAttribute('aria-pressed', String(i === k)));
       rk.textContent = `Stage ${k + 1} of ${N}`; rn.textContent = st.name; rw.textContent = st.when;
       panel.innerHTML = `<p class="eyebrow">Stage ${k + 1} · ${st.when}</p><h3>${st.name}</h3>
-        <ul class="prod">${st.items.map(i => `<li>${i}</li>`).join('')}</ul>
+        <ul class="prod">${st.items.map(i => `<li><span>${i[0]}</span><span class="chip ${i[1]}">${LBL[i[1]]}</span></li>`).join('')}</ul>
         ${st.note ? `<p class="stage-note">${st.note}</p>` : ''}
         <div class="stage-nav"><button type="button" data-d="-1">← ${S[(k + N - 1) % N].name}</button><button type="button" data-d="1">${S[(k + 1) % N].name} →</button></div>`;
       panel.querySelectorAll('[data-d]').forEach(b => b.addEventListener('click', () => select((k + N + +b.dataset.d) % N)));
     }
     select(0);
-  })();
-
-  /* ---------- 5. Engines ---------- */
-  (function engines() {
-    const pl = (d, c) => `<path pathLength="100" class="${c}" d="${d}"/>`;
-    const dot = (x, y, r, c, extra = '') => `<circle cx="${x}" cy="${y}" r="${r}" class="${c} ${extra}"/>`;
-    const G = [];
-    // 1 supply
-    G.push({
-      t: pl('M6 52 H90', 'gm') + pl('M6 48 L90 16', 'gm') + pl('M6 50 C40 48 62 34 90 6', 'gr'),
-      o: pl('M6 52 H90', 'gm') + pl('M6 48 L90 16', 'gm') + pl('M6 44 L90 12', 'ga') + [20, 38, 56, 74].map(x => dot(x, (44 - (x - 6) * 32 / 84).toFixed(1), 2.6, 'fa', 'pulse')).join('')
-    });
-    // 2 network
-    (() => {
-      const hub = [28, 28], sp = [[10, 12], [10, 44], [46, 12], [46, 44]], iso = [[72, 14], [86, 34], [66, 44]];
-      const t = sp.map(q => pl(`M${hub[0]} ${hub[1]} L${q[0]} ${q[1]}`, 'gm')).join('') + dot(hub[0], hub[1], 4, 'fi') + sp.map(q => dot(q[0], q[1], 2.6, 'fm')).join('') + iso.map(q => dot(q[0], q[1], 2.6, 'fm')).join('');
-      const N = [[10, 16], [28, 42], [46, 12], [62, 36], [84, 14], [82, 46]], E = [[0, 1], [0, 2], [1, 2], [1, 3], [2, 3], [2, 4], [3, 4], [3, 5], [4, 5], [1, 5], [0, 3]];
-      const o = E.map(([a, b]) => pl(`M${N[a][0]} ${N[a][1]} L${N[b][0]} ${N[b][1]}`, 'ga" stroke-opacity=".5')).join('') + N.map((q, i) => dot(q[0], q[1], 3.4, 'fa', i % 2 ? 'pulse' : '')).join('');
-      G.push({ t, o });
-    })();
-    // 3 knowledge
-    G.push({
-      t: [10, 28, 46, 64, 82].map(x => `<rect x="${x - 5}" y="40" width="10" height="12" rx="1.5" class="fm"/>`).join('') + pl('M4 53 H92', 'gm'),
-      o: [10, 28, 46, 64, 82].map((x, i) => `<rect x="${x - 5}" y="${44 - i * 9}" width="10" height="${8 + i * 9}" rx="1.5" class="fa"/>`).join('') + pl('M4 53 H92', 'gm')
-    });
-    // 4 data
-    (() => {
-      let t = '', o = '';
-      for (let i = 0; i < 9; i++) for (let j = 0; j < 4; j++) {
-        const x = 8 + i * 10, y = 10 + j * 12;
-        t += dot(x, y, 2.4, (i < 2 && j < 2) || (i === 2 && j === 0) ? 'fi' : 'fm');
-        o += `<circle cx="${x}" cy="${y}" r="2.6" class="fa" fill-opacity="${(.45 + ((i * 7 + j * 3) % 6) / 10).toFixed(2)}"/>`;
-      }
-      G.push({ t, o });
-    })();
-    // 5 distribution
-    (() => {
-      const t = [[60, 12], [60, 28], [60, 44]].map(q => pl(`M14 28 L${q[0]} ${q[1]}`, 'gm')).join('') + `<rect x="4" y="22" width="12" height="12" rx="2" class="fi"/>` + [[60, 12], [60, 28], [60, 44]].map(q => dot(q[0] + 4, q[1], 2.8, 'fm')).join('');
-      const L1 = [[30, 16], [30, 40]], L2 = [[54, 9], [54, 23], [54, 33], [54, 47]], L3 = [];
-      L2.forEach(q => { L3.push([82, q[1] - 4.5]); L3.push([82, q[1] + 4.5]); });
-      let o = L1.map(q => pl(`M8 28 L${q[0]} ${q[1]}`, 'ga')).join('');
-      L2.forEach((q, i) => { o += pl(`M${L1[i >> 1][0]} ${L1[i >> 1][1]} L${q[0]} ${q[1]}`, 'ga'); });
-      L3.forEach((q, i) => { o += pl(`M${L2[i >> 1][0]} ${L2[i >> 1][1]} L${q[0]} ${q[1]}`, 'ga" stroke-opacity=".55'); });
-      o += dot(8, 28, 3.6, 'fa') + [...L1, ...L2].map(q => dot(q[0], q[1], 2.8, 'fa')).join('') + L3.map(q => dot(q[0], q[1], 2, 'fa', 'pulse')).join('');
-      G.push({ t, o });
-    })();
-    // 6 relationship
-    (() => {
-      const X = [8, 24, 40, 56, 72, 88];
-      const base = pl('M8 26 H88', 'gm') + X.map(x => `<line x1="${x}" y1="22" x2="${x}" y2="30" class="gm"/>`).join('') + `<text x="8" y="44" text-anchor="middle">G9</text><text x="56" y="44" text-anchor="middle">G12</text><text x="88" y="44" text-anchor="middle">JOB</text>`;
-      G.push({ t: base + pl('M44 26 H58', 'gr" stroke-width="5'), o: base + pl('M8 26 H88', 'ga" stroke-width="4') + X.map(x => dot(x, 26, 3.2, 'fa')).join('') });
-    })();
-    // 7 two-sided
-    (() => {
-      const stu = dot(14, 22, 5, 'fi') + `<path pathLength="100" class="gm" d="M6 38 C8 30 20 30 22 38"/>`;
-      const uni = (c) => `<path pathLength="100" class="${c}" d="M68 26 L80 18 L92 26 M70 26 V40 M76 26 V40 M84 26 V40 M90 26 V40 M67 41 H93"/>`;
-      G.push({ t: stu + pl('M24 30 H40', 'gm') + `<rect x="40" y="24" width="12" height="12" rx="2" class="fm"/>` + uni('gm'), o: stu + pl('M26 24 C40 10 54 10 64 22', 'ga') + pl('M58 18 L64 22 L57 25', 'ga') + pl('M64 40 C52 52 36 50 26 38', 'ga') + pl('M32 37 L26 38 L28 44', 'ga') + uni('ga') });
-    })();
-    const E = [
-      { t: 'Supply that creates itself', cls: 'e1', vt: 'Cost rises per student', vo: 'Supply grows with demand',
-        pt: 'Every new student needs an expert the firm has to hire and pay. Cost climbs with each client, so growth means higher prices or thinner advice.',
-        po: "Consulting firms must hire every expert, so costs rise with every new student. OpenDoor's mentors come out of its own results. Each admitted student becomes next year's mentor, so supply grows exactly when demand grows." },
-      { t: 'Cross-border network effects', cls: 'wide', vt: 'One market at a time', vo: 'Each country adds value to all',
-        pt: 'Firms are built country by country. Advice in one market rarely connects to students or alumni in another.',
-        po: 'Each new country makes OpenDoor more valuable for every other country. An applicant from Pune gets advice from a Vietnamese student already at her dream school in Abu Dhabi. A student from Lagos lands in Seoul and is met by an OpenDoor buddy.' },
-      { t: 'Knowledge that compounds', cls: '', vt: 'Rewritten every year', vo: 'Written once, read by thousands',
-        pt: 'Advice is given in private sessions and stays there. Next year, the same explanations are written again for the next client.',
-        po: 'Every guide is written once and read by thousands, then improved each year by the people who used it. Like Wikipedia, the open library grows stronger the more people use it, and it ranks in search for free.' },
-      { t: 'The data no one else has', cls: '', vt: 'Sees only paying clients', vo: 'Sees the whole field',
-        pt: 'A firm sees only its own paying clients, a small and wealthy slice of applicants. Its picture of admissions and aid is narrow.',
-        po: 'The Profile Bank and aid outcomes become the largest open dataset on international admissions and financial aid. Firms only see their own paying clients. OpenDoor sees the whole field, and its AI Review gets sharper every cycle.' },
-      { t: 'Trust-based distribution', cls: '', vt: 'Paid acquisition', vo: 'Peers bring the next wave',
-        pt: 'Growth is bought through ads, agents and fairs. Every new family costs marketing money, and families are wary of sales pitches.',
-        po: 'Students trust a peer who got in over an agency ad. Every mentor and every admitted student is a creator who brings in the next wave on TikTok, Threads and in school group chats.' },
-      { t: 'A relationship that lasts years', cls: '', vt: 'One package, once', vo: 'Grade 9 to first job',
-        pt: 'Consulting sells one package, once, around Grades 11 and 12. When the offer letter arrives, the relationship ends.',
-        po: 'Consulting sells one package once. OpenDoor is with a student from Grade 9 until their first job, with many points where value is created and paid for.' },
-      { t: 'Both sides need it', cls: 'wide', vt: 'One side served', vo: 'Students and institutions',
-        pt: 'Firms serve one side, the paying family. Institutions get no direct, trusted channel to talented students who cannot pay.',
-        po: 'Students need guidance, and institutions need students. IIE warns US colleges could be left with "empty seats" as domestic high school graduates decline, while universities and governments compete for the best international talent. AI has made personal guidance cheap for the first time, and CollegeVine has shifted toward selling AI to universities, leaving the student side open.' }
-    ];
-    const grid = document.getElementById('eng-grid');
-    grid.innerHTML = E.map((e, i) => `<article class="eng ${e.cls}">
-      <div class="eng-head"><span class="mono">Engine ${i + 1}</span><svg class="gl" viewBox="0 0 96 56" aria-hidden="true"><g class="t">${G[i].t}</g><g class="o">${G[i].o}</g></svg></div>
-      <h3>${e.t}</h3>
-      <p class="t">${e.pt}</p><p class="o">${e.po}</p>
-      <span class="verdict t">${e.vt}</span><span class="verdict o">${e.vo}</span>
-    </article>`).join('');
-    const label = document.getElementById('eng-mode-label');
-    const tbtns = document.querySelectorAll('#engines .seg button');
-    tbtns.forEach(b => b.addEventListener('click', () => {
-      const m = b.dataset.mode;
-      grid.dataset.mode = m;
-      tbtns.forEach(x => x.setAttribute('aria-pressed', String(x === b)));
-      label.textContent = 'Showing: ' + (m === 'od' ? 'OpenDoor' : 'Traditional consulting');
-      if (!RM) { grid.classList.remove('anim'); void grid.offsetWidth; grid.classList.add('anim'); }
-    }));
-  })();
-
-  /* ---------- 6. Rings ---------- */
-  (function rings() {
-    const W = [
-      { name: 'Students and families', short: 'STUDENTS & FAMILIES', tag: 'Wave 1', d: 'Free core. Paid mentor sessions with a platform fee, season plans priced by local purchasing power, and AI Review credits.' },
-      { name: 'Schools and learning centers', short: 'SCHOOLS & CENTERS', tag: 'Wave 2', d: 'A "counselor in a box" license for schools that have no counselor, with dashboards for teachers.' },
-      { name: 'Universities', short: 'UNIVERSITIES', tag: 'Wave 3', d: 'An opt-in, student-controlled talent pool and sponsored info sessions.' },
-      { name: 'Employers', short: 'EMPLOYERS', tag: 'Wave 4', d: 'Internship listings and access to globally minded graduates through the Thrive stage.' },
-      { name: 'Impact partners', short: 'IMPACT PARTNERS', tag: 'Wave 5', d: "Foundations and government programs that fund scholarship spots, such as Vietnam's plan to send around 1,500 students abroad each year in strategic fields." }
-    ];
-    const svg = document.getElementById('rings'), list = document.getElementById('waves');
-    const RAD = [74, 112, 150, 188, 226], C = 240;
-    let s = '';
-    W.forEach((w, i) => {
-      const r = RAD[i];
-      s += `<path id="rp${i}" d="M${C - r} ${C} A${r} ${r} 0 0 1 ${C + r} ${C}" fill="none"/>`;
-      s += `<circle class="band" data-i="${i}" cx="${C}" cy="${C}" r="${r}" style="stroke:var(--band${i + 1})"/>`;
-      s += `<text class="lbl" data-i="${i}" dominant-baseline="central"><textPath href="#rp${i}" startOffset="50%" text-anchor="middle">${w.short}</textPath></text>`;
-    });
-    s += `<circle class="core" cx="${C}" cy="${C}" r="44"/><circle class="core-ic" cx="${C}" cy="${C - 12}" r="9"/><path class="core-ic" d="M${C - 17} ${C + 22} C${C - 15} ${C + 4} ${C + 15} ${C + 4} ${C + 17} ${C + 22}Z"/>`;
-    svg.insertAdjacentHTML('beforeend', s);
-    list.innerHTML = W.map((w, i) => `<li><button type="button" data-i="${i}" aria-pressed="false"><span class="sw" style="background:var(--band${i + 1})"></span><span><b>${w.name}<span class="tag">${w.tag}</span></b><span class="d">${w.d}</span></span></button></li>`).join('');
-    const bands = svg.querySelectorAll('.band'), lbls = svg.querySelectorAll('.lbl'), lbtn = list.querySelectorAll('button');
-    let locked = null;
-    function show(i) {
-      if (i == null) svg.removeAttribute('data-sel'); else svg.setAttribute('data-sel', i);
-      bands.forEach(b => b.classList.toggle('on', +b.dataset.i === i));
-      lbls.forEach(b => b.classList.toggle('on', +b.dataset.i === i));
-      lbtn.forEach(b => b.setAttribute('aria-pressed', String(+b.dataset.i === i)));
-    }
-    lbtn.forEach(b => {
-      b.addEventListener('mouseenter', () => locked == null && show(+b.dataset.i));
-      b.addEventListener('mouseleave', () => locked == null && show(null));
-      b.addEventListener('click', () => { const i = +b.dataset.i; locked = locked === i ? null : i; show(locked); });
-    });
-    bands.forEach(b => b.addEventListener('click', () => { const i = +b.dataset.i; locked = locked === i ? null : i; show(locked); }));
-    if (!RM && 'IntersectionObserver' in window) {
-      const io = new IntersectionObserver(es => {
-        if (!es[0].isIntersecting) return; io.disconnect();
-        svg.classList.add('seq');
-        W.forEach((_, i) => setTimeout(() => { bands[i].classList.add('lit'); lbls[i].classList.add('lit'); if (i === W.length - 1) setTimeout(() => svg.classList.remove('seq'), 600); }, 250 + i * 420));
-      }, { threshold: .45 });
-      io.observe(svg);
-    }
-  })();
-
-  /* ---------- 7. Ladder climber ---------- */
-  (function ladder() {
-    const box = document.getElementById('stairs'), fig = document.getElementById('climber');
-    const treads = [...box.querySelectorAll('.step')];
-    function place() {
-      if (getComputedStyle(fig).display === 'none') return;
-      const br = box.getBoundingClientRect();
-      const pts = treads.map(s => { const b = s.querySelector('.block').getBoundingClientRect(); return [b.left - br.left + b.width * .62, b.top - br.top - 42]; });
-      const vh = innerHeight;
-      const prog = RM ? 1 : clamp((vh * .8 - br.top) / (br.height * .9));
-      const f = prog * (pts.length - 1), i = Math.min(pts.length - 2, Math.floor(f)), k = f - i;
-      const a = pts[i], b = pts[i + 1];
-      const hop = k > .35 && k < .65 ? (k - .35) / .3 : (k >= .65 ? 1 : 0);
-      const x = lerp(a[0], b[0], k), y = lerp(a[1], b[1], hop) - Math.sin(hop * Math.PI) * 14;
-      fig.style.transform = `translate(${x}px, ${y}px)`;
-    }
-    addEventListener('scroll', () => requestAnimationFrame(place), { passive: true });
-    new ResizeObserver(place).observe(box);
-    place();
   })();
 })();
 </script>
