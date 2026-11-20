@@ -143,7 +143,7 @@ export function suggestPackage(profile) {
     let s = 0;
     if (f.budget && f.budget.includes(profile.budget)) s += 2;
     if (f.aid && f.aid.includes(profile.aid)) s += 3;
-    if (f.grade && f.grade.includes(profile.grade)) s += 1;
+    if (f.grade && f.grade.includes(profile.grade)) s += f.gradeWeight || 1;
     if (profile.budget === 'free' && p.price > 0) s -= 10;
     return s;
   };

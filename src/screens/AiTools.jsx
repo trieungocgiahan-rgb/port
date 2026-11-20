@@ -127,6 +127,7 @@ function Highlighted({ text, marks }) {
 }
 
 export function EssayReview() {
+  const essayPkg = data.packages.find((p) => p.id === 'essay-refine');
   const { state, update } = useStore();
   const draft = state.essay || { text: data.sampleEssay, prompt: 'challenge' };
   const [text, setText] = useState(draft.text);
@@ -213,9 +214,9 @@ export function EssayReview() {
 
           <section className="panel stack">
             <h3>Want a person to read it?</h3>
-            <p className="small muted">A mentor in your major gives 3 rounds of written feedback, each within 48 hours.</p>
+            <p className="small muted">Essay Refine: {essayPkg.outcome}. {essayPkg.priceLabel}.</p>
             <div className="row">
-              <button type="button" className="btn accent" onClick={() => go('packages')}>See Essay Review package</button>
+              <button type="button" className="btn accent" onClick={() => go('packages')}>See Essay Refine</button>
               <button type="button" className="btn ghost" onClick={() => setPhase('edit')}>Edit and review again</button>
             </div>
           </section>

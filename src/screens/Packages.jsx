@@ -19,7 +19,7 @@ export function Packages() {
 
       <section className="stack">
         <h2>Available now</h2>
-        <div className="pkg-grid three">
+        <div className="pkg-grid">
           {now.map((p) => (
             <PackageCard
               key={p.id}
@@ -36,7 +36,7 @@ export function Packages() {
 
       <section className="stack">
         <h2>Opens 2027</h2>
-        <div className="pkg-grid three">
+        <div className="pkg-grid">
           {later.map((p) => {
             const on = !!state.waitlist[p.id];
             return (
@@ -64,10 +64,10 @@ export function Packages() {
 
       {chosen && (
         <Modal title={chosen.name} onClose={() => setChosen(null)}>
-          <p>{chosen.outcome}</p>
           <dl className="summary">
+            <dt>Who it's for</dt><dd>{chosen.for}</dd>
+            <dt>You get</dt><dd>{chosen.outcome}</dd>
             <dt>Price</dt><dd className="num">{chosen.priceLabel}</dd>
-            <dt>Starts</dt><dd>As soon as you're matched with a mentor</dd>
           </dl>
           <p className="note">This is a prototype, so there's no checkout yet. In the real product you'd pay here.</p>
           <button
@@ -104,8 +104,8 @@ export function ProfileCheck() {
       <div className="page stack-lg">
         <div className="stack" style={{ gap: 16, alignItems: 'flex-start' }}>
           <span className="confirm-mark"><Icon name="check" size={24} /></span>
-          <h1>Your free profile check is booked for {chosen.day} at {chosen.time}</h1>
-          <p className="muted">A mentor will look at your answers before the call and send you a one-page summary after it.</p>
+          <h1>Your Free Profile Check is booked for {chosen.day} at {chosen.time}</h1>
+          <p className="muted">A mentor will look at your answers before the call. After it, you get a one-page summary of 3 strengths, 3 gaps and 3 next steps.</p>
         </div>
         <div className="row">
           <button type="button" className="btn accent" onClick={() => go('quiz')}>Answer the 7 questions now</button>
@@ -118,8 +118,12 @@ export function ProfileCheck() {
     <div className="page stack-lg">
       <header className="stack">
         <a href="#packages" className="back">All packages</a>
-        <h1>Free profile check</h1>
-        <p className="muted" style={{ maxWidth: '60ch' }}>{pkg.outcome} {pkg.for}</p>
+        <h1>{pkg.name}</h1>
+        <dl className="summary">
+          <dt>Who it's for</dt><dd>{pkg.for}</dd>
+          <dt>You get</dt><dd>{pkg.outcome}</dd>
+          <dt>Price</dt><dd>{pkg.priceLabel}</dd>
+        </dl>
       </header>
       <section className="stack">
         <h2>Pick a time</h2>
@@ -131,7 +135,7 @@ export function ProfileCheck() {
             </button>
           ))}
         </div>
-        <p className="tiny muted">20 minutes, video call, in your local time.</p>
+        <p className="tiny muted">30 minutes one-on-one, video call, in your local time.</p>
       </section>
       <button type="button" className="btn accent block" disabled={!slot} onClick={() => setSent(true)}>
         Book my free check

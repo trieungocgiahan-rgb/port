@@ -120,13 +120,13 @@ export function useToast() {
   return [node, setMsg];
 }
 
-export function PackageCard({ pkg, action, compact = false, highlight }) {
+export function PackageCard({ pkg, action, highlight }) {
   const later = pkg.status === '2027';
   return (
     <article className={`panel pkg${later ? ' dim' : ''}`}>
       <div className="row between">
-        <span className="tag">{pkg.stage}</span>
-        {later ? <span className="tag soon">Opens 2027</span> : highlight ? <span className="tag accent">{highlight}</span> : null}
+        <span className={`tag ${later ? 'soon' : 'accent'}`}>{later ? 'Opens 2027' : 'Available now'}</span>
+        {highlight && <span className="tag solid">{highlight}</span>}
       </div>
       <h3>{pkg.name}</h3>
       <dl>
@@ -134,15 +134,16 @@ export function PackageCard({ pkg, action, compact = false, highlight }) {
           <dt>Who it's for</dt>
           <dd>{pkg.for}</dd>
         </div>
-        {!compact && (
-          <div>
-            <dt>You walk away with</dt>
-            <dd>{pkg.outcome}</dd>
-          </div>
-        )}
+        <div>
+          <dt>What you walk away with</dt>
+          <dd>{pkg.outcome}</dd>
+        </div>
       </dl>
       <div className="foot-row">
-        <span className="price">{pkg.priceLabel}</span>
+        <div>
+          <span className="price">{pkg.priceLabel}</span>
+          {pkg.priceNote && <span className="tiny muted" style={{ display: 'block' }}>{pkg.priceNote}</span>}
+        </div>
         {action}
       </div>
     </article>

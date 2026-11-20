@@ -57,7 +57,7 @@ export default function Landing() {
           </div>
           <div className="grid-3">
             {preview.map((p) => (
-              <PackageCard key={p.id} pkg={p} compact action={<a href="#packages" className="link small">Details</a>} />
+              <PackageCard key={p.id} pkg={p} action={<a href="#packages" className="link small">Details</a>} />
             ))}
           </div>
         </section>

@@ -235,7 +235,7 @@
         {
           "value": "free",
           "label": "Free only",
-          "detail": "Free tools, community and the profile check"
+          "detail": "Free tools, community and the Free Profile Check"
         },
         {
           "value": "little",
@@ -413,31 +413,35 @@
   "packages": [
     {
       "id": "profile-check",
-      "name": "Profile Check",
+      "name": "Free Profile Check",
       "status": "now",
-      "stage": "Discover",
       "price": 0,
       "priceLabel": "Free",
-      "for": "Anyone in Grade 9 to 12 who isn't sure where they stand.",
-      "outcome": "A 20-minute call and a one-page read of your profile with 3 next steps.",
+      "for": "Grade 10 to 12, not sure where they stand",
+      "outcome": "30 minutes one-on-one, then a one-page summary of 3 strengths, 3 gaps and 3 next steps",
       "fit": {
         "budget": [
           "free"
-        ]
+        ],
+        "grade": [
+          "9",
+          "10"
+        ],
+        "gradeWeight": 3
       }
     },
     {
-      "id": "school-list",
-      "name": "School List Sprint",
+      "id": "ec-refine",
+      "name": "EC Refine",
       "status": "now",
-      "stage": "Build",
-      "price": 49,
-      "priceLabel": "$49",
-      "for": "Grade 11 and 12 students who don't have a list yet.",
-      "outcome": "10 to 12 schools across your countries, split into reach, target and likely, with costs.",
+      "price": 20,
+      "priceLabel": "$20",
+      "for": "Grade 11 to 12, activities are there but the list is a mess",
+      "outcome": "1 to 2 sessions. A cleaned-up activity list and CV, plus a theme that ties it all to their major",
       "fit": {
         "budget": [
-          "little"
+          "little",
+          "more"
         ],
         "grade": [
           "11",
@@ -446,84 +450,81 @@
       }
     },
     {
-      "id": "aid-starter",
-      "name": "Financial Aid Starter",
+      "id": "essay-refine",
+      "name": "Essay Refine",
       "status": "now",
-      "stage": "Fund",
-      "price": 59,
-      "priceLabel": "$59",
-      "for": "Students who can't go without aid.",
-      "outcome": "Which schools fund international students, what your family will be asked to pay, and a filled-in CSS Profile checklist.",
+      "price": 20,
+      "priceLabel": "$20",
+      "for": "Grade 12, has a draft",
+      "outcome": "1 to 2 sessions and 2 rounds of written feedback. An honest read and a stronger draft",
       "fit": {
-        "aid": [
-          "yes"
-        ],
         "budget": [
           "little",
           "more"
-        ]
-      }
-    },
-    {
-      "id": "essay-review",
-      "name": "Essay Review",
-      "status": "now",
-      "stage": "Apply",
-      "price": 89,
-      "priceLabel": "$89",
-      "for": "Students with a first draft of their main essay.",
-      "outcome": "3 rounds of written feedback from a mentor in your major, each within 48 hours.",
-      "fit": {
+        ],
         "grade": [
           "12",
           "gap"
-        ]
+        ],
+        "gradeWeight": 2
       }
     },
     {
-      "id": "mentor-hours",
-      "name": "Mentor Hours",
+      "id": "essay-refind",
+      "name": "Essay ReFind",
       "status": "now",
-      "stage": "Any stage",
-      "price": 120,
-      "priceLabel": "$120 for 5",
-      "for": "Students who want regular check-ins with one mentor.",
-      "outcome": "5 sessions of 45 minutes with the same mentor, used whenever you need them.",
+      "price": 59,
+      "priceLabel": "$59 to $79",
+      "for": "Grade 11 to 12, staring at a blank page",
+      "outcome": "4 to 5 sessions. From \"I have nothing to write about\" to a finished personal statement",
       "fit": {
         "budget": [
           "more"
+        ],
+        "grade": [
+          "11",
+          "12"
         ]
       }
     },
     {
-      "id": "full-season",
-      "name": "Full Application Season",
+      "id": "ec-refind",
+      "name": "EC ReFind",
       "status": "2027",
-      "stage": "Apply",
-      "price": 890,
-      "priceLabel": "$890",
-      "for": "Grade 12 students applying to 8 or more schools.",
-      "outcome": "One mentor from August to January: list, essays, activities, forms and a final check of every application."
-    },
-    {
-      "id": "interview-prep",
-      "name": "Interview Prep",
-      "status": "2027",
-      "stage": "Apply",
-      "price": 79,
-      "priceLabel": "$79",
-      "for": "Students invited to interview, including KAIST and UTokyo PEAK.",
-      "outcome": "2 mock interviews with written notes on what to fix."
-    },
-    {
-      "id": "ready-to-go",
-      "name": "Ready to Go",
-      "status": "2027",
-      "stage": "Go",
       "price": 69,
-      "priceLabel": "$69",
-      "for": "Students who have accepted an offer.",
-      "outcome": "A visa checklist, housing tips and a call with a student already living in your new city."
+      "priceLabel": "$69 to $89",
+      "for": "Grade 10 to 11, not much on the list yet",
+      "outcome": "4 to 6 sessions over 1 to 2 months. A theme, a skill plan, 10 real opportunities, and a role in one of our actual projects"
+    },
+    {
+      "id": "navigator",
+      "name": "Navigator",
+      "status": "2027",
+      "price": 99,
+      "priceLabel": "$99",
+      "priceNote": "or $89 each in a group of 4",
+      "for": "Rising Grade 12, no counselor at school",
+      "outcome": "July to January, a group call every two weeks. We do the counselor's job with them, from school list and Common App to school profile, counselor letter guide, CSS Profile and a final check before each round"
+    },
+    {
+      "id": "full-journey-6",
+      "name": "Full Journey 6",
+      "status": "2027",
+      "price": 389,
+      "priceLabel": "Around $389",
+      "priceNote": "still deciding",
+      "for": "Summer before Grade 12, wants one person for everything",
+      "outcome": "About 6 months with one mentor, 16 one-on-ones and a monthly update for parents. School list, profile, all essays, aid, mock interviews. Navigator included"
+    },
+    {
+      "id": "full-journey-12",
+      "name": "Full Journey 12",
+      "status": "2027",
+      "price": 699,
+      "priceLabel": "Around $699",
+      "priceNote": "still deciding",
+      "for": "Grade 11, wants to start early",
+      "outcome": "About 12 months, around 28 sessions. Everything in Full Journey 6, plus EC ReFind and a project role"
     }
   ],
   "mentors": [
