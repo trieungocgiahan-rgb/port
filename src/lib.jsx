@@ -32,6 +32,9 @@ const fresh = () => ({
   prefs: null,
   booking: null,
   waitlist: {},
+  essay: null,
+  profileInput: null,
+  profileRan: false,
 });
 function load() {
   try {

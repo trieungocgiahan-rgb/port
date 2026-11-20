@@ -4,7 +4,6 @@
     "oneLiner": "Get into a university abroad with help from students who just did it.",
     "subline": "A plan built around you, simple tools for every step, and mentors from your part of the world. Made for students whose school has no college counselor."
   },
-
   "student": {
     "name": "Linh",
     "grade": "11",
@@ -13,24 +12,34 @@
     "timezone": "Hanoi, GMT+7",
     "tzOffset": 7,
     "counselor": "no",
-    "destinations": ["US", "Korea", "Japan"],
+    "destinations": [
+      "US",
+      "Korea",
+      "Japan"
+    ],
     "interest": "Engineering",
     "aid": "yes",
     "budget": "little"
   },
-
   "problem": [
     "Most schools in Vietnam, India and the UAE have no college counselor.",
     "Agencies charge thousands and hand everyone the same school list.",
     "Free advice online is written for American students, not for you."
   ],
-
   "howItWorks": [
-    { "title": "Tell us about you", "text": "Seven quick questions about your grade, where you want to go and what you can spend." },
-    { "title": "Get your plan", "text": "A week-by-week plan with your real deadlines and the next few things to do." },
-    { "title": "Work with someone who's been there", "text": "Book a student mentor who got in from a place like yours, in your language." }
+    {
+      "title": "Tell us about you",
+      "text": "Seven quick questions about your grade, where you want to go and what you can spend."
+    },
+    {
+      "title": "Get your plan",
+      "text": "A week-by-week plan with your real deadlines and the next few things to do."
+    },
+    {
+      "title": "Work with someone who's been there",
+      "text": "Book a student mentor who got in from a place like yours, in your language."
+    }
   ],
-
   "faq": [
     {
       "q": "Why should I trust students?",
@@ -45,18 +54,32 @@
       "a": "Tell us within 7 days of a session. We'll refund it or match you with a different mentor, whichever you prefer."
     }
   ],
-
   "quiz": [
     {
       "id": "grade",
       "question": "What grade are you in?",
       "type": "single",
       "options": [
-        { "value": "9", "label": "Grade 9" },
-        { "value": "10", "label": "Grade 10" },
-        { "value": "11", "label": "Grade 11" },
-        { "value": "12", "label": "Grade 12" },
-        { "value": "gap", "label": "Finished school / gap year" }
+        {
+          "value": "9",
+          "label": "Grade 9"
+        },
+        {
+          "value": "10",
+          "label": "Grade 10"
+        },
+        {
+          "value": "11",
+          "label": "Grade 11"
+        },
+        {
+          "value": "12",
+          "label": "Grade 12"
+        },
+        {
+          "value": "gap",
+          "label": "Finished school / gap year"
+        }
       ]
     },
     {
@@ -65,11 +88,26 @@
       "type": "single",
       "withCity": true,
       "options": [
-        { "value": "Vietnam", "label": "Vietnam" },
-        { "value": "India", "label": "India" },
-        { "value": "UAE", "label": "UAE" },
-        { "value": "Europe", "label": "Europe" },
-        { "value": "Other", "label": "Somewhere else" }
+        {
+          "value": "Vietnam",
+          "label": "Vietnam"
+        },
+        {
+          "value": "India",
+          "label": "India"
+        },
+        {
+          "value": "UAE",
+          "label": "UAE"
+        },
+        {
+          "value": "Europe",
+          "label": "Europe"
+        },
+        {
+          "value": "Other",
+          "label": "Somewhere else"
+        }
       ]
     },
     {
@@ -77,9 +115,18 @@
       "question": "Does your school have a college counselor?",
       "type": "single",
       "options": [
-        { "value": "yes", "label": "Yes, and I see them often" },
-        { "value": "busy", "label": "Yes, but they're stretched thin" },
-        { "value": "no", "label": "No" }
+        {
+          "value": "yes",
+          "label": "Yes, and I see them often"
+        },
+        {
+          "value": "busy",
+          "label": "Yes, but they're stretched thin"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
       ]
     },
     {
@@ -88,14 +135,38 @@
       "hint": "Pick as many as you like.",
       "type": "multi",
       "options": [
-        { "value": "US", "label": "United States" },
-        { "value": "UK", "label": "United Kingdom" },
-        { "value": "Canada", "label": "Canada" },
-        { "value": "Australia", "label": "Australia" },
-        { "value": "Korea", "label": "South Korea" },
-        { "value": "Japan", "label": "Japan" },
-        { "value": "Europe", "label": "Elsewhere in Europe" },
-        { "value": "Unsure", "label": "Not sure yet" }
+        {
+          "value": "US",
+          "label": "United States"
+        },
+        {
+          "value": "UK",
+          "label": "United Kingdom"
+        },
+        {
+          "value": "Canada",
+          "label": "Canada"
+        },
+        {
+          "value": "Australia",
+          "label": "Australia"
+        },
+        {
+          "value": "Korea",
+          "label": "South Korea"
+        },
+        {
+          "value": "Japan",
+          "label": "Japan"
+        },
+        {
+          "value": "Europe",
+          "label": "Elsewhere in Europe"
+        },
+        {
+          "value": "Unsure",
+          "label": "Not sure yet"
+        }
       ]
     },
     {
@@ -103,14 +174,38 @@
       "question": "What are you interested in studying?",
       "type": "single",
       "options": [
-        { "value": "Engineering", "label": "Engineering" },
-        { "value": "Computer science", "label": "Computer science" },
-        { "value": "Business", "label": "Business or economics" },
-        { "value": "Medicine", "label": "Medicine or health" },
-        { "value": "Sciences", "label": "Natural sciences" },
-        { "value": "Arts", "label": "Arts and design" },
-        { "value": "Social sciences", "label": "Social sciences" },
-        { "value": "Unsure", "label": "Not sure yet" }
+        {
+          "value": "Engineering",
+          "label": "Engineering"
+        },
+        {
+          "value": "Computer science",
+          "label": "Computer science"
+        },
+        {
+          "value": "Business",
+          "label": "Business or economics"
+        },
+        {
+          "value": "Medicine",
+          "label": "Medicine or health"
+        },
+        {
+          "value": "Sciences",
+          "label": "Natural sciences"
+        },
+        {
+          "value": "Arts",
+          "label": "Arts and design"
+        },
+        {
+          "value": "Social sciences",
+          "label": "Social sciences"
+        },
+        {
+          "value": "Unsure",
+          "label": "Not sure yet"
+        }
       ]
     },
     {
@@ -118,9 +213,18 @@
       "question": "Do you need financial aid?",
       "type": "single",
       "options": [
-        { "value": "yes", "label": "Yes, I can't go without it" },
-        { "value": "some", "label": "Some would help" },
-        { "value": "no", "label": "No, my family can pay" }
+        {
+          "value": "yes",
+          "label": "Yes, I can't go without it"
+        },
+        {
+          "value": "some",
+          "label": "Some would help"
+        },
+        {
+          "value": "no",
+          "label": "No, my family can pay"
+        }
       ]
     },
     {
@@ -128,45 +232,184 @@
       "question": "How much can you spend on help?",
       "type": "single",
       "options": [
-        { "value": "free", "label": "Free only", "detail": "Free tools, community and the profile check" },
-        { "value": "little", "label": "A little", "detail": "Up to about $100 for the year" },
-        { "value": "more", "label": "More", "detail": "I want regular help from a mentor" }
+        {
+          "value": "free",
+          "label": "Free only",
+          "detail": "Free tools, community and the profile check"
+        },
+        {
+          "value": "little",
+          "label": "A little",
+          "detail": "Up to about $100 for the year"
+        },
+        {
+          "value": "more",
+          "label": "More",
+          "detail": "I want regular help from a mentor"
+        }
       ]
     }
   ],
-
   "stages": [
-    { "id": "discover", "label": "Discover", "text": "Find out what you like and where you could go." },
-    { "id": "build", "label": "Build", "text": "Grow your profile: grades, tests, activities." },
-    { "id": "apply", "label": "Apply", "text": "Pick schools, write essays, send applications." },
-    { "id": "fund", "label": "Fund", "text": "Aid forms, scholarships and comparing offers." },
-    { "id": "go", "label": "Go", "text": "Visa, housing and getting ready to leave." }
+    {
+      "id": "discover",
+      "label": "Discover",
+      "text": "Find out what you like and where you could go."
+    },
+    {
+      "id": "build",
+      "label": "Build",
+      "text": "Grow your profile: grades, tests, activities."
+    },
+    {
+      "id": "apply",
+      "label": "Apply",
+      "text": "Pick schools, write essays, send applications."
+    },
+    {
+      "id": "fund",
+      "label": "Fund",
+      "text": "Aid forms, scholarships and comparing offers."
+    },
+    {
+      "id": "go",
+      "label": "Go",
+      "text": "Visa, housing and getting ready to leave."
+    }
   ],
-
   "tasks": [
-    { "id": "t1", "stage": "build", "text": "Write down 3 activities you'd still do without a certificate", "time": "20 min" },
-    { "id": "t2", "stage": "build", "text": "Book your first SAT or ACT date", "time": "15 min" },
-    { "id": "t3", "stage": "build", "text": "Add 5 schools to your deadline tracker", "time": "10 min", "link": "tool-deadlines" },
-    { "id": "t4", "stage": "build", "aid": true, "text": "Ask your parents for last year's income papers", "time": "5 min" },
-    { "id": "t5", "stage": "build", "text": "Read one Insider post about your major", "time": "5 min", "link": "community" },
-    { "id": "t6", "stage": "discover", "text": "List 3 subjects you'd happily study for 4 years", "time": "15 min" },
-    { "id": "t7", "stage": "discover", "text": "Join one club or project outside class", "time": "30 min" },
-    { "id": "t8", "stage": "discover", "text": "Browse 10 universities in the countries you picked", "time": "30 min" },
-    { "id": "t9", "stage": "apply", "text": "Pick your 2 recommendation teachers", "time": "10 min" },
-    { "id": "t10", "stage": "apply", "text": "Write a messy first draft of your main essay", "time": "1 hour" },
-    { "id": "t11", "stage": "apply", "aid": true, "text": "Start your CSS Profile", "time": "45 min", "link": "tool-css" },
-    { "id": "t12", "stage": "apply", "text": "Check every deadline in your tracker", "time": "10 min", "link": "tool-deadlines" }
+    {
+      "id": "t1",
+      "stage": "build",
+      "text": "Write down 3 activities you'd still do without a certificate",
+      "time": "20 min"
+    },
+    {
+      "id": "t2",
+      "stage": "build",
+      "text": "Book your first SAT or ACT date",
+      "time": "15 min"
+    },
+    {
+      "id": "t3",
+      "stage": "build",
+      "text": "Add 5 schools to your deadline tracker",
+      "time": "10 min",
+      "link": "tool-deadlines"
+    },
+    {
+      "id": "t4",
+      "stage": "build",
+      "aid": true,
+      "text": "Ask your parents for last year's income papers",
+      "time": "5 min"
+    },
+    {
+      "id": "t5",
+      "stage": "build",
+      "text": "Read one Insider post about your major",
+      "time": "5 min",
+      "link": "community"
+    },
+    {
+      "id": "t6",
+      "stage": "discover",
+      "text": "List 3 subjects you'd happily study for 4 years",
+      "time": "15 min"
+    },
+    {
+      "id": "t7",
+      "stage": "discover",
+      "text": "Join one club or project outside class",
+      "time": "30 min"
+    },
+    {
+      "id": "t8",
+      "stage": "discover",
+      "text": "Browse 10 universities in the countries you picked",
+      "time": "30 min"
+    },
+    {
+      "id": "t9",
+      "stage": "apply",
+      "text": "Pick your 2 recommendation teachers",
+      "time": "10 min"
+    },
+    {
+      "id": "t10",
+      "stage": "apply",
+      "text": "Write a messy first draft of your main essay",
+      "time": "1 hour"
+    },
+    {
+      "id": "t11",
+      "stage": "apply",
+      "aid": true,
+      "text": "Start your CSS Profile",
+      "time": "45 min",
+      "link": "tool-css"
+    },
+    {
+      "id": "t12",
+      "stage": "apply",
+      "text": "Check every deadline in your tracker",
+      "time": "10 min",
+      "link": "tool-deadlines"
+    }
   ],
-
   "comingUp": [
-    { "id": "c1", "title": "SAT sign-up closes for the March test", "inDays": 16, "countries": ["US"] },
-    { "id": "c2", "title": "Summer engineering programs close applications", "inDays": 42, "countries": ["all"] },
-    { "id": "c3", "title": "TOPIK sign-up for the April test", "inDays": 55, "countries": ["Korea"] },
-    { "id": "c4", "title": "EJU sign-up for the June exam", "inDays": 80, "countries": ["Japan"] },
-    { "id": "c5", "title": "UCAS opens for next year's entry", "inDays": 180, "countries": ["UK"] },
-    { "id": "c6", "title": "IELTS or TOEFL booking window", "inDays": 30, "countries": ["UK", "Canada", "Australia", "Europe"] }
+    {
+      "id": "c1",
+      "title": "SAT sign-up closes for the March test",
+      "inDays": 16,
+      "countries": [
+        "US"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "Summer engineering programs close applications",
+      "inDays": 42,
+      "countries": [
+        "all"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "TOPIK sign-up for the April test",
+      "inDays": 55,
+      "countries": [
+        "Korea"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "EJU sign-up for the June exam",
+      "inDays": 80,
+      "countries": [
+        "Japan"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "UCAS opens for next year's entry",
+      "inDays": 180,
+      "countries": [
+        "UK"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "IELTS or TOEFL booking window",
+      "inDays": 30,
+      "countries": [
+        "UK",
+        "Canada",
+        "Australia",
+        "Europe"
+      ]
+    }
   ],
-
   "packages": [
     {
       "id": "profile-check",
@@ -177,7 +420,11 @@
       "priceLabel": "Free",
       "for": "Anyone in Grade 9 to 12 who isn't sure where they stand.",
       "outcome": "A 20-minute call and a one-page read of your profile with 3 next steps.",
-      "fit": { "budget": ["free"] }
+      "fit": {
+        "budget": [
+          "free"
+        ]
+      }
     },
     {
       "id": "school-list",
@@ -188,7 +435,15 @@
       "priceLabel": "$49",
       "for": "Grade 11 and 12 students who don't have a list yet.",
       "outcome": "10 to 12 schools across your countries, split into reach, target and likely, with costs.",
-      "fit": { "budget": ["little"], "grade": ["11", "12"] }
+      "fit": {
+        "budget": [
+          "little"
+        ],
+        "grade": [
+          "11",
+          "12"
+        ]
+      }
     },
     {
       "id": "aid-starter",
@@ -199,7 +454,15 @@
       "priceLabel": "$59",
       "for": "Students who can't go without aid.",
       "outcome": "Which schools fund international students, what your family will be asked to pay, and a filled-in CSS Profile checklist.",
-      "fit": { "aid": ["yes"], "budget": ["little", "more"] }
+      "fit": {
+        "aid": [
+          "yes"
+        ],
+        "budget": [
+          "little",
+          "more"
+        ]
+      }
     },
     {
       "id": "essay-review",
@@ -210,7 +473,12 @@
       "priceLabel": "$89",
       "for": "Students with a first draft of their main essay.",
       "outcome": "3 rounds of written feedback from a mentor in your major, each within 48 hours.",
-      "fit": { "grade": ["12", "gap"] }
+      "fit": {
+        "grade": [
+          "12",
+          "gap"
+        ]
+      }
     },
     {
       "id": "mentor-hours",
@@ -221,7 +489,11 @@
       "priceLabel": "$120 for 5",
       "for": "Students who want regular check-ins with one mentor.",
       "outcome": "5 sessions of 45 minutes with the same mentor, used whenever you need them.",
-      "fit": { "budget": ["more"] }
+      "fit": {
+        "budget": [
+          "more"
+        ]
+      }
     },
     {
       "id": "full-season",
@@ -254,7 +526,6 @@
       "outcome": "A visa checklist, housing tips and a call with a student already living in your new city."
     }
   ],
-
   "mentors": [
     {
       "id": "minh",
@@ -267,7 +538,10 @@
       "year": "3rd year",
       "major": "Electrical engineering",
       "field": "Engineering",
-      "languages": ["Vietnamese", "English"],
+      "languages": [
+        "Vietnamese",
+        "English"
+      ],
       "tzOffset": -5,
       "timezone": "Atlanta, GMT-5",
       "price": 25,
@@ -282,15 +556,46 @@
         "Explaining it all to your parents in Vietnamese"
       ],
       "reviews": [
-        { "name": "Bao, Grade 12", "text": "Minh caught that two of my schools don't give aid to internationals. Saved me two application fees and a lot of hope." },
-        { "name": "Thu, Grade 11", "text": "Very calm and practical. We made my activity list in one session." }
+        {
+          "name": "Bao, Grade 12",
+          "text": "Minh caught that two of my schools don't give aid to internationals. Saved me two application fees and a lot of hope."
+        },
+        {
+          "name": "Thu, Grade 11",
+          "text": "Very calm and practical. We made my activity list in one session."
+        }
       ],
       "slots": [
-        { "id": "m1", "day": "Saturday", "date": "Nov 28", "time": "9:00" },
-        { "id": "m2", "day": "Saturday", "date": "Nov 28", "time": "10:30" },
-        { "id": "m3", "day": "Sunday", "date": "Nov 29", "time": "8:00" },
-        { "id": "m4", "day": "Sunday", "date": "Nov 29", "time": "20:00" },
-        { "id": "m5", "day": "Wednesday", "date": "Dec 2", "time": "19:30" }
+        {
+          "id": "m1",
+          "day": "Saturday",
+          "date": "Nov 28",
+          "time": "9:00"
+        },
+        {
+          "id": "m2",
+          "day": "Saturday",
+          "date": "Nov 28",
+          "time": "10:30"
+        },
+        {
+          "id": "m3",
+          "day": "Sunday",
+          "date": "Nov 29",
+          "time": "8:00"
+        },
+        {
+          "id": "m4",
+          "day": "Sunday",
+          "date": "Nov 29",
+          "time": "20:00"
+        },
+        {
+          "id": "m5",
+          "day": "Wednesday",
+          "date": "Dec 2",
+          "time": "19:30"
+        }
       ]
     },
     {
@@ -304,7 +609,10 @@
       "year": "2nd year",
       "major": "Mechanical engineering",
       "field": "Engineering",
-      "languages": ["Korean", "English"],
+      "languages": [
+        "Korean",
+        "English"
+      ],
       "tzOffset": 9,
       "timezone": "Daejeon, GMT+9",
       "price": 20,
@@ -319,14 +627,40 @@
         "Research and lab experience as a first-year"
       ],
       "reviews": [
-        { "name": "Arjun, Grade 12", "text": "Ji-woo walked me through the KAIST portal screen by screen. Super clear." },
-        { "name": "Mai, Grade 11", "text": "Honest about the workload. Helped me decide Korea was right for me." }
+        {
+          "name": "Arjun, Grade 12",
+          "text": "Ji-woo walked me through the KAIST portal screen by screen. Super clear."
+        },
+        {
+          "name": "Mai, Grade 11",
+          "text": "Honest about the workload. Helped me decide Korea was right for me."
+        }
       ],
       "slots": [
-        { "id": "j1", "day": "Saturday", "date": "Nov 28", "time": "14:00" },
-        { "id": "j2", "day": "Sunday", "date": "Nov 29", "time": "15:00" },
-        { "id": "j3", "day": "Tuesday", "date": "Dec 1", "time": "19:00" },
-        { "id": "j4", "day": "Thursday", "date": "Dec 3", "time": "20:00" }
+        {
+          "id": "j1",
+          "day": "Saturday",
+          "date": "Nov 28",
+          "time": "14:00"
+        },
+        {
+          "id": "j2",
+          "day": "Sunday",
+          "date": "Nov 29",
+          "time": "15:00"
+        },
+        {
+          "id": "j3",
+          "day": "Tuesday",
+          "date": "Dec 1",
+          "time": "19:00"
+        },
+        {
+          "id": "j4",
+          "day": "Thursday",
+          "date": "Dec 3",
+          "time": "20:00"
+        }
       ]
     },
     {
@@ -340,7 +674,11 @@
       "year": "3rd year, PEAK program",
       "major": "Environmental engineering",
       "field": "Engineering",
-      "languages": ["English", "Tamil", "Hindi"],
+      "languages": [
+        "English",
+        "Tamil",
+        "Hindi"
+      ],
       "tzOffset": 9,
       "timezone": "Tokyo, GMT+9",
       "price": 30,
@@ -355,13 +693,34 @@
         "Moving to Japan without speaking Japanese"
       ],
       "reviews": [
-        { "name": "Hana, Grade 12", "text": "Priya's mock interview was harder than the real one. In a good way." },
-        { "name": "Karthik, Grade 11", "text": "Gave me a reading list and a plan. Very organised." }
+        {
+          "name": "Hana, Grade 12",
+          "text": "Priya's mock interview was harder than the real one. In a good way."
+        },
+        {
+          "name": "Karthik, Grade 11",
+          "text": "Gave me a reading list and a plan. Very organised."
+        }
       ],
       "slots": [
-        { "id": "p1", "day": "Friday", "date": "Nov 27", "time": "18:00" },
-        { "id": "p2", "day": "Sunday", "date": "Nov 29", "time": "10:00" },
-        { "id": "p3", "day": "Monday", "date": "Nov 30", "time": "19:00" }
+        {
+          "id": "p1",
+          "day": "Friday",
+          "date": "Nov 27",
+          "time": "18:00"
+        },
+        {
+          "id": "p2",
+          "day": "Sunday",
+          "date": "Nov 29",
+          "time": "10:00"
+        },
+        {
+          "id": "p3",
+          "day": "Monday",
+          "date": "Nov 30",
+          "time": "19:00"
+        }
       ]
     },
     {
@@ -375,7 +734,10 @@
       "year": "2nd year",
       "major": "Computer science",
       "field": "Computer science",
-      "languages": ["Arabic", "English"],
+      "languages": [
+        "Arabic",
+        "English"
+      ],
       "tzOffset": -5,
       "timezone": "Toronto, GMT-5",
       "price": 22,
@@ -390,17 +752,37 @@
         "UCAS personal statements"
       ],
       "reviews": [
-        { "name": "Sara, Grade 12", "text": "Omar's cost spreadsheet changed my whole list." },
-        { "name": "Dev, Grade 11", "text": "Knows Canada inside out." }
+        {
+          "name": "Sara, Grade 12",
+          "text": "Omar's cost spreadsheet changed my whole list."
+        },
+        {
+          "name": "Dev, Grade 11",
+          "text": "Knows Canada inside out."
+        }
       ],
       "slots": [
-        { "id": "o1", "day": "Saturday", "date": "Nov 28", "time": "21:00" },
-        { "id": "o2", "day": "Sunday", "date": "Nov 29", "time": "21:30" },
-        { "id": "o3", "day": "Wednesday", "date": "Dec 2", "time": "22:00" }
+        {
+          "id": "o1",
+          "day": "Saturday",
+          "date": "Nov 28",
+          "time": "21:00"
+        },
+        {
+          "id": "o2",
+          "day": "Sunday",
+          "date": "Nov 29",
+          "time": "21:30"
+        },
+        {
+          "id": "o3",
+          "day": "Wednesday",
+          "date": "Dec 2",
+          "time": "22:00"
+        }
       ]
     }
   ],
-
   "posts": [
     {
       "id": "p1",
@@ -507,24 +889,141 @@
       "ago": "4 days ago"
     }
   ],
-
   "schools": [
-    { "id": "s1", "name": "Georgia Tech", "country": "US", "round": "Early Action", "deadline": "2027-10-15", "status": "progress" },
-    { "id": "s2", "name": "Purdue University", "country": "US", "round": "Early Action", "deadline": "2027-11-01", "status": "not" },
-    { "id": "s3", "name": "KAIST", "country": "Korea", "round": "International, Round 1", "deadline": "2027-11-12", "status": "not" },
-    { "id": "s4", "name": "University of Tokyo (PEAK)", "country": "Japan", "round": "PEAK", "deadline": "2027-12-08", "status": "not" },
-    { "id": "s5", "name": "Yonsei University (UIC)", "country": "Korea", "round": "Fall entry", "deadline": "2028-01-10", "status": "not" }
+    {
+      "id": "s1",
+      "name": "Georgia Tech",
+      "country": "US",
+      "round": "Early Action",
+      "deadline": "2027-10-15",
+      "status": "progress",
+      "sat": [
+        1430,
+        1540
+      ],
+      "admitRate": 16
+    },
+    {
+      "id": "s2",
+      "name": "Purdue University",
+      "country": "US",
+      "round": "Early Action",
+      "deadline": "2027-11-01",
+      "status": "not",
+      "sat": [
+        1260,
+        1470
+      ],
+      "admitRate": 50
+    },
+    {
+      "id": "s3",
+      "name": "KAIST",
+      "country": "Korea",
+      "round": "International, Round 1",
+      "deadline": "2027-11-12",
+      "status": "not",
+      "sat": [
+        1400,
+        1530
+      ],
+      "admitRate": 15
+    },
+    {
+      "id": "s4",
+      "name": "University of Tokyo (PEAK)",
+      "country": "Japan",
+      "round": "PEAK",
+      "deadline": "2027-12-08",
+      "status": "not",
+      "sat": [
+        1450,
+        1560
+      ],
+      "admitRate": 10
+    },
+    {
+      "id": "s5",
+      "name": "Yonsei University (UIC)",
+      "country": "Korea",
+      "round": "Fall entry",
+      "deadline": "2028-01-10",
+      "status": "not",
+      "sat": [
+        1300,
+        1480
+      ],
+      "admitRate": 30
+    }
   ],
-
   "tools": [
-    { "id": "tool-deadlines", "name": "Deadline tracker", "tier": "Free", "text": "Every school, round and deadline in one table.", "ready": true },
-    { "id": "tool-css", "name": "CSS Profile walkthrough", "tier": "Plus", "text": "The aid form most US schools ask for, one step at a time.", "ready": true },
-    { "id": "list", "name": "School list builder", "tier": "Free", "text": "Build a balanced list of reach, target and likely schools.", "ready": false },
-    { "id": "di", "name": "DI tracker", "tier": "Free", "text": "Log the info sessions, emails and visits that schools count.", "ready": false },
-    { "id": "activities", "name": "Activity list builder", "tier": "Free", "text": "Turn what you do into 150-character activity entries.", "ready": false },
-    { "id": "idoc", "name": "IDOC walkthrough", "tier": "Plus", "text": "Upload the right tax and income documents after the CSS Profile.", "ready": false }
+    {
+      "id": "tool-essay",
+      "name": "AI essay review",
+      "tier": "Plus",
+      "ai": true,
+      "text": "Paste a draft. Get notes on voice, detail, structure and clichés in seconds.",
+      "ready": true
+    },
+    {
+      "id": "tool-profile",
+      "name": "AI profile review",
+      "tier": "Free",
+      "ai": true,
+      "text": "Enter grades, scores and activities. See your strengths, gaps and where each school sits.",
+      "ready": true
+    },
+    {
+      "id": "tool-full",
+      "name": "Full application check-up",
+      "tier": "Plus",
+      "ai": true,
+      "text": "One report across your profile, essay, school list, deadlines and aid.",
+      "ready": true
+    },
+    {
+      "id": "tool-deadlines",
+      "name": "Deadline tracker",
+      "tier": "Free",
+      "text": "Every school, round and deadline in one table.",
+      "ready": true
+    },
+    {
+      "id": "tool-css",
+      "name": "CSS Profile walkthrough",
+      "tier": "Plus",
+      "text": "The aid form most US schools ask for, one step at a time.",
+      "ready": true
+    },
+    {
+      "id": "list",
+      "name": "School list builder",
+      "tier": "Free",
+      "text": "Build a balanced list of reach, target and likely schools.",
+      "ready": false
+    },
+    {
+      "id": "di",
+      "name": "DI tracker",
+      "tier": "Free",
+      "text": "Log the info sessions, emails and visits that schools count.",
+      "ready": false
+    },
+    {
+      "id": "activities",
+      "name": "Activity list builder",
+      "tier": "Free",
+      "text": "Turn what you do into 150-character activity entries.",
+      "ready": false
+    },
+    {
+      "id": "idoc",
+      "name": "IDOC walkthrough",
+      "tier": "Plus",
+      "text": "Upload the right tax and income documents after the CSS Profile.",
+      "ready": false
+    }
   ],
-
   "cssSteps": [
     {
       "id": "before",
@@ -598,5 +1097,30 @@
         "Save the PDF summary for IDOC"
       ]
     }
-  ]
+  ],
+  "essayPrompts": [
+    {
+      "id": "challenge",
+      "label": "Common App: a challenge or setback",
+      "limit": 650
+    },
+    {
+      "id": "why",
+      "label": "Why this major",
+      "limit": 300
+    },
+    {
+      "id": "peak",
+      "label": "UTokyo PEAK personal statement",
+      "limit": 500
+    }
+  ],
+  "sampleEssay": "Ever since I was young, I have been passionate about engineering.\n\nIn September 2024, Typhoon Yagi flooded our street in Hanoi. The water reached the second step of our house and stayed for three days. When it went down, half the neighbours had rice cookers, fans and motorbikes that would not turn on. My grandmother cried over her rice cooker because my grandfather bought it for her in 1998.\n\nI opened it with a screwdriver from my father's toolbox. The thermal fuse was dead and the wires were covered in mud. I watched two videos, bought a fuse for 15,000 dong at the market and fixed it in one afternoon, and when it clicked on and the little red light came back my grandmother made me eat three bowls of rice even though I was not hungry at all and my mother laughed at both of us.\n\nAfter that, people started knocking on our door. In two weeks I repaired 12 rice cookers and 5 fans. I kept a notebook of every fault. Most were the same three problems: wet fuses, rusted switches and loose wires. I started cleaning boards with alcohol before testing, which saved me hours.\n\nI am a hardworking and dedicated person, and this experience taught me that engineering can change the world.\n\nNow I lead my school's robotics club. I still keep the notebook. I want to study electrical engineering so I can design machines that survive the next flood instead of fixing them after it.",
+  "sampleProfile": {
+    "gpa": "8.9",
+    "sat": "1420",
+    "ielts": "7.0",
+    "activities": "Robotics club, team lead (Grade 10 to 11)\nRepaired 17 appliances for neighbours after the 2024 floods\nMath tutoring for Grade 8 students, 3 hours a week\nPiano, grade 5",
+    "awards": "Hanoi city physics olympiad, third prize"
+  }
 }

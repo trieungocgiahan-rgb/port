@@ -18,7 +18,7 @@ npm run build:single   # everything in one HTML file: dist-single/index.html
 
 Landing → Get started → Quiz (7 questions) → Building your plan → My Plan → a tool → Community → Find a mentor → Matches → Mentor profile → Book → Done
 
-Screens switch by URL hash (`#plan`, `#tools`, `#tool-deadlines`, `#tool-css`, `#community`, `#mentors`, `#matches`, `#mentor-minh`, `#packages`, `#profile-check`), so any screen can be linked directly.
+Screens switch by URL hash (`#plan`, `#tools`, `#tool-deadlines`, `#tool-css`, `#tool-essay`, `#tool-profile`, `#tool-full`, `#community`, `#mentors`, `#matches`, `#mentor-minh`, `#packages`, `#profile-check`), so any screen can be linked directly.
 Demo state (quiz answers, ticked tasks, bookings, posts) stays in the browser. "Restart demo" in the top banner clears it.
 
 ## Where things live
@@ -38,3 +38,9 @@ Change `--accent` (and `--accent-soft`) at the top of `src/styles.css`.
 
 ## Not built (on purpose)
 Login, real payments, a real AI or backend, and anything for mentors to manage their side.
+
+## AI tools (simulated)
+Tools has three AI reviews: essay review, profile review and a full application check-up.
+There's no real AI. Each review runs simple rules on what the student types (word count, stock phrases,
+long sentences, scores against sample school ranges, progress in the other tools), so results change
+with the input. The rules are in `src/screens/AiTools.jsx`; a real model can replace them later.

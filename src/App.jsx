@@ -4,6 +4,7 @@ import Landing from './screens/Landing.jsx';
 import Quiz from './screens/Quiz.jsx';
 import Plan from './screens/Plan.jsx';
 import { Tools, DeadlineTracker, CssWalkthrough } from './screens/Tools.jsx';
+import { EssayReview, ProfileReview, FullReview } from './screens/AiTools.jsx';
 import Community from './screens/Community.jsx';
 import { MentorPrefs, MentorMatches, MentorProfile, Booking, Booked } from './screens/Mentors.jsx';
 import { Packages, ProfileCheck } from './screens/Packages.jsx';
@@ -19,6 +20,9 @@ function Screen({ route }) {
   else if (route === 'tools') body = <Tools />;
   else if (route === 'tool-deadlines') { section = 'tools'; body = <DeadlineTracker />; }
   else if (route === 'tool-css') { section = 'tools'; body = <CssWalkthrough />; }
+  else if (route === 'tool-essay') { section = 'tools'; body = <EssayReview />; }
+  else if (route === 'tool-profile') { section = 'tools'; body = <ProfileReview />; }
+  else if (route === 'tool-full') { section = 'tools'; body = <FullReview />; }
   else if (route === 'community') body = <Community />;
   else if (route === 'mentors') body = <MentorPrefs />;
   else if (route === 'matches') { section = 'mentors'; body = <MentorMatches />; }

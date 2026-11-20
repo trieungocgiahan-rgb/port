@@ -20,7 +20,10 @@ export function Tools() {
             onClick={() => (t.ready ? go(t.id) : say(`${t.name} is coming soon`))}
           >
             <div className="row between" style={{ width: '100%' }}>
-              <span className={`tag${t.tier === 'Plus' ? ' solid' : ''}`}>{t.tier}</span>
+              <span className="row" style={{ gap: 6 }}>
+                <span className={`tag${t.tier === 'Plus' ? ' solid' : ''}`}>{t.tier}</span>
+                {t.ai && <span className="tag">AI</span>}
+              </span>
               {!t.ready && <span className="tag soon">Coming soon</span>}
             </div>
             <h3>{t.name}</h3>
