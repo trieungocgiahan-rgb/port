@@ -1,0 +1,602 @@
+{
+  "brand": {
+    "name": "Common Room",
+    "oneLiner": "Get into a university abroad with help from students who just did it.",
+    "subline": "A plan built around you, simple tools for every step, and mentors from your part of the world. Made for students whose school has no college counselor."
+  },
+
+  "student": {
+    "name": "Linh",
+    "grade": "11",
+    "country": "Vietnam",
+    "city": "Hanoi",
+    "timezone": "Hanoi, GMT+7",
+    "tzOffset": 7,
+    "counselor": "no",
+    "destinations": ["US", "Korea", "Japan"],
+    "interest": "Engineering",
+    "aid": "yes",
+    "budget": "little"
+  },
+
+  "problem": [
+    "Most schools in Vietnam, India and the UAE have no college counselor.",
+    "Agencies charge thousands and hand everyone the same school list.",
+    "Free advice online is written for American students, not for you."
+  ],
+
+  "howItWorks": [
+    { "title": "Tell us about you", "text": "Seven quick questions about your grade, where you want to go and what you can spend." },
+    { "title": "Get your plan", "text": "A week-by-week plan with your real deadlines and the next few things to do." },
+    { "title": "Work with someone who's been there", "text": "Book a student mentor who got in from a place like yours, in your language." }
+  ],
+
+  "faq": [
+    {
+      "q": "Why should I trust students?",
+      "a": "Our mentors got in within the last few years, many from the same kind of school and with the same money worries as you. They know what changed recently. We check every admission letter and train each mentor before their first session."
+    },
+    {
+      "q": "Do you guarantee results?",
+      "a": "No. Nobody honest can promise an admission. What we promise is the work: a clear plan, deadlines you won't miss, and feedback within 48 hours."
+    },
+    {
+      "q": "What if I'm not happy?",
+      "a": "Tell us within 7 days of a session. We'll refund it or match you with a different mentor, whichever you prefer."
+    }
+  ],
+
+  "quiz": [
+    {
+      "id": "grade",
+      "question": "What grade are you in?",
+      "type": "single",
+      "options": [
+        { "value": "9", "label": "Grade 9" },
+        { "value": "10", "label": "Grade 10" },
+        { "value": "11", "label": "Grade 11" },
+        { "value": "12", "label": "Grade 12" },
+        { "value": "gap", "label": "Finished school / gap year" }
+      ]
+    },
+    {
+      "id": "country",
+      "question": "Where do you live?",
+      "type": "single",
+      "withCity": true,
+      "options": [
+        { "value": "Vietnam", "label": "Vietnam" },
+        { "value": "India", "label": "India" },
+        { "value": "UAE", "label": "UAE" },
+        { "value": "Europe", "label": "Europe" },
+        { "value": "Other", "label": "Somewhere else" }
+      ]
+    },
+    {
+      "id": "counselor",
+      "question": "Does your school have a college counselor?",
+      "type": "single",
+      "options": [
+        { "value": "yes", "label": "Yes, and I see them often" },
+        { "value": "busy", "label": "Yes, but they're stretched thin" },
+        { "value": "no", "label": "No" }
+      ]
+    },
+    {
+      "id": "destinations",
+      "question": "Where do you want to study?",
+      "hint": "Pick as many as you like.",
+      "type": "multi",
+      "options": [
+        { "value": "US", "label": "United States" },
+        { "value": "UK", "label": "United Kingdom" },
+        { "value": "Canada", "label": "Canada" },
+        { "value": "Australia", "label": "Australia" },
+        { "value": "Korea", "label": "South Korea" },
+        { "value": "Japan", "label": "Japan" },
+        { "value": "Europe", "label": "Elsewhere in Europe" },
+        { "value": "Unsure", "label": "Not sure yet" }
+      ]
+    },
+    {
+      "id": "interest",
+      "question": "What are you interested in studying?",
+      "type": "single",
+      "options": [
+        { "value": "Engineering", "label": "Engineering" },
+        { "value": "Computer science", "label": "Computer science" },
+        { "value": "Business", "label": "Business or economics" },
+        { "value": "Medicine", "label": "Medicine or health" },
+        { "value": "Sciences", "label": "Natural sciences" },
+        { "value": "Arts", "label": "Arts and design" },
+        { "value": "Social sciences", "label": "Social sciences" },
+        { "value": "Unsure", "label": "Not sure yet" }
+      ]
+    },
+    {
+      "id": "aid",
+      "question": "Do you need financial aid?",
+      "type": "single",
+      "options": [
+        { "value": "yes", "label": "Yes, I can't go without it" },
+        { "value": "some", "label": "Some would help" },
+        { "value": "no", "label": "No, my family can pay" }
+      ]
+    },
+    {
+      "id": "budget",
+      "question": "How much can you spend on help?",
+      "type": "single",
+      "options": [
+        { "value": "free", "label": "Free only", "detail": "Free tools, community and the profile check" },
+        { "value": "little", "label": "A little", "detail": "Up to about $100 for the year" },
+        { "value": "more", "label": "More", "detail": "I want regular help from a mentor" }
+      ]
+    }
+  ],
+
+  "stages": [
+    { "id": "discover", "label": "Discover", "text": "Find out what you like and where you could go." },
+    { "id": "build", "label": "Build", "text": "Grow your profile: grades, tests, activities." },
+    { "id": "apply", "label": "Apply", "text": "Pick schools, write essays, send applications." },
+    { "id": "fund", "label": "Fund", "text": "Aid forms, scholarships and comparing offers." },
+    { "id": "go", "label": "Go", "text": "Visa, housing and getting ready to leave." }
+  ],
+
+  "tasks": [
+    { "id": "t1", "stage": "build", "text": "Write down 3 activities you'd still do without a certificate", "time": "20 min" },
+    { "id": "t2", "stage": "build", "text": "Book your first SAT or ACT date", "time": "15 min" },
+    { "id": "t3", "stage": "build", "text": "Add 5 schools to your deadline tracker", "time": "10 min", "link": "tool-deadlines" },
+    { "id": "t4", "stage": "build", "aid": true, "text": "Ask your parents for last year's income papers", "time": "5 min" },
+    { "id": "t5", "stage": "build", "text": "Read one Insider post about your major", "time": "5 min", "link": "community" },
+    { "id": "t6", "stage": "discover", "text": "List 3 subjects you'd happily study for 4 years", "time": "15 min" },
+    { "id": "t7", "stage": "discover", "text": "Join one club or project outside class", "time": "30 min" },
+    { "id": "t8", "stage": "discover", "text": "Browse 10 universities in the countries you picked", "time": "30 min" },
+    { "id": "t9", "stage": "apply", "text": "Pick your 2 recommendation teachers", "time": "10 min" },
+    { "id": "t10", "stage": "apply", "text": "Write a messy first draft of your main essay", "time": "1 hour" },
+    { "id": "t11", "stage": "apply", "aid": true, "text": "Start your CSS Profile", "time": "45 min", "link": "tool-css" },
+    { "id": "t12", "stage": "apply", "text": "Check every deadline in your tracker", "time": "10 min", "link": "tool-deadlines" }
+  ],
+
+  "comingUp": [
+    { "id": "c1", "title": "SAT sign-up closes for the March test", "inDays": 16, "countries": ["US"] },
+    { "id": "c2", "title": "Summer engineering programs close applications", "inDays": 42, "countries": ["all"] },
+    { "id": "c3", "title": "TOPIK sign-up for the April test", "inDays": 55, "countries": ["Korea"] },
+    { "id": "c4", "title": "EJU sign-up for the June exam", "inDays": 80, "countries": ["Japan"] },
+    { "id": "c5", "title": "UCAS opens for next year's entry", "inDays": 180, "countries": ["UK"] },
+    { "id": "c6", "title": "IELTS or TOEFL booking window", "inDays": 30, "countries": ["UK", "Canada", "Australia", "Europe"] }
+  ],
+
+  "packages": [
+    {
+      "id": "profile-check",
+      "name": "Profile Check",
+      "status": "now",
+      "stage": "Discover",
+      "price": 0,
+      "priceLabel": "Free",
+      "for": "Anyone in Grade 9 to 12 who isn't sure where they stand.",
+      "outcome": "A 20-minute call and a one-page read of your profile with 3 next steps.",
+      "fit": { "budget": ["free"] }
+    },
+    {
+      "id": "school-list",
+      "name": "School List Sprint",
+      "status": "now",
+      "stage": "Build",
+      "price": 49,
+      "priceLabel": "$49",
+      "for": "Grade 11 and 12 students who don't have a list yet.",
+      "outcome": "10 to 12 schools across your countries, split into reach, target and likely, with costs.",
+      "fit": { "budget": ["little"], "grade": ["11", "12"] }
+    },
+    {
+      "id": "aid-starter",
+      "name": "Financial Aid Starter",
+      "status": "now",
+      "stage": "Fund",
+      "price": 59,
+      "priceLabel": "$59",
+      "for": "Students who can't go without aid.",
+      "outcome": "Which schools fund international students, what your family will be asked to pay, and a filled-in CSS Profile checklist.",
+      "fit": { "aid": ["yes"], "budget": ["little", "more"] }
+    },
+    {
+      "id": "essay-review",
+      "name": "Essay Review",
+      "status": "now",
+      "stage": "Apply",
+      "price": 89,
+      "priceLabel": "$89",
+      "for": "Students with a first draft of their main essay.",
+      "outcome": "3 rounds of written feedback from a mentor in your major, each within 48 hours.",
+      "fit": { "grade": ["12", "gap"] }
+    },
+    {
+      "id": "mentor-hours",
+      "name": "Mentor Hours",
+      "status": "now",
+      "stage": "Any stage",
+      "price": 120,
+      "priceLabel": "$120 for 5",
+      "for": "Students who want regular check-ins with one mentor.",
+      "outcome": "5 sessions of 45 minutes with the same mentor, used whenever you need them.",
+      "fit": { "budget": ["more"] }
+    },
+    {
+      "id": "full-season",
+      "name": "Full Application Season",
+      "status": "2027",
+      "stage": "Apply",
+      "price": 890,
+      "priceLabel": "$890",
+      "for": "Grade 12 students applying to 8 or more schools.",
+      "outcome": "One mentor from August to January: list, essays, activities, forms and a final check of every application."
+    },
+    {
+      "id": "interview-prep",
+      "name": "Interview Prep",
+      "status": "2027",
+      "stage": "Apply",
+      "price": 79,
+      "priceLabel": "$79",
+      "for": "Students invited to interview, including KAIST and UTokyo PEAK.",
+      "outcome": "2 mock interviews with written notes on what to fix."
+    },
+    {
+      "id": "ready-to-go",
+      "name": "Ready to Go",
+      "status": "2027",
+      "stage": "Go",
+      "price": 69,
+      "priceLabel": "$69",
+      "for": "Students who have accepted an offer.",
+      "outcome": "A visa checklist, housing tips and a call with a student already living in your new city."
+    }
+  ],
+
+  "mentors": [
+    {
+      "id": "minh",
+      "name": "Minh Tran",
+      "first": "Minh",
+      "from": "Hanoi, Vietnam",
+      "fromCountry": "Vietnam",
+      "school": "Georgia Tech",
+      "studyCountry": "US",
+      "year": "3rd year",
+      "major": "Electrical engineering",
+      "field": "Engineering",
+      "languages": ["Vietnamese", "English"],
+      "tzOffset": -5,
+      "timezone": "Atlanta, GMT-5",
+      "price": 25,
+      "rating": 4.9,
+      "reviewCount": 38,
+      "tint": "#D8E6DD",
+      "bio": "I went to a public high school in Hanoi with no counselor and applied to 11 US schools on my own. I got into Georgia Tech with a scholarship. Now I help students who are where I was three years ago.",
+      "helpsWith": [
+        "Building a US school list for engineering",
+        "Essays about things you've built or fixed",
+        "Applying for aid as an international student",
+        "Explaining it all to your parents in Vietnamese"
+      ],
+      "reviews": [
+        { "name": "Bao, Grade 12", "text": "Minh caught that two of my schools don't give aid to internationals. Saved me two application fees and a lot of hope." },
+        { "name": "Thu, Grade 11", "text": "Very calm and practical. We made my activity list in one session." }
+      ],
+      "slots": [
+        { "id": "m1", "day": "Saturday", "date": "Nov 28", "time": "9:00" },
+        { "id": "m2", "day": "Saturday", "date": "Nov 28", "time": "10:30" },
+        { "id": "m3", "day": "Sunday", "date": "Nov 29", "time": "8:00" },
+        { "id": "m4", "day": "Sunday", "date": "Nov 29", "time": "20:00" },
+        { "id": "m5", "day": "Wednesday", "date": "Dec 2", "time": "19:30" }
+      ]
+    },
+    {
+      "id": "jiwoo",
+      "name": "Park Ji-woo",
+      "first": "Ji-woo",
+      "from": "Busan, South Korea",
+      "fromCountry": "Korea",
+      "school": "KAIST",
+      "studyCountry": "Korea",
+      "year": "2nd year",
+      "major": "Mechanical engineering",
+      "field": "Engineering",
+      "languages": ["Korean", "English"],
+      "tzOffset": 9,
+      "timezone": "Daejeon, GMT+9",
+      "price": 20,
+      "rating": 4.8,
+      "reviewCount": 21,
+      "tint": "#E4E0D3",
+      "bio": "I study mechanical engineering at KAIST and work in a robotics lab. Half my friends here are international students, so I know what the Korean application asks of you and what life is like after you arrive.",
+      "helpsWith": [
+        "KAIST and Korean university applications",
+        "Scholarships for international students in Korea",
+        "Whether you need Korean before you arrive",
+        "Research and lab experience as a first-year"
+      ],
+      "reviews": [
+        { "name": "Arjun, Grade 12", "text": "Ji-woo walked me through the KAIST portal screen by screen. Super clear." },
+        { "name": "Mai, Grade 11", "text": "Honest about the workload. Helped me decide Korea was right for me." }
+      ],
+      "slots": [
+        { "id": "j1", "day": "Saturday", "date": "Nov 28", "time": "14:00" },
+        { "id": "j2", "day": "Sunday", "date": "Nov 29", "time": "15:00" },
+        { "id": "j3", "day": "Tuesday", "date": "Dec 1", "time": "19:00" },
+        { "id": "j4", "day": "Thursday", "date": "Dec 3", "time": "20:00" }
+      ]
+    },
+    {
+      "id": "priya",
+      "name": "Priya Raman",
+      "first": "Priya",
+      "from": "Chennai, India",
+      "fromCountry": "India",
+      "school": "University of Tokyo",
+      "studyCountry": "Japan",
+      "year": "3rd year, PEAK program",
+      "major": "Environmental engineering",
+      "field": "Engineering",
+      "languages": ["English", "Tamil", "Hindi"],
+      "tzOffset": 9,
+      "timezone": "Tokyo, GMT+9",
+      "price": 30,
+      "rating": 5.0,
+      "reviewCount": 14,
+      "tint": "#E6DCD8",
+      "bio": "I came to Tokyo through the English-taught PEAK program without speaking Japanese. I'm happy to talk about what that is really like, and how to write the PEAK essays and prepare for the interview.",
+      "helpsWith": [
+        "English-taught programs in Japan",
+        "UTokyo PEAK essays and interview",
+        "MEXT and other Japanese scholarships",
+        "Moving to Japan without speaking Japanese"
+      ],
+      "reviews": [
+        { "name": "Hana, Grade 12", "text": "Priya's mock interview was harder than the real one. In a good way." },
+        { "name": "Karthik, Grade 11", "text": "Gave me a reading list and a plan. Very organised." }
+      ],
+      "slots": [
+        { "id": "p1", "day": "Friday", "date": "Nov 27", "time": "18:00" },
+        { "id": "p2", "day": "Sunday", "date": "Nov 29", "time": "10:00" },
+        { "id": "p3", "day": "Monday", "date": "Nov 30", "time": "19:00" }
+      ]
+    },
+    {
+      "id": "omar",
+      "name": "Omar Haddad",
+      "first": "Omar",
+      "from": "Dubai, UAE",
+      "fromCountry": "UAE",
+      "school": "University of Toronto",
+      "studyCountry": "Canada",
+      "year": "2nd year",
+      "major": "Computer science",
+      "field": "Computer science",
+      "languages": ["Arabic", "English"],
+      "tzOffset": -5,
+      "timezone": "Toronto, GMT-5",
+      "price": 22,
+      "rating": 4.7,
+      "reviewCount": 26,
+      "tint": "#DCE1E6",
+      "bio": "I grew up in Dubai and applied to Canada, the UK and the US. I chose Toronto for cost and co-op. I like helping students compare offers with real numbers, not rankings.",
+      "helpsWith": [
+        "Canadian applications and OUAC",
+        "Comparing costs across countries",
+        "Computer science portfolios",
+        "UCAS personal statements"
+      ],
+      "reviews": [
+        { "name": "Sara, Grade 12", "text": "Omar's cost spreadsheet changed my whole list." },
+        { "name": "Dev, Grade 11", "text": "Knows Canada inside out." }
+      ],
+      "slots": [
+        { "id": "o1", "day": "Saturday", "date": "Nov 28", "time": "21:00" },
+        { "id": "o2", "day": "Sunday", "date": "Nov 29", "time": "21:30" },
+        { "id": "o3", "day": "Wednesday", "date": "Dec 2", "time": "22:00" }
+      ]
+    }
+  ],
+
+  "posts": [
+    {
+      "id": "p1",
+      "type": "insider",
+      "region": "Vietnam",
+      "author": "Minh Tran",
+      "tag": "Mentor · Georgia Tech",
+      "tint": "#D8E6DD",
+      "title": "What nobody tells you about demonstrated interest",
+      "text": "Some US schools track whether you open their emails and join their online info sessions. Others ignore it completely. Check each school's Common Data Set before you spend hours on webinars. I made a list of 40 engineering schools and which ones care.",
+      "likes": 124,
+      "replies": 18,
+      "ago": "2 days ago"
+    },
+    {
+      "id": "p2",
+      "type": "chance",
+      "region": "Vietnam",
+      "author": "Quang Huy",
+      "tag": "Grade 12 · Hanoi",
+      "tint": "#E4E0D3",
+      "title": "Chance me: Grade 12, Hanoi, CS, need full aid",
+      "text": "GPA 9.1/10, SAT 1490, IELTS 7.5. Built a bus-times app my school uses. Second prize in the city informatics olympiad. Applying to 12 US schools, 4 need-blind. Is my list too top-heavy?",
+      "likes": 41,
+      "replies": 27,
+      "ago": "5 hours ago"
+    },
+    {
+      "id": "p3",
+      "type": "insider",
+      "region": "India",
+      "author": "Priya Raman",
+      "tag": "Mentor · UTokyo PEAK",
+      "tint": "#E6DCD8",
+      "title": "You don't need Japanese to study in Japan, but read this first",
+      "text": "English-taught programs exist at UTokyo, Waseda, Keio and others. Classes are fine in English. Daily life is not. Plan for 6 months of real effort to get to basic Japanese after you arrive, and budget for it.",
+      "likes": 89,
+      "replies": 12,
+      "ago": "1 week ago"
+    },
+    {
+      "id": "p4",
+      "type": "ask",
+      "region": "UAE",
+      "author": "Layla A.",
+      "tag": "Grade 11 · Abu Dhabi",
+      "tint": "#DCE1E6",
+      "title": "Do UK universities care about my school's predicted grades or my actual grades?",
+      "text": "My school is strict with predicted grades. Will that hurt me for UCAS?",
+      "likes": 15,
+      "replies": 9,
+      "ago": "1 day ago"
+    },
+    {
+      "id": "p5",
+      "type": "wins",
+      "region": "India",
+      "author": "Ananya S.",
+      "tag": "Grade 12 · Pune",
+      "tint": "#E9E4D0",
+      "title": "Got into KAIST with a full scholarship",
+      "text": "Ji-woo helped me with the application last year and I just heard back. Full tuition plus a monthly stipend. If you're thinking about Korea, just apply.",
+      "likes": 212,
+      "replies": 34,
+      "ago": "3 days ago"
+    },
+    {
+      "id": "p6",
+      "type": "ask",
+      "region": "Vietnam",
+      "author": "Ngoc Anh",
+      "tag": "Grade 10 · Da Nang",
+      "tint": "#D9E3E0",
+      "title": "Is Grade 10 too early to start?",
+      "text": "My parents want me to do SAT prep now. I'd rather do a robotics club. What should I focus on this year?",
+      "likes": 33,
+      "replies": 21,
+      "ago": "2 days ago"
+    },
+    {
+      "id": "p7",
+      "type": "chance",
+      "region": "Europe",
+      "author": "Mateo R.",
+      "tag": "Grade 12 · Lisbon",
+      "tint": "#E2DDE6",
+      "title": "Chance me: Grade 12, Lisbon, mechanical engineering, partial aid",
+      "text": "IB predicted 40. No SAT. Built a solar charger for my school's bike shed. Thinking TU Delft, Imperial, and a few US schools. Worth applying to the US without a test?",
+      "likes": 22,
+      "replies": 14,
+      "ago": "6 hours ago"
+    },
+    {
+      "id": "p8",
+      "type": "insider",
+      "region": "UAE",
+      "author": "Omar Haddad",
+      "tag": "Mentor · U of Toronto",
+      "tint": "#DCE1E6",
+      "title": "Compare offers by cost per year, not by ranking",
+      "text": "When offers come in, put every school in one table: tuition, housing, flights, minus aid. My cheapest offer was my second-ranked school, and it was the right call.",
+      "likes": 76,
+      "replies": 8,
+      "ago": "4 days ago"
+    }
+  ],
+
+  "schools": [
+    { "id": "s1", "name": "Georgia Tech", "country": "US", "round": "Early Action", "deadline": "2027-10-15", "status": "progress" },
+    { "id": "s2", "name": "Purdue University", "country": "US", "round": "Early Action", "deadline": "2027-11-01", "status": "not" },
+    { "id": "s3", "name": "KAIST", "country": "Korea", "round": "International, Round 1", "deadline": "2027-11-12", "status": "not" },
+    { "id": "s4", "name": "University of Tokyo (PEAK)", "country": "Japan", "round": "PEAK", "deadline": "2027-12-08", "status": "not" },
+    { "id": "s5", "name": "Yonsei University (UIC)", "country": "Korea", "round": "Fall entry", "deadline": "2028-01-10", "status": "not" }
+  ],
+
+  "tools": [
+    { "id": "tool-deadlines", "name": "Deadline tracker", "tier": "Free", "text": "Every school, round and deadline in one table.", "ready": true },
+    { "id": "tool-css", "name": "CSS Profile walkthrough", "tier": "Plus", "text": "The aid form most US schools ask for, one step at a time.", "ready": true },
+    { "id": "list", "name": "School list builder", "tier": "Free", "text": "Build a balanced list of reach, target and likely schools.", "ready": false },
+    { "id": "di", "name": "DI tracker", "tier": "Free", "text": "Log the info sessions, emails and visits that schools count.", "ready": false },
+    { "id": "activities", "name": "Activity list builder", "tier": "Free", "text": "Turn what you do into 150-character activity entries.", "ready": false },
+    { "id": "idoc", "name": "IDOC walkthrough", "tier": "Plus", "text": "Upload the right tax and income documents after the CSS Profile.", "ready": false }
+  ],
+
+  "cssSteps": [
+    {
+      "id": "before",
+      "title": "Before you start",
+      "intro": "The CSS Profile takes most families 2 to 3 hours. Collect papers first so you can do it in one sitting.",
+      "items": [
+        "Your parents' income papers for the last two years",
+        "Bank statements and savings totals",
+        "The value of any home or land your family owns",
+        "A note of the exchange rate you will use (use the same one everywhere)"
+      ]
+    },
+    {
+      "id": "student",
+      "title": "Student details",
+      "intro": "Your own information: name, citizenship, school and any money in your name.",
+      "items": [
+        "Use your name exactly as it is in your passport",
+        "Pick \"international student\" for citizenship",
+        "Include savings in your name, even small amounts"
+      ]
+    },
+    {
+      "id": "parents",
+      "title": "Parents and household",
+      "intro": "Who lives at home and who supports you. This is where most mistakes happen.",
+      "items": [
+        "List everyone who lives with you, including grandparents",
+        "Count siblings who are also in school",
+        "Each parent's job and employer"
+      ],
+      "headsUp": "Most students miss this field if their parents are separated. Many schools also want information from the parent you don't live with. Check each school's rules before you skip it."
+    },
+    {
+      "id": "income",
+      "title": "Parent income",
+      "intro": "Salaries, business income and anything else your family earns in a year.",
+      "items": [
+        "Enter yearly totals, not monthly",
+        "Include cash income from a family business",
+        "Write a short note if income changes a lot from year to year"
+      ]
+    },
+    {
+      "id": "assets",
+      "title": "Assets",
+      "intro": "What your family owns: savings, property, land and investments.",
+      "items": [
+        "Home value and what is still owed on it",
+        "Other property or farmland",
+        "Gold and savings accounts"
+      ]
+    },
+    {
+      "id": "special",
+      "title": "Special circumstances",
+      "intro": "A free-text section where you can explain anything the numbers don't show.",
+      "items": [
+        "Medical costs, debts or a parent who lost their job",
+        "Relatives your family supports",
+        "Keep it short and factual"
+      ]
+    },
+    {
+      "id": "submit",
+      "title": "Review and submit",
+      "intro": "Check every number once more, then pay the fee or apply for a fee waiver.",
+      "items": [
+        "Compare totals with your papers line by line",
+        "Ask about a fee waiver if your family income is low",
+        "Save the PDF summary for IDOC"
+      ]
+    }
+  ]
+}
