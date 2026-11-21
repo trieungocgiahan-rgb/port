@@ -293,6 +293,9 @@ button{font:inherit;color:inherit}
 .stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 12px}
 .stat{display:grid;gap:2px;background:var(--bg);border-radius:12px;padding:12px 14px}
 .stat b{font-family:var(--f-display);font-weight:600;font-size:1.9rem;line-height:1.05;font-variant-numeric:tabular-nums}
+.stats.one{grid-template-columns:1fr}
+.stats.one .stat b{font-size:1.6rem}
+.plain-list b a{color:var(--ink);text-decoration-color:var(--blue)}
 .stat span{font-size:.85rem;color:var(--muted);font-weight:500;line-height:1.35}
 .plain-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
 .plain-list li{display:flex;gap:10px;align-items:flex-start}
@@ -668,32 +671,29 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
     </div>
     <div class="app-grid">
       <article class="app-card">
-        <h3>Numbers</h3>
-        <div class="stats">
-          <div class="stat"><b>1520</b><span>SAT</span></div>
-          <div class="stat"><b>7.5</b><span>IELTS</span></div>
-          <div class="stat"><b>9.6</b><span>GPA, out of 10</span></div>
-          <div class="stat"><b>1st</b><span>of 844 in grade 11</span></div>
+        <h3>At my school</h3>
+        <div class="stats one">
+          <div class="stat"><b>Highest scores</b><span>in the whole school</span></div>
+          <div class="stat"><b>All-round student</b><span>grades, plus everything outside class</span></div>
         </div>
       </article>
       <article class="app-card">
         <h3>What I spent my time on</h3>
         <ul class="plain-list">
-          <li><span class="ph">[ACTIVITY 1, one line]</span></li>
-          <li><span class="ph">[ACTIVITY 2, one line]</span></li>
-          <li><span class="ph">[ACTIVITY 3, one line]</span></li>
-          <li><span class="ph">[ACTIVITY 4, one line]</span></li>
+          <li><span><b>AI &amp; Art research</b>, first author. A study with 68 young adults comparing art-making and AI-guided dialogue for expressing emotions, now under review at the National High School Journal of Science.</span></li>
+          <li><span><b><a href="https://teencare.co/vn" target="_blank" rel="noopener">TeenCare</a></b>, research associate. 100+ interviews with teenagers, and I co-designed the story-based survey that became the base of their core product.</span></li>
+          <li><span><b><a href="https://brainlife.ai/" target="_blank" rel="noopener">Brain-Life</a></b>, R&amp;D intern. Processing EEG data in Python and checking global research against interviews with Vietnamese users.</span></li>
+          <li><span><b><a href="https://netmoproject.page/" target="_blank" rel="noopener">Net Mo ("Dream Strokes")</a></b>, founder. An emotional-learning project for about 200 kids across 6 shelters, run by a 25-person team and funded by our own concerts, football tournaments and art exhibition.</span></li>
         </ul>
       </article>
       <article class="app-card">
         <h3>Documents I made from scratch</h3>
-        <div class="docs" aria-hidden="true">
-          <div class="doc"><div class="doc-sheet"><i class="h"></i><i class="b"></i><i></i><i></i><i class="t"></i><i></i><i></i></div><span>School profile</span></div>
-          <div class="doc"><div class="doc-sheet"><i class="h"></i><i class="t"></i><i class="t"></i><i class="t"></i><i></i></div><span>Transcript template</span></div>
-          <div class="doc"><div class="doc-sheet"><i class="h"></i><i></i><i></i><i class="b"></i><i></i><i></i><i></i></div><span>Counselor letter guide</span></div>
-          <div class="doc"><div class="doc-sheet"><i class="h"></i><i class="b"></i><i></i><i></i><i class="b"></i><i></i></div><span>Brag sheet</span></div>
+        <div class="docs">
+          <div class="doc"><div class="doc-sheet" aria-hidden="true"><i class="h"></i><i class="b"></i><i></i><i></i><i class="t"></i><i></i><i></i></div><span>School profile</span></div>
+          <div class="doc"><div class="doc-sheet" aria-hidden="true"><i class="h"></i><i class="t"></i><i class="t"></i><i class="t"></i><i></i></div><span>Transcript template</span></div>
+          <div class="doc"><div class="doc-sheet" aria-hidden="true"><i class="h"></i><i></i><i></i><i class="b"></i><i></i><i></i><i></i></div><span>Counselor letter guide</span></div>
+          <div class="doc"><div class="doc-sheet" aria-hidden="true"><i class="h"></i><i class="b"></i><i></i><i></i><i class="b"></i><i></i></div><span>Brag sheet</span></div>
         </div>
-        <p class="sr">School profile, transcript template, counselor letter guide, brag sheet.</p>
         <p class="doc-label">templates come with the packages</p>
       </article>
       <article class="app-card">
