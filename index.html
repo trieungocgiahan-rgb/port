@@ -363,6 +363,24 @@ blockquote p.q::after{content:"\201D";color:var(--pink)}
 .rules li{display:flex;gap:12px;align-items:flex-start}
 .rules li svg{flex:none;width:22px;height:22px;margin-top:2px;fill:none;stroke:var(--blue);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
 
+.price-help{margin-top:20px;max-width:860px;background:var(--pink-soft);border-radius:22px;padding:22px;display:grid;gap:12px}
+.price-help .hand{font-size:1.75rem}
+.addr{font-weight:600;user-select:all;-webkit-user-select:all;overflow-wrap:anywhere}
+.price-help .addr{font-size:.92rem;color:var(--muted)}
+.hero-proof{font-size:.98rem;color:var(--muted);font-weight:500}
+.hero-proof .hl{color:var(--ink);font-weight:700}
+.pill.in{background:var(--hl);color:var(--ink)}
+.school-name{font-weight:700}
+.trust{font-size:2rem;transform:rotate(-2deg);transform-origin:left;margin-top:-8px}
+.contact{display:grid;gap:10px}
+.contact-list{list-style:none;margin:0;padding:0;display:grid;gap:10px;max-width:520px}
+.contact-list li{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;background:var(--card);border-radius:14px;box-shadow:var(--shadow);padding:12px 14px}
+.c-label{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);width:84px}
+.c-val{flex:1;min-width:0;font-weight:700;overflow-wrap:anywhere;user-select:all;-webkit-user-select:all}
+.copy{border:1.5px solid var(--line);background:var(--bg);border-radius:10px;padding:6px 12px;min-height:38px;font-weight:700;font-size:.85rem;cursor:pointer}
+.copy:hover{border-color:var(--blue)}
+@media (max-width:520px){.c-label{width:100%}}
+
 /* call */
 .call-band{background:var(--card);border-block:1px solid var(--line)}
 .steps{list-style:none;margin:0;padding:0;display:grid;gap:14px;counter-reset:s}
@@ -454,6 +472,7 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
         <a class="btn btn-primary" data-book href="#call">Book a free 30-min call</a>
         <a class="btn btn-ghost" href="#desks">Show me everything</a>
       </div>
+      <p class="hero-proof">From a public school with no counselor to <span class="hl">NYU Abu Dhabi</span>. I did the whole school side myself.</p>
     </div>
     <aside class="index-card" aria-label="Who does the school's half of the application">
       <p class="ic-title">Who's doing this?</p>
@@ -537,7 +556,7 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
       <div class="prose">
         <p>Hi, I'm Katherine, or Gia Han if you're from home. I'm a senior at a public high school in Ho Chi Minh City, and my school has never had a college counselor. When I started applying to the US, I thought the hard part would be the essay. Then I opened the Common App, saw the box asking for my counselor, and slowly realized the person handling my school's half of the application was going to be, more or less, me.</p>
         <p>So I made my school's first school profile. I made a transcript template so a 9.6 on a 10-point scale would make sense to an admissions officer in Massachusetts. I asked my homeroom teacher to be my counselor, and we figured out the forms together, one confused email at a time. I did the CSS Profile, wrote to financial aid offices about my family's situation, and started building my own little app to track every school, because a spreadsheet just wasn't enough anymore (it's still not finished, honestly). Somewhere in between, I wrote my essays.</p>
-        <p>I got through it. I also made rookie mistakes that someone who had done this once would have caught in five minutes, like waiting until right before a deadline to start things, uploading the wrong file, getting a format wrong, and picking schools for their brand names instead of what my family could actually pay and what I actually wanted to study. That's the whole reason this exists. You shouldn't have to learn everything the slow way like I did, and you shouldn't need agency prices to skip it.</p>
+        <p>I got through it, and I got into NYU Abu Dhabi. I also made rookie mistakes that someone who had done this once would have caught in five minutes, like waiting until right before a deadline to start things, uploading the wrong file, getting a format wrong, and picking schools for their brand names instead of what my family could actually pay and what I actually wanted to study. That's the whole reason this exists. You shouldn't have to learn everything the slow way like I did, and you shouldn't need agency prices to skip it.</p>
         <p class="hand signoff">Katherine (Gia Han)</p>
       </div>
     </div>
@@ -678,12 +697,9 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
         <p class="doc-label">templates come with the packages</p>
       </article>
       <article class="app-card">
-        <h3>Where I applied</h3>
+        <h3>Where I got in</h3>
         <ul class="schools">
-          <li><span class="ph">[SCHOOL I'M OK SHARING]</span><span class="pill wait">waiting</span></li>
-          <li><span class="ph">[SCHOOL I'M OK SHARING]</span><span class="pill wait">waiting</span></li>
-          <li><span class="ph">[SCHOOL I'M OK SHARING]</span><span class="pill wait">waiting</span></li>
-          <li><span class="ph">[SCHOOL I'M OK SHARING]</span><span class="pill wait">waiting</span></li>
+          <li><span class="school-name">NYU Abu Dhabi</span><span class="pill in">admitted</span></li>
         </ul>
         <p class="nyuad"><span class="hl">Invited to NYU Abu Dhabi Candidate Weekend, Nov 2026</span></p>
       </article>
@@ -692,9 +708,13 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
     <div class="quote-wrap">
       <blockquote>
         <p class="q">The loudest family at our dinner table was one I had never met.</p>
-        <p class="sub">That's the first line of my personal statement. Want the whole thing, with my notes on how it changed across drafts? <a data-book href="#call">Book a call</a> and I'll send it.</p>
+        <p class="sub">That's the first line of my personal statement. You can read the whole thing, and my CV too. Want my notes on how it changed across drafts? <a data-book href="#call">Book a call</a> and I'll walk you through them.</p>
+        <div class="btn-row">
+          <a class="btn btn-ghost" href="https://docs.google.com/document/d/1LbR3HsIn-mmMuR6axjKhjpr3Qm7G5GRxME0x_6q6Flw/edit?usp=drivesdk" target="_blank" rel="noopener">Read my whole essay</a>
+          <a class="btn btn-ghost" href="https://drive.google.com/file/d/1k6bXd-VgXPN_4cKcaMRrP8yJT3OEq56b/view?usp=drivesdk" target="_blank" rel="noopener">See my CV</a>
+        </div>
       </blockquote>
-      <p class="sticky quote-note">I'm still waiting on most of my decisions. When they come, they go on this page, whatever they are.</p>
+      <p class="sticky quote-note">Every decision goes on this page when it comes, whatever it is.</p>
     </div>
   </div>
 </section>
@@ -759,7 +779,7 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
         <article class="pkg" id="pkg-essay-refine">
           <span class="picked-tag" aria-hidden="true">this one, probably</span>
           <h3>Essay Refine</h3>
-          <p class="price"><s class="was">$35</s> $20 <small>launch price, for now</small></p>
+          <p class="price"><s class="was">$35</s> $25 <small>launch price, for now</small></p>
           <p class="for">For a draft you mostly like.</p>
           <p>Line-by-line comments on one essay, a short note on the 3 changes that matter most, and one round of follow-up questions.</p>
         </article>
@@ -773,7 +793,7 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
         <article class="pkg" id="pkg-ec-refine">
           <span class="picked-tag" aria-hidden="true">this one, probably</span>
           <h3>EC Refine</h3>
-          <p class="price"><s class="was">$35</s> $20 <small>launch price, for now</small></p>
+          <p class="price"><s class="was">$35</s> $25 <small>launch price, for now</small></p>
           <p class="for">For an activity list that undersells you.</p>
           <p>Comments on all 10 activities and your honors, rewrites that fit the 150-character limit, and the best order to list them in.</p>
         </article>
@@ -826,6 +846,16 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
         <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.3L19 6.5"/></svg><span>Whatever you share stays between us.</span></li>
       </ul>
     </div>
+
+    <div class="price-help">
+      <p class="hand pink">is the price the problem?</p>
+      <p>Then email me. Tell me a little about your situation and which package you need, and I'll look at it properly. Some spots are need-based for exactly this reason.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="mailto:trieungocgiahan@gmail.com?subject=About%20the%20price">Email me about the price</a>
+        <button type="button" class="btn btn-ghost" data-copy="trieungocgiahan@gmail.com">Copy my email</button>
+      </div>
+      <p class="addr">trieungocgiahan@gmail.com</p>
+    </div>
   </div>
 </section>
 
@@ -860,7 +890,7 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
       <details><summary><span>Can you guarantee I get in?</span><i class="plus" aria-hidden="true"></i></summary><p class="ans">Nobody honestly can. What I can promise is that nothing gets missed because no one told you it existed.</p></details>
       <details><summary><span>My school has never done any of this. Is that a problem?</span><i class="plus" aria-hidden="true"></i></summary><p class="ans">That's exactly who this is for. I'll show you how to set it up with your school, step by step.</p></details>
       <details><summary><span>My parents are worried about the money side.</span><i class="plus" aria-hidden="true"></i></summary><p class="ans">Yes, we cover that too: CSS Profile, noncustodial forms, translations, and which schools fund international students. That part scared me the most too.</p></details>
-      <details><summary><span>I can't afford a package.</span><i class="plus" aria-hidden="true"></i></summary><p class="ans">Tell me. Some spots are need-based, and the free call is free either way.</p></details>
+      <details><summary><span>I can't afford a package.</span><i class="plus" aria-hidden="true"></i></summary><p class="ans">Tell me. Some spots are need-based, and the free call is free either way. Email me at <span class="addr">trieungocgiahan@gmail.com</span> and we'll figure it out.</p></details>
       <details><summary><span>I'm not in Vietnam.</span><i class="plus" aria-hidden="true"></i></summary><p class="ans">Totally fine. Calls are online, and evening and weekend slots work for a lot of time zones.</p></details>
     </div>
   </div>
@@ -871,8 +901,15 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
   <div class="wrap">
     <div class="final-in">
       <h2 id="final-h">You don't have to do <span class="hl">both jobs</span> alone.</h2>
+      <p class="hand trust">trust me on this. I got you.</p>
       <div class="btn-row" id="finalCtas"><a class="btn btn-primary" data-book href="#call">Book your free 30-min call</a></div>
-      <p class="small">or message me at <span class="ph">[EMAIL / WHATSAPP]</span></p>
+      <div class="contact">
+        <p class="small">or message me at</p>
+        <ul class="contact-list">
+          <li><span class="c-label">Email</span><a class="c-val" href="mailto:trieungocgiahan@gmail.com">trieungocgiahan@gmail.com</a><button type="button" class="copy" data-copy="trieungocgiahan@gmail.com">Copy</button></li>
+          <li><span class="c-label">WhatsApp</span><a class="c-val" href="https://wa.me/84854504369" target="_blank" rel="noopener">+84 854 504 369</a><button type="button" class="copy" data-copy="+84854504369">Copy</button></li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -1266,6 +1303,26 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
     });
   });
   renderFit();
+
+  /* copy buttons */
+  $$("[data-copy]").forEach(function(b){
+    b.addEventListener("click", function(){
+      var text = b.getAttribute("data-copy"), label = b.textContent;
+      function done(msg){ b.textContent = msg; setTimeout(function(){ b.textContent = label; }, 1800); }
+      function fallback(){
+        var box = b.closest("li, .price-help");
+        var t = box && box.querySelector(".c-val, .addr");
+        if (!t) return;
+        try {
+          var r = document.createRange(); r.selectNodeContents(t);
+          var sel = window.getSelection(); sel.empty ? sel.empty() : sel.collapse(document.body, 0); sel.addRange(r);
+          done("Selected");
+        } catch(e){}
+      }
+      try { navigator.clipboard.writeText(text).then(function(){ done("Copied"); }, fallback); }
+      catch(e){ fallback(); }
+    });
+  });
 
   /* mobile booking bar: step aside while another booking button is on screen */
   var mbar = $("#mbar");
