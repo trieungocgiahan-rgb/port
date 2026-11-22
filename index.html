@@ -1,6 +1,6 @@
-<title>Your Own Counselor</title>
+<title>Prep Pal</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="For students applying to US universities with no college counselor. Written by a senior from Ho Chi Minh City who just did it.">
+<meta name="description" content="Prep Pal: for students applying to US universities with no college counselor. Written by a senior from Ho Chi Minh City who just did it.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,500;1,9..144,600&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
@@ -17,6 +17,7 @@
   --pink-ink:#C42A5F;
   --pink-soft:#FDE9F0;
   --hl:rgba(255,228,92,.7);
+  --hl-solid:#FFE45C;
   --muted:#5B6478;
   --line:#DCE3F5;
   --dot:#D5DDF3;
@@ -344,7 +345,7 @@ blockquote p.q::after{content:"\201D";color:var(--pink)}
 .pkg-label::after{content:"";flex:1;height:1px;background:var(--line)}
 .pkg-row{display:grid;gap:16px}
 @media (min-width:760px){.pkg-row.two{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.pkg{position:relative;background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:24px 22px 22px;display:grid;gap:12px;align-content:start;border:2px solid transparent;transition:border-color .3s, box-shadow .3s, transform .3s;min-width:0}
+.pkg{position:relative;background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:24px 22px 22px;display:flex;flex-direction:column;gap:12px;border:2px solid transparent;transition:border-color .3s, box-shadow .3s, transform .3s;min-width:0}
 .pkg h3{font-size:1.45rem}
 .price{font-family:var(--f-display);font-weight:600;font-size:1.5rem;line-height:1.2;color:var(--blue)}
 .price small{font-family:var(--f-body);font-size:.9rem;font-weight:500;color:var(--muted)}
@@ -360,6 +361,24 @@ blockquote p.q::after{content:"\201D";color:var(--pink)}
 .price s.was{font-size:.72em;font-weight:500;color:var(--muted);text-decoration-color:var(--pink);text-decoration-thickness:2px;margin-right:.15em}
 .example{background:var(--bg);border-radius:12px;padding:12px 14px;font-size:.95rem}
 .example b{color:var(--pink-ink)}
+.pkg-cta{margin-top:auto;padding-top:8px;display:flex;flex-wrap:wrap;gap:10px}
+.pkg-cta .btn{min-height:48px}
+.btn-signup{background:var(--hl-solid);color:var(--ink);box-shadow:0 6px 18px -8px rgba(160,130,0,.6);border-color:var(--ink)}
+.btn-signup:hover{background:#FFD92E;color:var(--ink);transform:translateY(-1px)}
+.btn-signup svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s}
+.btn-signup:hover svg{transform:translateX(3px)}
+.signup-band{position:relative;max-width:860px;margin:8px 0 28px;background:var(--ink);color:#fff;border-radius:24px;padding:28px 22px;display:grid;gap:22px;align-items:center;box-shadow:var(--shadow-lift);overflow:hidden}
+.signup-band::before{content:"";position:absolute;right:-40px;top:-40px;width:180px;height:180px;border-radius:50%;background:rgba(47,91,255,.35)}
+.signup-band > *{position:relative}
+.signup-text{display:grid;gap:8px;min-width:0}
+.signup-band .hand{color:var(--hl-solid);font-size:1.7rem}
+.signup-band h3{font-size:clamp(1.7rem,4.5vw,2.3rem);color:#fff}
+.signup-band p{color:#D6DDF0}
+.signup-band .btn-signup{min-height:60px;font-size:1.1rem;padding:.9em 1.6em;border-color:var(--hl-solid);justify-self:start}
+@media (min-width:760px){.signup-band{grid-template-columns:minmax(0,1fr) auto;padding:34px 36px;gap:32px}}
+.fit-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.menu-panel a.menu-signup{background:var(--hl);margin-top:4px}
+.foot-brand{font-family:var(--f-display);font-weight:600;font-size:1.6rem;line-height:1}
 .rules{background:var(--card);border-radius:22px;padding:24px 22px;border:2px dashed #B9C7EE;max-width:860px}
 .rules h3{font-size:1.35rem;margin-bottom:14px}
 .rules ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
@@ -438,7 +457,7 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
 
 <nav class="nav" id="nav" aria-label="Main">
   <div class="wrap nav-in">
-    <a class="brand" href="#top">Katherine <span class="hand">(Gia Han)</span></a>
+    <a class="brand" href="#top">Prep Pal <span class="hand">by Gia Han</span></a>
     <ul class="nav-links">
       <li><a href="#desks">The two desks</a></li>
       <li><a href="#why">Why me</a></li>
@@ -447,6 +466,7 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
       <li><a href="#packages">Packages</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
+    <a class="btn btn-ghost nav-cta" data-signup href="https://tally.so/r/4aKj1k">Sign up</a>
     <a class="btn btn-primary nav-cta" data-book href="#call">Free call</a>
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menuPanel">Menu <svg viewBox="0 0 24 24" class="chev" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
     <ul class="menu-panel" id="menuPanel" hidden>
@@ -456,6 +476,7 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
       <li><a href="#application">My application</a></li>
       <li><a href="#packages">Packages</a></li>
       <li><a href="#faq">FAQ</a></li>
+      <li><a href="#signup" class="menu-signup">Sign up for a package</a></li>
     </ul>
   </div>
 </nav>
@@ -768,7 +789,7 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
           <p class="price">Free</p>
           <p class="for">For everyone, and every package starts here.</p>
           <p>You fill in a short form, I read it before we meet, and we spend 30 minutes on your story and what's in your way. We fix one thing during the call. Within 48 hours you get a one-page summary with your 3 next steps and my honest take, even if it's "you're fine, you don't need us."</p>
-          <div><a class="btn btn-primary" data-book href="#call">Book a free 30-min call</a></div>
+          <div class="pkg-cta"><a class="btn btn-primary" data-book href="#call">Book a free 30-min call</a></div>
         </article>
       </div>
     </div>
@@ -782,6 +803,7 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
           <p class="price"><s class="was">$35</s> $25 <small>launch price, for now</small></p>
           <p class="for">For a draft you mostly like.</p>
           <p>Line-by-line comments on one essay, a short note on the 3 changes that matter most, and one round of follow-up questions.</p>
+          <div class="pkg-cta"><a class="btn btn-primary" data-signup="Essay Refine" href="https://tally.so/r/4aKj1k">Sign up for Essay Refine</a></div>
         </article>
         <article class="pkg" id="pkg-essay-refind">
           <span class="picked-tag" aria-hidden="true">this one, probably</span>
@@ -789,6 +811,7 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
           <p class="price">$59 to $79</p>
           <p class="for">For an essay that isn't working, or one you haven't started.</p>
           <p>A brainstorm call to dig up your story, an outline, several rounds of feedback and a final polish check. Price depends on length and rounds.</p>
+          <div class="pkg-cta"><a class="btn btn-primary" data-signup="Essay ReFind" href="https://tally.so/r/4aKj1k">Sign up for Essay ReFind</a></div>
         </article>
         <article class="pkg" id="pkg-ec-refine">
           <span class="picked-tag" aria-hidden="true">this one, probably</span>
@@ -796,6 +819,7 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
           <p class="price"><s class="was">$35</s> $25 <small>launch price, for now</small></p>
           <p class="for">For an activity list that undersells you.</p>
           <p>Comments on all 10 activities and your honors, rewrites that fit the 150-character limit, and the best order to list them in.</p>
+          <div class="pkg-cta"><a class="btn btn-primary" data-signup="EC Refine" href="https://tally.so/r/4aKj1k">Sign up for EC Refine</a></div>
         </article>
         <article class="pkg" id="pkg-ec-refind">
           <span class="picked-tag" aria-hidden="true">this one, probably</span>
@@ -803,6 +827,7 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
           <p class="price">$69 to $89</p>
           <p class="for">For a profile that feels thin.</p>
           <p>A call to map what you already do, a clear direction, a real role in one of the projects my friends and I run, and a written plan for the next few months.</p>
+          <div class="pkg-cta"><a class="btn btn-primary" data-signup="EC ReFind" href="https://tally.so/r/4aKj1k">Sign up for EC ReFind</a></div>
         </article>
       </div>
     </div>
@@ -817,6 +842,7 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
           <p class="for">For students who can handle essays but have no one for everything else. Basically the counselor your school doesn't have.</p>
           <p>July to January, group calls on a set agenda (you send questions first, so nothing gets wasted) plus chat in between. You get a balanced school list, every Common App section checked, a school profile for your school, a transcript translation format, a guide for whoever writes your counselor letter, a brag sheet, help with the CSS Profile, a deadline tracker, one written review, and a final check before each round.</p>
           <p class="not">Not included: essays and deep profile work.</p>
+          <div class="pkg-cta"><a class="btn btn-primary" data-signup="Navigator" href="https://tally.so/r/4aKj1k">Sign up for Navigator</a></div>
         </article>
       </div>
     </div>
@@ -833,8 +859,19 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
           <p>I design a package just for you. It can be everything from planning to submit: your school list, essays, activities, the school forms and the aid. Or it can be one piece of it. One dream school and ED2 in six weeks. Joining halfway through the season. A gap year, an art portfolio, or only the aid part.</p>
           <p>Start with the free call, and within 48 hours I send a written plan with what we'll do, the dates, what you'll get, and the price. You say yes or no, no pressure.</p>
           <p class="example"><b>Example:</b> a student aiming for one university in ED2 got a plan built around that school, plus supplement reviews for two backup schools.</p>
+          <div class="pkg-cta"><a class="btn btn-primary" data-book href="#call">Start with the free call</a><a class="btn btn-ghost" data-signup="Reroute" href="https://tally.so/r/4aKj1k">Already had the call? Sign up</a></div>
         </article>
       </div>
+    </div>
+
+    <div class="signup-band" id="signup">
+      <div class="signup-text">
+        <p class="hand">already know what you need?</p>
+        <h3>Sign up for a package</h3>
+        <p>Had your free call already, or just know which one fits? Fill in the sign-up form, pick your package, and I'll get back to you to set everything up.</p>
+      </div>
+      <a class="btn btn-signup" data-signup href="https://tally.so/r/4aKj1k">Sign up now
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
     </div>
 
     <div class="rules">
@@ -917,6 +954,7 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
 
 <footer>
   <div class="wrap foot-in">
+    <p class="foot-brand">Prep Pal</p>
     <p class="foot-made">Made by a student who did it the hard way.</p>
     <ul class="sources">
       <li><a href="https://schoolcounselor.org/getmedia/efe644ea-e26c-4531-82e9-ddbab422227a/24-25-Ratios.pdf" target="_blank" rel="noopener">ASCA student-to-school-counselor ratio data 2024 to 2025</a></li>
@@ -934,12 +972,14 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
   </div>
 </footer>
 
-<div class="mbar" id="mbar"><a class="btn btn-primary" data-book href="#call">Book a free 30-min call</a></div>
+<div class="mbar" id="mbar"><a class="btn btn-primary" id="mbarBook" data-book href="#call">Book a free 30-min call</a><a class="btn btn-signup" id="mbarSign" data-signup href="https://tally.so/r/4aKj1k" hidden>Sign up for a package</a></div>
 
 <script>
 (function(){
   /* Paste your Tally form link here. Until then, booking buttons scroll to "How the free call works". */
   var TALLY_LINK = "https://tally.so/r/peDyoy";
+  /* package sign-up form */
+  var SIGNUP_LINK = "https://tally.so/r/4aKj1k";
 
   var reduce = false;
   try { reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch(e){}
@@ -953,6 +993,12 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
   if (/^https?:\/\//.test(TALLY_LINK)) {
     $$("[data-book]").forEach(function(a){ a.href = TALLY_LINK; a.target = "_blank"; a.rel = "noopener"; });
   }
+
+  /* sign-up links: open the sign-up form, passing the package name when there is one */
+  function signupHref(name){ return SIGNUP_LINK + (name ? "?package=" + encodeURIComponent(name) : ""); }
+  $$("[data-signup]").forEach(function(a){
+    a.href = signupHref(a.getAttribute("data-signup")); a.target = "_blank"; a.rel = "noopener";
+  });
 
   /* nav */
   var nav = $("#nav"), menuBtn = $("#menuBtn"), menuPanel = $("#menuPanel");
@@ -1288,7 +1334,11 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
     if (answers.grade && answers.worry && answers.time) {
       var k = pick(answers), card = document.getElementById("pkg-" + k);
       if (card) card.classList.add("picked");
-      fitAnswer.innerHTML = "My guess: <b>" + NAMES[k] + "</b>. <a href=\"#pkg-" + k + "\">Show me</a>";
+      var cta = k === "reroute"
+        ? '<a class="btn btn-primary" href="' + (/^https?:/.test(TALLY_LINK) ? TALLY_LINK : "#call") + '" target="_blank" rel="noopener">Start with the free call</a>'
+        : '<a class="btn btn-primary" href="' + signupHref(NAMES[k]) + '" target="_blank" rel="noopener">Sign up for ' + NAMES[k] + '</a>';
+      fitAnswer.innerHTML = "My guess: <b>" + NAMES[k] + "</b>. <a href=\"#pkg-" + k + "\">Show me</a>" +
+        '<span class="fit-cta">' + cta + '</span>';
     } else {
       var left = ["grade","worry","time"].filter(function(q){ return !answers[q]; }).length;
       fitAnswer.textContent = left === 3 ? "Answer all three and I'll point at one." : (left === 1 ? "One more tap." : "Two more taps.");
@@ -1324,15 +1374,20 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
     });
   });
 
-  /* mobile booking bar: step aside while another booking button is on screen */
-  var mbar = $("#mbar");
+  /* mobile booking bar: step aside while another booking button is on screen,
+     and switch to "Sign up" while the packages are on screen */
+  var mbar = $("#mbar"), mbarBook = $("#mbarBook"), mbarSign = $("#mbarSign");
   if (hasIO) {
+    var pIO = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ mbarSign.hidden = !en.isIntersecting; mbarBook.hidden = en.isIntersecting; });
+    }, {rootMargin:"-35% 0px -35% 0px"});
+    pIO.observe($("#packages"));
     var visible = new Set();
     var bIO = new IntersectionObserver(function(entries){
       entries.forEach(function(en){ if (en.isIntersecting) visible.add(en.target); else visible.delete(en.target); });
       mbar.classList.toggle("away", visible.size > 0);
     });
-    ["#heroCtas", "#finalCtas", "#call"].forEach(function(s){ var el = $(s); if (el) bIO.observe(el); });
+    ["#heroCtas", "#finalCtas", "#call", "#signup"].forEach(function(s){ var el = $(s); if (el) bIO.observe(el); });
   }
 })();
 </script>

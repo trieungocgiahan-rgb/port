@@ -20,7 +20,7 @@ FAVICON = (
     "%3Crect width='64' height='64' rx='14' fill='%23F3F6FF'/%3E"
     "%3Crect x='10' y='34' width='44' height='14' rx='4' fill='%23FFE45C'/%3E"
     "%3Ctext x='32' y='46' text-anchor='middle' font-family='Georgia,serif' "
-    "font-weight='700' font-size='40' fill='%2314213D'%3EK%3C/text%3E%3C/svg%3E"
+    "font-weight='700' font-size='40' fill='%2314213D'%3EP%3C/text%3E%3C/svg%3E"
 )
 
 src = open(SRC, encoding="utf-8").read()
@@ -49,7 +49,7 @@ doc = (
     '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
     '<meta name="theme-color" content="#F3F6FF">\n'
     '<meta property="og:type" content="website">\n'
-    '<meta property="og:title" content="Nobody told me I\'d have to be my own counselor too.">\n'
+    '<meta property="og:title" content="Prep Pal | Nobody told me I\'d have to be my own counselor too.">\n'
     '<meta property="og:description" content="For students applying to US universities with no college counselor. '
     'Written by a senior from Ho Chi Minh City who just did it. Book a free 30-min call.">\n'
     '<link rel="icon" href="' + FAVICON + '">\n'
