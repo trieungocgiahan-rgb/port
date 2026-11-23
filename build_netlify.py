@@ -51,7 +51,8 @@ doc = (
     '<meta property="og:type" content="website">\n'
     '<meta property="og:title" content="Prep Pal | Nobody told me I\'d have to be my own counselor too.">\n'
     '<meta property="og:description" content="For students applying to US universities with no college counselor. '
-    'Written by a senior from Ho Chi Minh City who just did it. Book a free 30-min call.">\n'
+    'Written by a senior from Ho Chi Minh City who just did it. Book a $5 Profile Check.">\n'
+    '<meta property="og:url" content="https://rerouteyourprofile.netlify.app/">\n'
     '<link rel="icon" href="' + FAVICON + '">\n'
     + base_css
     + head_part

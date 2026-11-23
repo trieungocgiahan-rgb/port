@@ -6,7 +6,8 @@
 <meta name="theme-color" content="#F3F6FF">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Prep Pal | Nobody told me I'd have to be my own counselor too.">
-<meta property="og:description" content="For students applying to US universities with no college counselor. Written by a senior from Ho Chi Minh City who just did it. Book a free 30-min call.">
+<meta property="og:description" content="For students applying to US universities with no college counselor. Written by a senior from Ho Chi Minh City who just did it. Book a $5 Profile Check.">
+<meta property="og:url" content="https://rerouteyourprofile.netlify.app/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23F3F6FF'/%3E%3Crect x='10' y='34' width='44' height='14' rx='4' fill='%23FFE45C'/%3E%3Ctext x='32' y='46' text-anchor='middle' font-family='Georgia,serif' font-weight='700' font-size='40' fill='%2314213D'%3EP%3C/text%3E%3C/svg%3E">
 <style>[hidden]{display:none!important}img{max-width:100%}</style>
 <title>Prep Pal</title>
@@ -361,6 +362,8 @@ blockquote p.q::after{content:"\201D";color:var(--pink)}
 .price small{font-family:var(--f-body);font-size:.9rem;font-weight:500;color:var(--muted)}
 .pkg .for{font-weight:600}
 .pkg .not{font-size:.93rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:10px}
+.rules li b{color:var(--ink)}
+.rules li span{font-size:.97rem}
 .pkg.feature{border-color:var(--blue);box-shadow:var(--shadow-lift)}
 .pkg.feature.route{border-color:var(--pink)}
 .pkg.feature.route .price{color:var(--pink-ink)}
@@ -389,6 +392,50 @@ blockquote p.q::after{content:"\201D";color:var(--pink)}
 .fit-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
 .menu-panel a.menu-signup{background:var(--hl);margin-top:4px}
 .foot-brand{font-family:var(--f-display);font-weight:600;font-size:1.6rem;line-height:1}
+.how{list-style:none;margin:0 0 14px;padding:0;display:grid;gap:12px;counter-reset:h;max-width:980px}
+@media (min-width:820px){.how{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.how li{counter-increment:h;background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:18px 18px 18px 60px;position:relative;font-size:.98rem;line-height:1.55}
+.how li::before{content:counter(h);position:absolute;left:16px;top:16px;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--blue-soft);color:var(--blue);font-family:var(--f-display);font-weight:600}
+.how b{display:block;color:var(--ink)}
+.refind-note{margin:0 0 40px;max-width:760px;display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px}
+.refind-note .hand{font-size:1.5rem}
+.glance-wrap{margin-bottom:48px;display:grid;gap:12px;max-width:1040px}
+.glance-wrap h3{font-size:1.45rem}
+.glance{width:100%;border-collapse:separate;border-spacing:0;background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;font-size:.94rem;line-height:1.45}
+.glance th,.glance td{text-align:left;vertical-align:top;padding:12px 14px;border-bottom:1px solid var(--line)}
+.glance thead th{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:var(--bg)}
+.glance tbody tr:last-child > *{border-bottom:0}
+.glance tbody th a{color:var(--ink);font-weight:700;text-decoration:none}
+.glance tbody th a:hover{color:var(--blue)}
+.glance td[data-l="Price"]{font-weight:700;white-space:nowrap}
+.muted{color:var(--muted);font-weight:500}
+@media (max-width:760px){
+  .glance thead{display:none}
+  .glance,.glance tbody,.glance tr,.glance th,.glance td{display:block}
+  .glance tr{padding:14px 16px;border-bottom:1px solid var(--line)}
+  .glance tbody tr:last-child{border-bottom:0}
+  .glance th,.glance td{padding:0;border:0}
+  .glance tbody th{font-size:1.02rem;margin-bottom:2px}
+  .glance td[data-l="Price"]{white-space:normal;color:var(--blue);margin-bottom:4px}
+  .glance td[data-l="Best for"],.glance td[data-l="You get"]{color:#33405F}
+  .glance td[data-l="You get"]::before{content:"You get: ";font-weight:600;color:var(--muted)}
+}
+.runs{font-size:.96rem}
+.why2{font-size:.9rem;color:var(--muted)}
+.gets{background:var(--bg);border-radius:12px;padding:12px 14px}
+.gets-h{font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.gets ul{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:.95rem;line-height:1.5}
+.gets li{display:flex;gap:10px}
+.gets li::before{content:"";flex:none;width:7px;height:7px;margin-top:.62em;border-radius:50%;background:var(--blue)}
+.opts{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+.opt{border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;font-size:.93rem;line-height:1.45}
+.opt-name{font-weight:700;font-size:1rem;display:flex;justify-content:space-between;gap:8px}
+.opt-name b{font-family:var(--f-display);color:var(--blue);font-size:1.15rem}
+.opt .btn{margin-top:auto;align-self:flex-start}
+.btn-sm{min-height:42px;padding:.5em 1em;font-size:.9rem;margin-top:8px}
+.pkg h3 small{font-family:var(--f-body);font-size:.85rem}
+.info-grid{display:grid;gap:16px;max-width:1040px}
+@media (min-width:900px){.info-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);align-items:start}}
 .rules{background:var(--card);border-radius:22px;padding:24px 22px;border:2px dashed #B9C7EE;max-width:860px}
 .rules h3{font-size:1.35rem;margin-bottom:14px}
 .rules ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
@@ -478,7 +525,7 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
       <li><a href="#faq">FAQ</a></li>
     </ul>
     <a class="btn btn-ghost nav-cta" data-signup href="https://tally.so/r/4aKj1k">Sign up</a>
-    <a class="btn btn-primary nav-cta" data-book href="#call">Free call</a>
+    <a class="btn btn-primary nav-cta" data-book href="#call">Profile Check</a>
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menuPanel">Menu <svg viewBox="0 0 24 24" class="chev" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
     <ul class="menu-panel" id="menuPanel" hidden>
       <li><a href="#desks">The two desks</a></li>
@@ -504,7 +551,7 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
       <h1>Nobody told me I'd have to be <span class="hl">my own counselor</span> too.</h1>
       <p class="lede">At most US high schools, someone at school sends your transcript, writes the school report, signs your forms and watches your deadlines, so you can mostly worry about your essays. If your school has never had a college counselor, every one of those jobs lands on your desk, on top of the essays. I just went through it. Let me show you what's on that desk.</p>
       <div class="btn-row" id="heroCtas">
-        <a class="btn btn-primary" data-book href="#call">Book a free 30-min call</a>
+        <a class="btn btn-primary" data-book href="#call">Book a Profile Check &middot; $5</a>
         <a class="btn btn-ghost" href="#desks">Show me everything</a>
       </div>
       <p class="hero-proof">From a public school with no counselor to <span class="hl">NYU Abu Dhabi</span>. I did the whole school side myself.</p>
@@ -759,6 +806,13 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
       <p class="sub">Without a counselor, it's easy to never find out how good your essays and activities could actually be. I'll be there to listen until we both see it.</p>
     </div>
 
+    <ol class="how" aria-label="How it works">
+      <li><b>Profile Check, $5.</b> You fill in a short form, we read it, and we meet for 30 minutes. Within 48 hours you get a deep analysis of your profile and your next steps.</li>
+      <li><b>Pick what you need.</b> Fix one thing (Refine or ReFind), get season-long support (Navigator), or get a plan built around you (Reroute).</li>
+      <li><b>Pay and start.</b> We send a PayPal invoice and book your first session.</li>
+    </ol>
+    <p class="refind-note"><span class="hand">Refine vs ReFind, in one line:</span> Refine = we polish what you already wrote. ReFind = we build it with you from scratch.</p>
+
     <div class="fit" id="fit">
       <div class="fit-head"><h3>Which one fits me?</h3><span class="hand">three taps, promise</span></div>
       <fieldset class="fit-q">
@@ -786,8 +840,28 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
       </fieldset>
       <div class="fit-result" aria-live="polite">
         <p class="fit-answer" id="fitAnswer">Answer all three and I'll point at one.</p>
-        <p class="fit-free">Not sure? <a data-book href="#call">Start with the free call.</a></p>
+        <p class="fit-free">Not sure? <a data-book href="#call">Start with a Profile Check.</a></p>
       </div>
+    </div>
+
+    <div class="glance-wrap">
+      <h3>Prices at a glance</h3>
+      <table class="glance">
+        <thead><tr><th scope="col">Package</th><th scope="col">Price (USD)</th><th scope="col">Best for</th><th scope="col">What you get at the end</th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><a href="#pkg-free">Profile Check</a></th><td data-l="Price">$5</td><td data-l="Best for">Everyone, the first step</td><td data-l="You get">30-min call + a deep analysis of your profile and next steps</td></tr>
+          <tr><th scope="row"><a href="#pkg-essay-refine">Essay Refine</a></th><td data-l="Price">$22 <span class="muted">launch price, normally $35</span></td><td data-l="Best for">ONE essay you already wrote</td><td data-l="You get">Your essay with line-by-line comments + the 3 key changes</td></tr>
+          <tr><th scope="row"><a href="#pkg-ec-refine">EC Refine</a></th><td data-l="Price">$22 <span class="muted">launch price, normally $35</span></td><td data-l="Best for">The activity list you already have</td><td data-l="You get">Your list with comments, rewrites and the best order</td></tr>
+          <tr><th scope="row"><a href="#pkg-essay-refind">Essay ReFind Short</a></th><td data-l="Price">$59</td><td data-l="Best for">ONE short essay from scratch (up to 350 words)</td><td data-l="You get">1 finished essay after 2 rounds of edits</td></tr>
+          <tr><th scope="row"><a href="#pkg-essay-refind">Essay ReFind Long</a></th><td data-l="Price">$79</td><td data-l="Best for">ONE long essay from scratch (up to 650 words)</td><td data-l="You get">1 finished essay after 3 rounds of edits</td></tr>
+          <tr><th scope="row"><a href="#pkg-ec-refind">EC ReFind</a></th><td data-l="Price">$69</td><td data-l="Best for">A profile that feels thin</td><td data-l="You get">A direction, a 3-month plan, a role in a real project</td></tr>
+          <tr><th scope="row"><a href="#pkg-ec-refind">EC ReFind Plus</a></th><td data-l="Price">$89</td><td data-l="Best for">Same, with follow-up</td><td data-l="You get">Everything in EC ReFind + 2 check-in calls + a rewritten activity list</td></tr>
+          <tr><th scope="row"><a href="#pkg-navigator">Navigator</a></th><td data-l="Price">$99 <span class="muted">($89 each in a group of 4)</span></td><td data-l="Best for">Forms, school list and aid, July to January</td><td data-l="You get">A finished set of application documents</td></tr>
+          <tr><th scope="row"><a href="#pkg-full">Full Journey</a></th><td data-l="Price">$489 <span class="muted">(6 months)</span> / $899 <span class="muted">(12 months)</span></td><td data-l="Best for">Juniors who want everything</td><td data-l="You get">Everything in Navigator + finished essays + a stronger profile</td></tr>
+          <tr><th scope="row"><a href="#pkg-reroute">Reroute (custom)</a></th><td data-l="Price">Set after your Profile Check</td><td data-l="Best for">Situations that don't fit a box</td><td data-l="You get">A written plan with dates and outputs, then the work in it</td></tr>
+        </tbody>
+      </table>
+      <p class="tiny">All prices are one-time, not weekly or monthly, unless you choose a payment plan.</p>
     </div>
 
     <div class="pkg-group">
@@ -796,11 +870,12 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
         <article class="pkg feature" id="pkg-free">
           <span class="picked-tag" aria-hidden="true">this one, probably</span>
           <span class="pkg-flag" aria-hidden="true">everyone starts here</span>
-          <h3>Free Profile Check</h3>
-          <p class="price">Free</p>
-          <p class="for">For everyone, and every package starts here.</p>
-          <p>You fill in a short form, I read it before we meet, and we spend 30 minutes on your story and what's in your way. We fix one thing during the call. Within 48 hours you get a one-page summary with your 3 next steps and my honest take, even if it's "you're fine, you don't need us."</p>
-          <div class="pkg-cta"><a class="btn btn-primary" data-book href="#call">Book a free 30-min call</a></div>
+          <h3>Profile Check</h3>
+          <p class="price">$5</p>
+          <p class="for">For everyone, before any package.</p>
+          <p class="runs"><b>How it runs:</b> a short form, then a 30-minute call.</p>
+          <div class="gets"><p class="gets-h">You receive</p><ul><li>A deep analysis of your profile within 48 hours: what's strong, what's missing, and exactly what to do next to win this</li><li>A package recommendation, or "you don't need us" if that's true</li></ul></div>
+          <div class="pkg-cta"><a class="btn btn-primary" data-book href="#call">Book a Profile Check &middot; $5</a></div>
         </article>
       </div>
     </div>
@@ -811,34 +886,48 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
         <article class="pkg" id="pkg-essay-refine">
           <span class="picked-tag" aria-hidden="true">this one, probably</span>
           <h3>Essay Refine</h3>
-          <p class="price"><s class="was">$35</s> $25 <small>launch price, for now</small></p>
-          <p class="for">For a draft you mostly like.</p>
-          <p>Line-by-line comments on one essay, a short note on the 3 changes that matter most, and one round of follow-up questions.</p>
+          <p class="price"><s class="was">$35</s> $22 <small>launch price</small></p>
+          <p class="for">For ONE essay you already wrote. We polish, we don't write new.</p>
+          <p class="runs"><b>How it runs:</b> you send the essay, we return it within 3 days, then one round of follow-up questions by chat.</p>
+          <div class="gets"><p class="gets-h">You receive</p><ul><li>Your essay with line-by-line comments in Google Docs</li><li>A short note on the 3 changes that matter most</li></ul></div>
+          <p class="not">Not included: brainstorming, new drafts, a second essay.</p>
           <div class="pkg-cta"><a class="btn btn-primary" data-signup="Essay Refine" href="https://tally.so/r/4aKj1k">Sign up for Essay Refine</a></div>
-        </article>
-        <article class="pkg" id="pkg-essay-refind">
-          <span class="picked-tag" aria-hidden="true">this one, probably</span>
-          <h3>Essay ReFind</h3>
-          <p class="price">$59 to $79</p>
-          <p class="for">For an essay that isn't working, or one you haven't started.</p>
-          <p>A brainstorm call to dig up your story, an outline, several rounds of feedback and a final polish check. Price depends on length and rounds.</p>
-          <div class="pkg-cta"><a class="btn btn-primary" data-signup="Essay ReFind" href="https://tally.so/r/4aKj1k">Sign up for Essay ReFind</a></div>
         </article>
         <article class="pkg" id="pkg-ec-refine">
           <span class="picked-tag" aria-hidden="true">this one, probably</span>
           <h3>EC Refine</h3>
-          <p class="price"><s class="was">$35</s> $25 <small>launch price, for now</small></p>
-          <p class="for">For an activity list that undersells you.</p>
-          <p>Comments on all 10 activities and your honors, rewrites that fit the 150-character limit, and the best order to list them in.</p>
+          <p class="price"><s class="was">$35</s> $22 <small>launch price</small></p>
+          <p class="for">For the activity list you already have.</p>
+          <p class="runs"><b>How it runs:</b> you send your list, we return it within 3 days.</p>
+          <div class="gets"><p class="gets-h">You receive</p><ul><li>Comments on all 10 activities and your honors</li><li>Suggested rewording that fits the 150-character limit</li><li>The best order to list them in</li></ul></div>
+          <p class="not">Not included: finding new activities.</p>
           <div class="pkg-cta"><a class="btn btn-primary" data-signup="EC Refine" href="https://tally.so/r/4aKj1k">Sign up for EC Refine</a></div>
+        </article>
+        <article class="pkg" id="pkg-essay-refind">
+          <span class="picked-tag" aria-hidden="true">this one, probably</span>
+          <h3>Essay ReFind</h3>
+          <p class="price">$59 <small>short</small> &middot; $79 <small>long</small></p>
+          <p class="for">For an essay that isn't working, or one you haven't started.</p>
+          <p class="why2">Why two prices: a long essay takes more drafts and more rounds of edits.</p>
+          <div class="opts">
+            <div class="opt"><p class="opt-name">Short <b>$59</b></p><p>Up to 350 words (most supplements)</p><p>2 rounds of edits</p><a class="btn btn-primary btn-sm" data-signup="Essay ReFind Short" href="https://tally.so/r/4aKj1k">Sign up: Short</a></div>
+            <div class="opt"><p class="opt-name">Long <b>$79</b></p><p>Up to 650 words (personal statement)</p><p>3 rounds of edits</p><a class="btn btn-primary btn-sm" data-signup="Essay ReFind Long" href="https://tally.so/r/4aKj1k">Sign up: Long</a></div>
+          </div>
+          <p class="runs"><b>How it runs:</b> a 45-min brainstorm call, an outline, drafts, rounds of edits, a final check.</p>
+          <div class="gets"><p class="gets-h">You receive</p><ul><li>Brainstorm notes with your chosen story and angle</li><li>An outline</li><li>1 finished essay, ready to submit</li></ul></div>
+          <p class="not">Not included: other essays.</p>
         </article>
         <article class="pkg" id="pkg-ec-refind">
           <span class="picked-tag" aria-hidden="true">this one, probably</span>
           <h3>EC ReFind</h3>
-          <p class="price">$69 to $89</p>
+          <p class="price">$69 <small>or</small> $89 <small>with Plus</small></p>
           <p class="for">For a profile that feels thin.</p>
-          <p>A call to map what you already do, a clear direction, a real role in one of the projects my friends and I run, and a written plan for the next few months.</p>
-          <div class="pkg-cta"><a class="btn btn-primary" data-signup="EC ReFind" href="https://tally.so/r/4aKj1k">Sign up for EC ReFind</a></div>
+          <p class="why2">Why two prices: Plus adds follow-up over the next months.</p>
+          <div class="opts">
+            <div class="opt"><p class="opt-name">EC ReFind <b>$69</b></p><p>45-min mapping call, a direction, a 3-month plan, a role in one of our running projects</p><a class="btn btn-primary btn-sm" data-signup="EC ReFind" href="https://tally.so/r/4aKj1k">Sign up: EC ReFind</a></div>
+            <div class="opt"><p class="opt-name">Plus <b>$89</b></p><p>Everything above + 2 check-in calls + your activity list rewritten at the end</p><a class="btn btn-primary btn-sm" data-signup="EC ReFind Plus" href="https://tally.so/r/4aKj1k">Sign up: Plus</a></div>
+          </div>
+          <div class="gets"><p class="gets-h">You receive</p><ul><li>A one-page profile direction: your story and what to build</li><li>A 3-month plan with steps and dates</li><li>A confirmed role in a real project</li><li>With Plus: an updated activity list</li></ul></div>
         </article>
       </div>
     </div>
@@ -850,9 +939,10 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
           <span class="picked-tag" aria-hidden="true">this one, probably</span>
           <h3>Navigator</h3>
           <p class="price">$99 <small>or $89 each in a group of 4</small></p>
-          <p class="for">For students who can handle essays but have no one for everything else. Basically the counselor your school doesn't have.</p>
-          <p>July to January, group calls on a set agenda (you send questions first, so nothing gets wasted) plus chat in between. You get a balanced school list, every Common App section checked, a school profile for your school, a transcript translation format, a guide for whoever writes your counselor letter, a brag sheet, help with the CSS Profile, a deadline tracker, one written review, and a final check before each round.</p>
-          <p class="not">Not included: essays and deep profile work.</p>
+          <p class="for">For students who can handle essays but have no one for everything else. Basically the counselor your school doesn't have. July to January.</p>
+          <p class="runs"><b>How it runs:</b> group calls on a set agenda (questions collected first) + chat support.</p>
+          <div class="gets"><p class="gets-h">You receive</p><ul><li>A balanced school list (reach, target, likely)</li><li>Every Common App section checked</li><li>A school profile for your school</li><li>A translated transcript format</li><li>A counselor letter guide and a brag sheet</li><li>CSS Profile help and a deadline tracker</li><li>One written review and a final check before each round</li></ul></div>
+          <p class="not">Not included: essays and in-depth profile work.</p>
           <div class="pkg-cta"><a class="btn btn-primary" data-signup="Navigator" href="https://tally.so/r/4aKj1k">Sign up for Navigator</a></div>
         </article>
       </div>
@@ -861,43 +951,72 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
     <div class="pkg-group">
       <p class="pkg-label">With you the whole way</p>
       <div class="pkg-row">
+        <article class="pkg" id="pkg-full">
+          <span class="picked-tag" aria-hidden="true">this one, probably</span>
+          <h3>Full Journey</h3>
+          <p class="price">$489 <small>6 months</small> &middot; $899 <small>12 months</small></p>
+          <p class="for">For juniors who want one person with them from planning to submit.</p>
+          <p class="runs"><b>How it runs:</b> 1:1 calls twice a month + chat support.</p>
+          <div class="gets"><p class="gets-h">You receive</p><ul><li>Everything in Navigator</li><li>Your personal statement and supplements, finished</li><li>Everything in EC ReFind Plus</li><li>A school direction plan from your 1:1 calls</li></ul></div>
+          <p class="not">Can be split into 2 payments: half to start, half before your final submission.</p>
+          <div class="pkg-cta"><a class="btn btn-primary" data-signup="Full Journey 6 months" href="https://tally.so/r/4aKj1k">Sign up: 6 months</a><a class="btn btn-primary" data-signup="Full Journey 12 months" href="https://tally.so/r/4aKj1k">Sign up: 12 months</a></div>
+        </article>
+      </div>
+    </div>
+
+    <div class="pkg-group">
+      <p class="pkg-label">Your own route</p>
+      <div class="pkg-row">
         <article class="pkg feature route" id="pkg-reroute">
           <span class="picked-tag" aria-hidden="true">this one, probably</span>
           <span class="pkg-flag" aria-hidden="true">made just for you</span>
-          <h3>Reroute</h3>
-          <p class="price">Price set after your free call</p>
-          <p class="for">For when you want one person with you the whole way, or your situation doesn't fit a box.</p>
-          <p>I design a package just for you. It can be everything from planning to submit: your school list, essays, activities, the school forms and the aid. Or it can be one piece of it. One dream school and ED2 in six weeks. Joining halfway through the season. A gap year, an art portfolio, or only the aid part.</p>
-          <p>Start with the free call, and within 48 hours I send a written plan with what we'll do, the dates, what you'll get, and the price. You say yes or no, no pressure.</p>
-          <p class="example"><b>Example:</b> a student aiming for one university in ED2 got a plan built around that school, plus supplement reviews for two backup schools.</p>
-          <div class="pkg-cta"><a class="btn btn-primary" data-book href="#call">Start with the free call</a><a class="btn btn-ghost" data-signup="Reroute" href="https://tally.so/r/4aKj1k">Already had the call? Sign up</a></div>
+          <h3>Reroute <small class="muted">(custom)</small></h3>
+          <p class="price">Price set after your Profile Check</p>
+          <p class="for">For situations that don't fit a box: one dream school with a close deadline, joining mid-season, a portfolio, or aid only.</p>
+          <p class="runs"><b>How it runs:</b> a Profile Check first, then a written plan within 48 hours. You say yes or no.</p>
+          <div class="gets"><p class="gets-h">You receive</p><ul><li>A written plan: what we do, week by week, and the price</li><li>Then every output listed in that plan</li></ul></div>
+          <p class="example"><b>Example:</b> a full NYUAD ED2 package (all essays, CV, portfolio guidance, application support, weekly calls for 5 weeks) is $349.</p>
+          <div class="pkg-cta"><a class="btn btn-primary" data-book href="#call">Start with a Profile Check</a><a class="btn btn-ghost" data-signup="Reroute" href="https://tally.so/r/4aKj1k">Already had it? Sign up</a></div>
         </article>
       </div>
     </div>
 
     <div class="signup-band" id="signup">
       <div class="signup-text">
-        <p class="hand">already know what you need?</p>
+        <p class="hand">had your Profile Check?</p>
         <h3>Sign up for a package</h3>
-        <p>Had your free call already, or just know which one fits? Fill in the sign-up form, pick your package, and I'll get back to you to set everything up.</p>
+        <p>Fill in the sign-up form and pick your package. We send a PayPal invoice and book your first session.</p>
       </div>
       <a class="btn btn-signup" data-signup href="https://tally.so/r/4aKj1k">Sign up now
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
     </div>
 
-    <div class="rules">
-      <h3>The rules, for every package</h3>
-      <ul>
-        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.3L19 6.5"/></svg><span>You write your own work. I comment, ask questions and push, but I never write it for you.</span></li>
-        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.3L19 6.5"/></svg><span>Nobody can honestly promise an admission, so I don't.</span></li>
-        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.3L19 6.5"/></svg><span>Some spots are need-based. If price is the only thing stopping you, tell me.</span></li>
-        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.3L19 6.5"/></svg><span>Whatever you share stays between us.</span></li>
-      </ul>
+    <div class="info-grid">
+      <div class="rules pay">
+        <h3>Paying</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.3L19 6.5"/></svg><span>You pay once per package, by PayPal invoice. A card or UPI works, no PayPal account needed.</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.3L19 6.5"/></svg><span><b>Under $100:</b> paid in full before we start.</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.3L19 6.5"/></svg><span><b>$100 and above:</b> can be split in 2, half to start and half before your final submission.</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.3L19 6.5"/></svg><span><b>Not included in any package:</b> application fees and CSS Profile fees.</span></li>
+        </ul>
+      </div>
+      <div class="rules">
+        <h3>The rules, for every package</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.3L19 6.5"/></svg><span><b>Your work stays yours.</b> We comment, ask questions and push, but never write it for you. You approve every change before anything is final.</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.3L19 6.5"/></svg><span><b>No guarantees.</b> Nobody can honestly promise an admission, so we don't.</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.3L19 6.5"/></svg><span><b>Rescheduling.</b> Tell us at least 24 hours before a call. Calls missed without notice can't be made up.</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.3L19 6.5"/></svg><span><b>Reply time.</b> We answer chat messages within 24 hours.</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.3L19 6.5"/></svg><span><b>Stopping.</b> You can stop anytime. If you stop before a second payment, you don't owe it. Payments already made are not refunded once work has started.</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.3L19 6.5"/></svg><span><b>Privacy.</b> Everything you share stays between you and us.</span></li>
+        </ul>
+      </div>
     </div>
 
     <div class="price-help">
       <p class="hand pink">is the price the problem?</p>
-      <p>Then email me. Tell me a little about your situation and which package you need, and I'll look at it properly. Some spots are need-based for exactly this reason.</p>
+      <p>Then tell us your budget and a little about your situation. We either lower the price or make the package smaller and keep the parts you need most.</p>
       <div class="btn-row">
         <a class="btn btn-primary" href="mailto:trieungocgiahan@gmail.com?subject=About%20the%20price">Email me about the price</a>
         <button type="button" class="btn btn-ghost" data-copy="trieungocgiahan@gmail.com">Copy my email</button>
@@ -907,22 +1026,24 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
   </div>
 </section>
 
-<!-- 9. HOW THE FREE CALL WORKS -->
+<!-- 9. HOW THE PROFILE CHECK WORKS -->
 <section class="section call-band" id="call" aria-labelledby="call-h">
   <div class="wrap">
     <div class="section-head">
-      <h2 id="call-h">How the free call works</h2>
+      <h2 id="call-h">How the Profile Check works</h2>
+      <p class="sub">It's $5, and it's where every package starts.</p>
     </div>
     <ol class="steps">
       <li>You fill in a short form, about 5 minutes</li>
       <li>I read it before we meet</li>
-      <li>30 minutes together: your story, one thing we fix right there, your 3 next steps</li>
-      <li>A one-page summary in your inbox within 48 hours</li>
+      <li>30 minutes together: your story, what's in your way, and one thing we fix right there</li>
+      <li>Within 48 hours, a deep analysis of your profile in your inbox: what's strong, what's missing, and exactly what to do next to win this</li>
     </ol>
     <div class="call-after">
-      <p class="lede"><span class="hl">No pressure to buy anything.</span> If you don't need me, I'll tell you.</p>
+      <p class="lede"><span class="hl">No pressure to buy anything after.</span> If you don't need us, I'll tell you.</p>
       <p class="times"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Weekday evenings from 7pm and weekend mornings 7am to 12pm, Vietnam time (GMT+7).</span></p>
-      <div><a class="btn btn-primary" data-book href="#call">Book a free 30-min call</a></div>
+      <p class="times"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg><span>$5, paid by PayPal invoice. A card or UPI works, no PayPal account needed.</span></p>
+      <div><a class="btn btn-primary" data-book href="#call">Book a Profile Check &middot; $5</a></div>
     </div>
   </div>
 </section>
@@ -938,7 +1059,10 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
       <details><summary><span>Can you guarantee I get in?</span><i class="plus" aria-hidden="true"></i></summary><p class="ans">Nobody honestly can. What I can promise is that nothing gets missed because no one told you it existed.</p></details>
       <details><summary><span>My school has never done any of this. Is that a problem?</span><i class="plus" aria-hidden="true"></i></summary><p class="ans">That's exactly who this is for. I'll show you how to set it up with your school, step by step.</p></details>
       <details><summary><span>My parents are worried about the money side.</span><i class="plus" aria-hidden="true"></i></summary><p class="ans">Yes, we cover that too: CSS Profile, noncustodial forms, translations, and which schools fund international students. That part scared me the most too.</p></details>
-      <details><summary><span>I can't afford a package.</span><i class="plus" aria-hidden="true"></i></summary><p class="ans">Tell me. Some spots are need-based, and the free call is free either way. Email me at <span class="addr">trieungocgiahan@gmail.com</span> and we'll figure it out.</p></details>
+      <details><summary><span>I can't afford a package.</span><i class="plus" aria-hidden="true"></i></summary><p class="ans">Thanks for telling me. We have need-based aid. Tell me roughly what budget works for you, and I'll either lower the price or make the package smaller so you still get the parts you need most. Email me at <span class="addr">trieungocgiahan@gmail.com</span>.</p></details>
+      <details><summary><span>Is it weekly or monthly?</span><i class="plus" aria-hidden="true"></i></summary><p class="ans">No, every package is a one-time price. For packages of $100 and above, you can split it into 2 payments.</p></details>
+      <details><summary><span>How do I pay?</span><i class="plus" aria-hidden="true"></i></summary><p class="ans">By PayPal invoice. You can pay with a card or UPI, and you don't need a PayPal account. Under $100 is paid in full before we start. $100 and above can be split in 2: half to start, half before your final submission.</p></details>
+      <details><summary><span>What's the difference between Refine and ReFind?</span><i class="plus" aria-hidden="true"></i></summary><p class="ans">Refine means we polish what you already wrote. ReFind means we build it with you from scratch.</p></details>
       <details><summary><span>I'm not in Vietnam.</span><i class="plus" aria-hidden="true"></i></summary><p class="ans">Totally fine. Calls are online, and evening and weekend slots work for a lot of time zones.</p></details>
     </div>
   </div>
@@ -950,9 +1074,9 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
     <div class="final-in">
       <h2 id="final-h">You don't have to do <span class="hl">both jobs</span> alone.</h2>
       <p class="hand trust">trust me on this. I got you.</p>
-      <div class="btn-row" id="finalCtas"><a class="btn btn-primary" data-book href="#call">Book your free 30-min call</a></div>
+      <div class="btn-row" id="finalCtas"><a class="btn btn-primary" data-book href="#call">Book your Profile Check</a></div>
       <div class="contact">
-        <p class="small">or message me at</p>
+        <p class="small">$5 &middot; 30 minutes &middot; a deep analysis of your profile after. Or message me at</p>
         <ul class="contact-list">
           <li><span class="c-label">Email</span><a class="c-val" href="mailto:trieungocgiahan@gmail.com">trieungocgiahan@gmail.com</a><button type="button" class="copy" data-copy="trieungocgiahan@gmail.com">Copy</button></li>
           <li><span class="c-label">WhatsApp</span><a class="c-val" href="https://wa.me/84854504369" target="_blank" rel="noopener">+84 854 504 369</a><button type="button" class="copy" data-copy="+84854504369">Copy</button></li>
@@ -983,11 +1107,11 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
   </div>
 </footer>
 
-<div class="mbar" id="mbar"><a class="btn btn-primary" id="mbarBook" data-book href="#call">Book a free 30-min call</a><a class="btn btn-signup" id="mbarSign" data-signup href="https://tally.so/r/4aKj1k" hidden>Sign up for a package</a></div>
+<div class="mbar" id="mbar"><a class="btn btn-primary" id="mbarBook" data-book href="#call">Book a Profile Check &middot; $5</a><a class="btn btn-signup" id="mbarSign" data-signup href="https://tally.so/r/4aKj1k" hidden>Sign up for a package</a></div>
 
 <script>
 (function(){
-  /* Paste your Tally form link here. Until then, booking buttons scroll to "How the free call works". */
+  /* Paste your Tally form link here. Until then, booking buttons scroll to "How the Profile Check works". */
   var TALLY_LINK = "https://tally.so/r/peDyoy";
   /* package sign-up form */
   var SIGNUP_LINK = "https://tally.so/r/4aKj1k";
@@ -1323,13 +1447,13 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
   });
 
   /* which one fits me */
-  var NAMES = {"free":"Free Profile Check","essay-refine":"Essay Refine","essay-refind":"Essay ReFind","ec-refine":"EC Refine","ec-refind":"EC ReFind","navigator":"Navigator","reroute":"Reroute"};
+  var NAMES = {"free":"Profile Check","full":"Full Journey","essay-refine":"Essay Refine","essay-refind":"Essay ReFind","ec-refine":"EC Refine","ec-refind":"EC ReFind","navigator":"Navigator","reroute":"Reroute"};
   function pick(a){
     var g = a.grade, w = a.worry, t = a.time;
     if (g === "senior" && t === "weeks") return "reroute";
     if (g === "senior" && w === "essays") return "essay-refine";
     if (w === "forms") return g === "junior" ? "navigator" : "reroute";
-    if (w === "everything") return "reroute";
+    if (w === "everything") return g === "junior" ? "full" : "reroute";
     if (w === "essays" && t === "months") return "essay-refind";
     if (w === "activities") return "ec-refind";
     if (w === "essays") return "essay-refine";
@@ -1346,7 +1470,7 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
       var k = pick(answers), card = document.getElementById("pkg-" + k);
       if (card) card.classList.add("picked");
       var cta = k === "reroute"
-        ? '<a class="btn btn-primary" href="' + (/^https?:/.test(TALLY_LINK) ? TALLY_LINK : "#call") + '" target="_blank" rel="noopener">Start with the free call</a>'
+        ? '<a class="btn btn-primary" href="' + (/^https?:/.test(TALLY_LINK) ? TALLY_LINK : "#call") + '" target="_blank" rel="noopener">Start with a Profile Check</a>'
         : '<a class="btn btn-primary" href="' + signupHref(NAMES[k]) + '" target="_blank" rel="noopener">Sign up for ' + NAMES[k] + '</a>';
       fitAnswer.innerHTML = "My guess: <b>" + NAMES[k] + "</b>. <a href=\"#pkg-" + k + "\">Show me</a>" +
         '<span class="fit-cta">' + cta + '</span>';
