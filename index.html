@@ -425,6 +425,64 @@ blockquote p.q::after{content:"\201D";color:var(--pink)}
 .pkg h3 small{font-family:var(--f-body);font-size:.85rem}
 .info-grid{display:grid;gap:16px;max-width:1040px}
 @media (min-width:900px){.info-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);align-items:start}}
+.flow{list-style:none;margin:0 0 14px;padding:0;display:flex;flex-wrap:wrap;gap:10px;max-width:980px}
+.flow li{display:flex;align-items:center;gap:10px;background:var(--card);border-radius:99px;box-shadow:var(--shadow);padding:8px 16px 8px 8px;font-size:.96rem;font-weight:500}
+.flow-n{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--blue);color:#fff;font-family:var(--f-display);font-weight:600;font-size:.95rem}
+.pay-chips{list-style:none;margin:0 0 14px;padding:0;display:flex;flex-wrap:wrap;gap:8px;max-width:980px}
+.pay-chips li{font-size:.86rem;font-weight:600;color:#33405F;background:var(--blue-soft);border-radius:99px;padding:6px 12px}
+.pay-chips a{color:var(--blue-deep)}
+.quiz-link{margin-bottom:34px;font-weight:600;font-size:.98rem}
+.menu-wrap{display:grid;gap:28px;max-width:1040px;margin-bottom:36px}
+.menu-group{display:grid;gap:10px}
+.menu-group .pkg-label{margin-bottom:0}
+.menu-note{font-size:.93rem;color:var(--muted)}
+.menu-note b{color:var(--ink)}
+.menu{list-style:none;margin:0;padding:0;background:var(--card);border-radius:20px;box-shadow:var(--shadow);overflow:visible}
+.mi{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"text price" "actions actions" "detail detail";gap:10px 16px;padding:18px 18px;border-bottom:1px solid var(--line)}
+.mi:first-child{border-radius:20px 20px 0 0}
+.mi:last-child{border-bottom:0;border-radius:0 0 20px 20px}
+.mi:only-child{border-radius:20px}
+.mi-text{grid-area:text;min-width:0;display:grid;gap:3px}
+.mi-name{font-size:1.22rem}
+.mi-for{font-size:.95rem;color:#33405F;line-height:1.5}
+.mi-price{grid-area:price;text-align:right;font-family:var(--f-display);font-weight:600;font-size:1.55rem;line-height:1.1;color:var(--blue);white-space:nowrap}
+.mi-price s{font-size:.62em;color:var(--muted);font-weight:500;text-decoration-color:var(--pink);text-decoration-thickness:2px;margin-right:.2em}
+.mi-price small{display:block;font-family:var(--f-body);font-size:.72rem;font-weight:500;color:var(--muted);margin-top:4px;white-space:normal;max-width:120px;margin-left:auto}
+.mi-custom{font-size:.8em;color:var(--pink-ink)}
+.mi-actions{grid-area:actions;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
+.mi-actions .btn{min-height:46px;padding:.6em 1.3em}
+.mi-more{display:inline-flex;align-items:center;gap:6px;border:0;background:none;padding:10px 4px;font-weight:600;font-size:.92rem;color:var(--muted);cursor:pointer}
+.mi-more:hover{color:var(--blue)}
+.mi-more .chev{width:16px;height:16px}
+.mi-detail{grid-area:detail;background:var(--bg);border-radius:12px;padding:14px 16px;display:grid;gap:8px;font-size:.94rem;line-height:1.55}
+.mi-detail ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.mi-detail li{display:flex;gap:10px}
+.mi-detail li::before{content:"";flex:none;width:7px;height:7px;margin-top:.62em;border-radius:50%;background:var(--blue)}
+.mi-note{color:var(--muted);border-top:1px dashed var(--line);padding-top:8px}
+.mi-note b{color:var(--pink-ink)}
+.mi.feature{background:var(--blue-soft)}
+.mi.route{background:var(--pink-soft)}
+.mi.picked{box-shadow:inset 0 0 0 3px var(--ink);background:#FFFBE0;z-index:1}
+.mi.picked::before{content:"this one, probably";position:absolute;top:-14px;right:16px;font-family:var(--f-hand);font-weight:700;font-size:1.3rem;line-height:1;color:var(--ink);background:var(--hl-solid);padding:4px 10px;border-radius:4px;transform:rotate(2deg)}
+@media (min-width:760px){
+  .mi{grid-template-columns:minmax(0,1fr) 150px auto;grid-template-areas:"text price actions" "detail detail detail";align-items:center;padding:18px 22px}
+  .mi-actions{justify-content:flex-end;flex-wrap:nowrap}
+}
+.good-to-know{display:grid;gap:10px;max-width:860px;margin-top:24px}
+.gtk{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow)}
+.gtk summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:14px;padding:16px 20px;font-weight:700;font-size:1.02rem}
+.gtk summary::-webkit-details-marker{display:none}
+.gtk summary span{flex:1}
+.gtk .plus{flex:none;width:28px;height:28px;border-radius:50%;background:var(--blue-soft);position:relative}
+.gtk .plus::before,.gtk .plus::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2px;background:var(--blue);transform:translate(-50%,-50%);border-radius:2px}
+.gtk .plus::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .3s}
+.gtk[open] .plus{background:var(--hl)}
+.gtk[open] .plus::after{transform:translate(-50%,-50%) rotate(0deg)}
+.gtk ul{list-style:none;margin:0;padding:0 20px 18px;display:grid;gap:10px}
+.gtk li{display:flex;gap:12px;align-items:flex-start;font-size:.96rem}
+.gtk li svg{flex:none;width:20px;height:20px;margin-top:3px;fill:none;stroke:var(--blue);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.gtk li b{color:var(--ink)}
+.fit{margin-top:8px}
 .rules{background:var(--card);border-radius:22px;padding:24px 22px;border:2px dashed #B9C7EE;max-width:860px}
 .rules h3{font-size:1.35rem;margin-bottom:14px}
 .rules ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
@@ -507,7 +565,6 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
     <ul class="nav-links">
       <li><a href="#desks">The two desks</a></li>
       <li><a href="#why">Why me</a></li>
-      <li><a href="#map">The full map</a></li>
       <li><a href="#application">My application</a></li>
       <li><a href="#packages">Packages</a></li>
       <li><a href="#faq">FAQ</a></li>
@@ -518,7 +575,6 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
     <ul class="menu-panel" id="menuPanel" hidden>
       <li><a href="#desks">The two desks</a></li>
       <li><a href="#why">Why me</a></li>
-      <li><a href="#map">The full map</a></li>
       <li><a href="#application">My application</a></li>
       <li><a href="#packages">Packages</a></li>
       <li><a href="#faq">FAQ</a></li>
@@ -540,7 +596,7 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
       <p class="lede">At most US high schools, someone at school sends your transcript, writes the school report, signs your forms and watches your deadlines, so you can mostly worry about your essays. If your school has never had a college counselor, every one of those jobs lands on your desk, on top of the essays. I just went through it. Let me show you what's on that desk.</p>
       <div class="btn-row" id="heroCtas">
         <a class="btn btn-primary" data-book href="#call">Book a Profile Check &middot; $5</a>
-        <a class="btn btn-ghost" href="#desks">Show me everything</a>
+        <a class="btn btn-ghost" href="#packages">See packages and prices</a>
       </div>
       <p class="hero-proof">From a public school with no counselor to <span class="hl">NYU Abu Dhabi</span>. I did the whole school side myself.</p>
     </div>
@@ -633,102 +689,6 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
   </div>
 </section>
 
-<!-- 4. NUMBERS -->
-<section class="section" id="numbers" aria-labelledby="num-h" style="padding-top:0">
-  <div class="wrap">
-    <div class="section-head">
-      <h2 id="num-h">A few numbers that made me mad</h2>
-    </div>
-    <div class="num-grid">
-      <article class="num-card wide">
-        <div class="vs">
-          <div>
-            <p class="big"><span class="small">about</span><span class="count" data-to="200">200</span></p>
-            <p>students per counselor at an average US high school</p>
-          </div>
-          <span class="or" aria-hidden="true">vs.</span>
-          <div class="zero">
-            <p class="big"><span class="count" data-to="0">0</span></p>
-            <p>at mine</p>
-          </div>
-        </div>
-        <p class="src">Source: ASCA, 2024 to 2025</p>
-      </article>
-      <article class="num-card">
-        <p class="big"><span class="count" data-to="70">70</span>%+</p>
-        <p class="line">of Common App applications arrive with a school profile. If your school doesn't have one, yours might arrive without.</p>
-        <p class="src">Source: Common App</p>
-      </article>
-      <article class="num-card">
-        <p class="big">$<span class="count" data-to="25">25</span> + $<span class="count" data-to="16">16</span></p>
-        <p class="line">for the CSS Profile, per extra school. College Board doesn't waive it for international students, though some colleges will if you ask.</p>
-        <p class="src">Source: College Board, Bryn Mawr College</p>
-      </article>
-      <article class="num-card">
-        <p class="big"><span class="small">about</span><span class="count" data-to="10">10</span></p>
-        <p class="line">US universities are need-blind for international students. At most others, asking for aid can affect your chances.</p>
-        <p class="src">Source: Oriel Admissions, 2026</p>
-      </article>
-      <article class="num-card">
-        <p class="big"><span class="count" data-to="72">72</span></p>
-        <p class="line">colleges and systems require the SAT or ACT for fall 2027, including most of the Ivies, MIT and Stanford. The rules changed fast, so check every school.</p>
-        <p class="src">Source: The College Investor, Oct 2026</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- 5. THE FULL MAP -->
-<section class="section" id="map" aria-labelledby="map-h" style="padding-top:clamp(24px,5vw,48px)">
-  <div class="wrap">
-    <div class="section-head">
-      <h2 id="map-h">Everything a US application needs, <span class="hl">in one place</span></h2>
-      <p class="sub">Tick what you've done. Tap anything to see what it is, who does it, when, and where people usually slip. Your ticks stay on this device.</p>
-    </div>
-    <div class="map">
-      <div class="progress">
-        <div class="progress-top">
-          <p class="progress-count" id="progText">You've done <b>0</b> of 35</p>
-          <p class="progress-mood" id="progMood">start anywhere</p>
-        </div>
-        <div class="progress-bar" role="progressbar" aria-labelledby="progText" aria-valuemin="0" aria-valuemax="35" aria-valuenow="0" id="progBar"><div class="progress-fill" id="progFill"></div></div>
-      </div>
-      <div id="groups"></div>
-    </div>
-    <div class="map-foot">
-      <svg class="arrow" viewBox="0 0 44 44" aria-hidden="true"><path d="M6 4c0 18 8 28 30 30"/><path d="M28 27l9 7-9 6"/></svg>
-      <p class="hand">I made templates for the school profile, transcript and brag sheet while doing mine. Book a call and I'll show you.</p>
-    </div>
-  </div>
-</section>
-
-<!-- 6. TIMELINE -->
-<section class="section" id="timeline" aria-labelledby="tl-h" style="padding-top:0">
-  <div class="wrap">
-    <div class="section-head">
-      <h2 id="tl-h">When it all happens</h2>
-      <p class="sub">The pink dots are the parts a counselor would normally handle.</p>
-    </div>
-    <div class="tl-scroll" tabindex="0" aria-label="Application timeline">
-      <ol class="tl">
-        <li><div class="tl-card"><p class="tl-when">Grade 11 spring</p><p class="tl-what">Tests, activities, first school ideas</p></div></li>
-        <li class="school"><div class="tl-card"><p class="tl-when">Summer</p><p class="tl-what">School list, essay drafts, pick your counselor and teachers</p></div></li>
-        <li><div class="tl-card"><p class="tl-when">Aug 1</p><p class="tl-what">Common App opens</p></div></li>
-        <li class="school"><div class="tl-card"><p class="tl-when">Aug to Oct</p><p class="tl-what">School profile, transcript, brag sheet, teacher requests</p><p class="tl-tag">the busy one</p></div></li>
-        <li><div class="tl-card"><p class="tl-when">Oct 1</p><p class="tl-what">CSS Profile opens</p></div></li>
-        <li><div class="tl-card"><p class="tl-when">Nov 1 and Nov 15</p><p class="tl-what">ED and EA</p></div></li>
-        <li><div class="tl-card"><p class="tl-when">December</p><p class="tl-what">Early results</p></div></li>
-        <li><div class="tl-card"><p class="tl-when">Jan 1 to 15</p><p class="tl-what">RD and ED2</p></div></li>
-        <li class="school"><div class="tl-card"><p class="tl-when">Jan to Feb</p><p class="tl-what">Mid-year report, aid documents</p><p class="tl-tag">everyone forgets this</p></div></li>
-        <li><div class="tl-card"><p class="tl-when">Mar to Apr</p><p class="tl-what">Decisions</p></div></li>
-        <li><div class="tl-card"><p class="tl-when">May 1</p><p class="tl-what">Choose</p></div></li>
-        <li class="school"><div class="tl-card"><p class="tl-when">June</p><p class="tl-what">Final report</p></div></li>
-      </ol>
-    </div>
-    <p class="tl-hint" aria-hidden="true">scroll sideways for the rest &rarr;</p>
-  </div>
-</section>
-
 <!-- 7. MY APPLICATION -->
 <section class="section" id="application" aria-labelledby="app-h" style="padding-top:clamp(24px,5vw,48px)">
   <div class="wrap">
@@ -794,12 +754,123 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
       <p class="sub">Without a counselor, it's easy to never find out how good your essays and activities could actually be. I'll be there to listen until we both see it.</p>
     </div>
 
-    <ol class="how" aria-label="How it works">
-      <li><b>Profile Check, $5.</b> You fill in a short form, we read it, and we meet for 30 minutes. Within 48 hours you get a deep analysis of your profile and your next steps.</li>
-      <li><b>Pick what you need.</b> Fix one thing (Refine or ReFind), get season-long support (Navigator), or get a plan built around you (Reroute).</li>
-      <li><b>Pay and start.</b> We send a PayPal invoice and book your first session.</li>
+    <ol class="flow" aria-label="How it works">
+      <li><span class="flow-n">1</span><span>Book a <b>$5 Profile Check</b></span></li>
+      <li><span class="flow-n">2</span><span>Pick a package below</span></li>
+      <li><span class="flow-n">3</span><span>Pay by PayPal invoice and start</span></li>
     </ol>
-    <p class="refind-note"><span class="hand">Refine vs ReFind, in one line:</span> Refine = we polish what you already wrote. ReFind = we build it with you from scratch.</p>
+    <ul class="pay-chips" aria-label="Paying">
+      <li>One-time prices</li>
+      <li>Card or UPI, no PayPal account needed</li>
+      <li>$100 and above can be split in 2</li>
+      <li><a href="#price-help">Need-based aid</a></li>
+    </ul>
+    <p class="quiz-link">Not sure which one? <a href="#fit">Take the 3-tap quiz</a></p>
+
+    <div class="menu-wrap">
+      <div class="menu-group">
+        <p class="pkg-label">Start here</p>
+        <ul class="menu">
+          <li class="mi feature" id="pkg-free" data-pkg="free">
+            <div class="mi-text"><h3 class="mi-name">Profile Check</h3><p class="mi-for">Everyone starts here. A 30-min call, then a deep analysis of your profile and your next steps.</p></div>
+            <p class="mi-price">$5</p>
+            <div class="mi-actions"><a class="btn btn-primary" data-book href="#call">Book &middot; $5</a><button type="button" class="mi-more" aria-expanded="false" aria-controls="d-pkg-free">What's included<svg viewBox="0 0 24 24" class="chev" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></div>
+            <div class="mi-detail" id="d-pkg-free" hidden><p><b>How it runs:</b> a short form, then a 30-minute call.</p><p class="gets-h">You receive</p><ul><li>A deep analysis of your profile within 48 hours: what's strong, what's missing, and exactly what to do next to win this</li><li>A package recommendation, or "you don't need us" if that's true</li></ul></div>
+          </li>
+        </ul>
+      </div>
+      <div class="menu-group">
+        <p class="pkg-label">Fix one thing</p>
+        <p class="menu-note"><b>Refine</b> = we polish what you already wrote. <b>ReFind</b> = we build it with you from scratch.</p>
+        <ul class="menu">
+          <li class="mi" id="pkg-essay-refine" data-pkg="essay-refine">
+            <div class="mi-text"><h3 class="mi-name">Essay Refine</h3><p class="mi-for">Polish ONE essay you already wrote.</p></div>
+            <p class="mi-price"><s>$35</s> $22</p>
+            <div class="mi-actions"><a class="btn btn-primary" data-signup="Essay Refine" href="https://tally.so/r/4aKj1k">Sign up</a><button type="button" class="mi-more" aria-expanded="false" aria-controls="d-pkg-essay-refine">What's included<svg viewBox="0 0 24 24" class="chev" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></div>
+            <div class="mi-detail" id="d-pkg-essay-refine" hidden><p><b>How it runs:</b> you send the essay, we return it within 3 days, then one round of follow-up questions by chat.</p><p class="gets-h">You receive</p><ul><li>Your essay with line-by-line comments in Google Docs</li><li>A short note on the 3 changes that matter most</li></ul><p class="mi-note">Not included: brainstorming, new drafts, a second essay.</p></div>
+          </li>
+          <li class="mi" id="pkg-ec-refine" data-pkg="ec-refine">
+            <div class="mi-text"><h3 class="mi-name">EC Refine</h3><p class="mi-for">Polish the activity list you already have.</p></div>
+            <p class="mi-price"><s>$35</s> $22</p>
+            <div class="mi-actions"><a class="btn btn-primary" data-signup="EC Refine" href="https://tally.so/r/4aKj1k">Sign up</a><button type="button" class="mi-more" aria-expanded="false" aria-controls="d-pkg-ec-refine">What's included<svg viewBox="0 0 24 24" class="chev" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></div>
+            <div class="mi-detail" id="d-pkg-ec-refine" hidden><p><b>How it runs:</b> you send your list, we return it within 3 days.</p><p class="gets-h">You receive</p><ul><li>Comments on all 10 activities and your honors</li><li>Suggested rewording that fits the 150-character limit</li><li>The best order to list them in</li></ul><p class="mi-note">Not included: finding new activities.</p></div>
+          </li>
+          <li class="mi" id="pkg-essay-refind" data-pkg="essay-refind">
+            <div class="mi-text"><h3 class="mi-name">Essay ReFind Short</h3><p class="mi-for">ONE short essay from scratch, up to 350 words. 2 rounds of edits.</p></div>
+            <p class="mi-price">$59</p>
+            <div class="mi-actions"><a class="btn btn-primary" data-signup="Essay ReFind Short" href="https://tally.so/r/4aKj1k">Sign up</a><button type="button" class="mi-more" aria-expanded="false" aria-controls="d-pkg-essay-refind">What's included<svg viewBox="0 0 24 24" class="chev" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></div>
+            <div class="mi-detail" id="d-pkg-essay-refind" hidden><p><b>How it runs:</b> a 45-min brainstorm call, an outline, drafts, rounds of edits, a final check.</p><p class="gets-h">You receive</p><ul><li>Brainstorm notes with your chosen story and angle</li><li>An outline</li><li>1 finished essay, ready to submit</li></ul><p class="mi-note">Not included: other essays.</p></div>
+          </li>
+          <li class="mi" id="pkg-essay-refind-long" data-pkg="essay-refind">
+            <div class="mi-text"><h3 class="mi-name">Essay ReFind Long</h3><p class="mi-for">ONE long essay from scratch, up to 650 words. 3 rounds of edits.</p></div>
+            <p class="mi-price">$79</p>
+            <div class="mi-actions"><a class="btn btn-primary" data-signup="Essay ReFind Long" href="https://tally.so/r/4aKj1k">Sign up</a><button type="button" class="mi-more" aria-expanded="false" aria-controls="d-pkg-essay-refind-long">What's included<svg viewBox="0 0 24 24" class="chev" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></div>
+            <div class="mi-detail" id="d-pkg-essay-refind-long" hidden><p><b>How it runs:</b> a 45-min brainstorm call, an outline, drafts, rounds of edits, a final check.</p><p class="gets-h">You receive</p><ul><li>Brainstorm notes with your chosen story and angle</li><li>An outline</li><li>1 finished essay, ready to submit</li></ul><p class="mi-note">Not included: other essays.</p></div>
+          </li>
+          <li class="mi" id="pkg-ec-refind" data-pkg="ec-refind">
+            <div class="mi-text"><h3 class="mi-name">EC ReFind</h3><p class="mi-for">For a profile that feels thin: a direction, a 3-month plan, a role in a real project.</p></div>
+            <p class="mi-price">$69</p>
+            <div class="mi-actions"><a class="btn btn-primary" data-signup="EC ReFind" href="https://tally.so/r/4aKj1k">Sign up</a><button type="button" class="mi-more" aria-expanded="false" aria-controls="d-pkg-ec-refind">What's included<svg viewBox="0 0 24 24" class="chev" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></div>
+            <div class="mi-detail" id="d-pkg-ec-refind" hidden><p><b>How it runs:</b> a 45-min mapping call, then a plan you follow over the next months.</p><p class="gets-h">You receive</p><ul><li>A one-page profile direction: your story and what to build</li><li>A 3-month plan with steps and dates</li><li>A confirmed role in one of our running projects</li></ul></div>
+          </li>
+          <li class="mi" id="pkg-ec-refind-plus" data-pkg="ec-refind">
+            <div class="mi-text"><h3 class="mi-name">EC ReFind Plus</h3><p class="mi-for">EC ReFind + 2 check-in calls + your activity list rewritten.</p></div>
+            <p class="mi-price">$89</p>
+            <div class="mi-actions"><a class="btn btn-primary" data-signup="EC ReFind Plus" href="https://tally.so/r/4aKj1k">Sign up</a><button type="button" class="mi-more" aria-expanded="false" aria-controls="d-pkg-ec-refind-plus">What's included<svg viewBox="0 0 24 24" class="chev" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></div>
+            <div class="mi-detail" id="d-pkg-ec-refind-plus" hidden><p><b>How it runs:</b> everything in EC ReFind, plus 2 check-in calls over the next months.</p><p class="gets-h">You receive</p><ul><li>A one-page profile direction: your story and what to build</li><li>A 3-month plan with steps and dates</li><li>A confirmed role in one of our running projects</li><li>2 check-in calls</li><li>Your activity list rewritten at the end</li></ul></div>
+          </li>
+        </ul>
+      </div>
+      <div class="menu-group">
+        <p class="pkg-label">Your season</p>
+        <ul class="menu">
+          <li class="mi" id="pkg-navigator" data-pkg="navigator">
+            <div class="mi-text"><h3 class="mi-name">Navigator</h3><p class="mi-for">Forms, school list and aid, July to January. The counselor your school doesn't have.</p></div>
+            <p class="mi-price">$99<small>$89 each in a group of 4</small></p>
+            <div class="mi-actions"><a class="btn btn-primary" data-signup="Navigator" href="https://tally.so/r/4aKj1k">Sign up</a><button type="button" class="mi-more" aria-expanded="false" aria-controls="d-pkg-navigator">What's included<svg viewBox="0 0 24 24" class="chev" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></div>
+            <div class="mi-detail" id="d-pkg-navigator" hidden><p><b>How it runs:</b> July to January. Group calls on a set agenda (questions collected first) + chat support.</p><p class="gets-h">You receive</p><ul><li>A balanced school list (reach, target, likely)</li><li>Every Common App section checked</li><li>A school profile for your school</li><li>A translated transcript format</li><li>A counselor letter guide and a brag sheet</li><li>CSS Profile help and a deadline tracker</li><li>One written review and a final check before each round</li></ul><p class="mi-note">Not included: essays and in-depth profile work.</p></div>
+          </li>
+        </ul>
+      </div>
+      <div class="menu-group">
+        <p class="pkg-label">With you the whole way</p>
+        <ul class="menu">
+          <li class="mi" id="pkg-full" data-pkg="full">
+            <div class="mi-text"><h3 class="mi-name">Full Journey, 6 months</h3><p class="mi-for">For juniors who want everything: Navigator + finished essays + a stronger profile.</p></div>
+            <p class="mi-price">$489</p>
+            <div class="mi-actions"><a class="btn btn-primary" data-signup="Full Journey 6 months" href="https://tally.so/r/4aKj1k">Sign up</a><button type="button" class="mi-more" aria-expanded="false" aria-controls="d-pkg-full">What's included<svg viewBox="0 0 24 24" class="chev" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></div>
+            <div class="mi-detail" id="d-pkg-full" hidden><p><b>How it runs:</b> 1:1 calls twice a month + chat support.</p><p class="gets-h">You receive</p><ul><li>Everything in Navigator</li><li>Your personal statement and supplements, finished</li><li>Everything in EC ReFind Plus</li><li>A school direction plan from your 1:1 calls</li></ul><p class="mi-note">Can be paid in 2 parts: half to start, half before your final submission.</p></div>
+          </li>
+          <li class="mi" id="pkg-full-12" data-pkg="full">
+            <div class="mi-text"><h3 class="mi-name">Full Journey, 12 months</h3><p class="mi-for">The same, for a whole year.</p></div>
+            <p class="mi-price">$899</p>
+            <div class="mi-actions"><a class="btn btn-primary" data-signup="Full Journey 12 months" href="https://tally.so/r/4aKj1k">Sign up</a><button type="button" class="mi-more" aria-expanded="false" aria-controls="d-pkg-full-12">What's included<svg viewBox="0 0 24 24" class="chev" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></div>
+            <div class="mi-detail" id="d-pkg-full-12" hidden><p><b>How it runs:</b> 1:1 calls twice a month + chat support.</p><p class="gets-h">You receive</p><ul><li>Everything in Navigator</li><li>Your personal statement and supplements, finished</li><li>Everything in EC ReFind Plus</li><li>A school direction plan from your 1:1 calls</li></ul><p class="mi-note">Can be paid in 2 parts: half to start, half before your final submission.</p></div>
+          </li>
+        </ul>
+      </div>
+      <div class="menu-group">
+        <p class="pkg-label">Your own route</p>
+        <ul class="menu">
+          <li class="mi route" id="pkg-reroute" data-pkg="reroute">
+            <div class="mi-text"><h3 class="mi-name">Reroute</h3><p class="mi-for">For situations that don't fit a box. Price set after your Profile Check.</p></div>
+            <p class="mi-price"><span class="mi-custom">Custom</span></p>
+            <div class="mi-actions"><a class="btn btn-primary" data-book href="#call">Start with a Profile Check</a><button type="button" class="mi-more" aria-expanded="false" aria-controls="d-pkg-reroute">What's included<svg viewBox="0 0 24 24" class="chev" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></div>
+            <div class="mi-detail" id="d-pkg-reroute" hidden><p><b>How it runs:</b> a Profile Check first, then a written plan within 48 hours. You say yes or no.</p><p class="gets-h">You receive</p><ul><li>A written plan: what we do, week by week, and the price</li><li>Then every output listed in that plan</li></ul><p class="mi-note"><b>Example:</b> a full NYUAD ED2 package (all essays, CV, portfolio guidance, application support, weekly calls for 5 weeks) is $349.</p></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="signup-band" id="signup">
+      <div class="signup-text">
+        <p class="hand">know which one you want?</p>
+        <h3>Sign up for a package</h3>
+        <p>Fill in the sign-up form and pick your package. We send a PayPal invoice and book your first session.</p>
+      </div>
+      <a class="btn btn-signup" data-signup href="https://tally.so/r/4aKj1k">Sign up now
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+    </div>
 
     <div class="fit" id="fit">
       <div class="fit-head"><h3>Which one fits me?</h3><span class="hand">three taps, promise</span></div>
@@ -832,165 +903,18 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
       </div>
     </div>
 
-    <div class="glance-wrap">
-      <h3>Prices at a glance</h3>
-      <table class="glance">
-        <thead><tr><th scope="col">Package</th><th scope="col">Price (USD)</th><th scope="col">Best for</th><th scope="col">What you get at the end</th></tr></thead>
-        <tbody>
-          <tr><th scope="row"><a href="#pkg-free">Profile Check</a></th><td data-l="Price">$5</td><td data-l="Best for">Everyone, the first step</td><td data-l="You get">30-min call + a deep analysis of your profile and next steps</td></tr>
-          <tr><th scope="row"><a href="#pkg-essay-refine">Essay Refine</a></th><td data-l="Price">$22 <span class="muted">launch price, normally $35</span></td><td data-l="Best for">ONE essay you already wrote</td><td data-l="You get">Your essay with line-by-line comments + the 3 key changes</td></tr>
-          <tr><th scope="row"><a href="#pkg-ec-refine">EC Refine</a></th><td data-l="Price">$22 <span class="muted">launch price, normally $35</span></td><td data-l="Best for">The activity list you already have</td><td data-l="You get">Your list with comments, rewrites and the best order</td></tr>
-          <tr><th scope="row"><a href="#pkg-essay-refind">Essay ReFind Short</a></th><td data-l="Price">$59</td><td data-l="Best for">ONE short essay from scratch (up to 350 words)</td><td data-l="You get">1 finished essay after 2 rounds of edits</td></tr>
-          <tr><th scope="row"><a href="#pkg-essay-refind">Essay ReFind Long</a></th><td data-l="Price">$79</td><td data-l="Best for">ONE long essay from scratch (up to 650 words)</td><td data-l="You get">1 finished essay after 3 rounds of edits</td></tr>
-          <tr><th scope="row"><a href="#pkg-ec-refind">EC ReFind</a></th><td data-l="Price">$69</td><td data-l="Best for">A profile that feels thin</td><td data-l="You get">A direction, a 3-month plan, a role in a real project</td></tr>
-          <tr><th scope="row"><a href="#pkg-ec-refind">EC ReFind Plus</a></th><td data-l="Price">$89</td><td data-l="Best for">Same, with follow-up</td><td data-l="You get">Everything in EC ReFind + 2 check-in calls + a rewritten activity list</td></tr>
-          <tr><th scope="row"><a href="#pkg-navigator">Navigator</a></th><td data-l="Price">$99 <span class="muted">($89 each in a group of 4)</span></td><td data-l="Best for">Forms, school list and aid, July to January</td><td data-l="You get">A finished set of application documents</td></tr>
-          <tr><th scope="row"><a href="#pkg-full">Full Journey</a></th><td data-l="Price">$489 <span class="muted">(6 months)</span> / $899 <span class="muted">(12 months)</span></td><td data-l="Best for">Juniors who want everything</td><td data-l="You get">Everything in Navigator + finished essays + a stronger profile</td></tr>
-          <tr><th scope="row"><a href="#pkg-reroute">Reroute (custom)</a></th><td data-l="Price">Set after your Profile Check</td><td data-l="Best for">Situations that don't fit a box</td><td data-l="You get">A written plan with dates and outputs, then the work in it</td></tr>
-        </tbody>
-      </table>
-      <p class="tiny">All prices are one-time, not weekly or monthly, unless you choose a payment plan.</p>
-    </div>
-
-    <div class="pkg-group">
-      <p class="pkg-label">Start here</p>
-      <div class="pkg-row">
-        <article class="pkg feature" id="pkg-free">
-          <span class="picked-tag" aria-hidden="true">this one, probably</span>
-          <span class="pkg-flag" aria-hidden="true">everyone starts here</span>
-          <h3>Profile Check</h3>
-          <p class="price">$5</p>
-          <p class="for">For everyone, before any package.</p>
-          <p class="runs"><b>How it runs:</b> a short form, then a 30-minute call.</p>
-          <div class="gets"><p class="gets-h">You receive</p><ul><li>A deep analysis of your profile within 48 hours: what's strong, what's missing, and exactly what to do next to win this</li><li>A package recommendation, or "you don't need us" if that's true</li></ul></div>
-          <div class="pkg-cta"><a class="btn btn-primary" data-book href="#call">Book a Profile Check &middot; $5</a></div>
-        </article>
-      </div>
-    </div>
-
-    <div class="pkg-group">
-      <p class="pkg-label">Fix one thing</p>
-      <div class="pkg-row two">
-        <article class="pkg" id="pkg-essay-refine">
-          <span class="picked-tag" aria-hidden="true">this one, probably</span>
-          <h3>Essay Refine</h3>
-          <p class="price"><s class="was">$35</s> $22 <small>launch price</small></p>
-          <p class="for">For ONE essay you already wrote. We polish, we don't write new.</p>
-          <p class="runs"><b>How it runs:</b> you send the essay, we return it within 3 days, then one round of follow-up questions by chat.</p>
-          <div class="gets"><p class="gets-h">You receive</p><ul><li>Your essay with line-by-line comments in Google Docs</li><li>A short note on the 3 changes that matter most</li></ul></div>
-          <p class="not">Not included: brainstorming, new drafts, a second essay.</p>
-          <div class="pkg-cta"><a class="btn btn-primary" data-signup="Essay Refine" href="https://tally.so/r/4aKj1k">Sign up for Essay Refine</a></div>
-        </article>
-        <article class="pkg" id="pkg-ec-refine">
-          <span class="picked-tag" aria-hidden="true">this one, probably</span>
-          <h3>EC Refine</h3>
-          <p class="price"><s class="was">$35</s> $22 <small>launch price</small></p>
-          <p class="for">For the activity list you already have.</p>
-          <p class="runs"><b>How it runs:</b> you send your list, we return it within 3 days.</p>
-          <div class="gets"><p class="gets-h">You receive</p><ul><li>Comments on all 10 activities and your honors</li><li>Suggested rewording that fits the 150-character limit</li><li>The best order to list them in</li></ul></div>
-          <p class="not">Not included: finding new activities.</p>
-          <div class="pkg-cta"><a class="btn btn-primary" data-signup="EC Refine" href="https://tally.so/r/4aKj1k">Sign up for EC Refine</a></div>
-        </article>
-        <article class="pkg" id="pkg-essay-refind">
-          <span class="picked-tag" aria-hidden="true">this one, probably</span>
-          <h3>Essay ReFind</h3>
-          <p class="price">$59 <small>short</small> &middot; $79 <small>long</small></p>
-          <p class="for">For an essay that isn't working, or one you haven't started.</p>
-          <p class="why2">Why two prices: a long essay takes more drafts and more rounds of edits.</p>
-          <div class="opts">
-            <div class="opt"><p class="opt-name">Short <b>$59</b></p><p>Up to 350 words (most supplements)</p><p>2 rounds of edits</p><a class="btn btn-primary btn-sm" data-signup="Essay ReFind Short" href="https://tally.so/r/4aKj1k">Sign up: Short</a></div>
-            <div class="opt"><p class="opt-name">Long <b>$79</b></p><p>Up to 650 words (personal statement)</p><p>3 rounds of edits</p><a class="btn btn-primary btn-sm" data-signup="Essay ReFind Long" href="https://tally.so/r/4aKj1k">Sign up: Long</a></div>
-          </div>
-          <p class="runs"><b>How it runs:</b> a 45-min brainstorm call, an outline, drafts, rounds of edits, a final check.</p>
-          <div class="gets"><p class="gets-h">You receive</p><ul><li>Brainstorm notes with your chosen story and angle</li><li>An outline</li><li>1 finished essay, ready to submit</li></ul></div>
-          <p class="not">Not included: other essays.</p>
-        </article>
-        <article class="pkg" id="pkg-ec-refind">
-          <span class="picked-tag" aria-hidden="true">this one, probably</span>
-          <h3>EC ReFind</h3>
-          <p class="price">$69 <small>or</small> $89 <small>with Plus</small></p>
-          <p class="for">For a profile that feels thin.</p>
-          <p class="why2">Why two prices: Plus adds follow-up over the next months.</p>
-          <div class="opts">
-            <div class="opt"><p class="opt-name">EC ReFind <b>$69</b></p><p>45-min mapping call, a direction, a 3-month plan, a role in one of our running projects</p><a class="btn btn-primary btn-sm" data-signup="EC ReFind" href="https://tally.so/r/4aKj1k">Sign up: EC ReFind</a></div>
-            <div class="opt"><p class="opt-name">Plus <b>$89</b></p><p>Everything above + 2 check-in calls + your activity list rewritten at the end</p><a class="btn btn-primary btn-sm" data-signup="EC ReFind Plus" href="https://tally.so/r/4aKj1k">Sign up: Plus</a></div>
-          </div>
-          <div class="gets"><p class="gets-h">You receive</p><ul><li>A one-page profile direction: your story and what to build</li><li>A 3-month plan with steps and dates</li><li>A confirmed role in a real project</li><li>With Plus: an updated activity list</li></ul></div>
-        </article>
-      </div>
-    </div>
-
-    <div class="pkg-group">
-      <p class="pkg-label">Your season</p>
-      <div class="pkg-row">
-        <article class="pkg" id="pkg-navigator">
-          <span class="picked-tag" aria-hidden="true">this one, probably</span>
-          <h3>Navigator</h3>
-          <p class="price">$99 <small>or $89 each in a group of 4</small></p>
-          <p class="for">For students who can handle essays but have no one for everything else. Basically the counselor your school doesn't have. July to January.</p>
-          <p class="runs"><b>How it runs:</b> group calls on a set agenda (questions collected first) + chat support.</p>
-          <div class="gets"><p class="gets-h">You receive</p><ul><li>A balanced school list (reach, target, likely)</li><li>Every Common App section checked</li><li>A school profile for your school</li><li>A translated transcript format</li><li>A counselor letter guide and a brag sheet</li><li>CSS Profile help and a deadline tracker</li><li>One written review and a final check before each round</li></ul></div>
-          <p class="not">Not included: essays and in-depth profile work.</p>
-          <div class="pkg-cta"><a class="btn btn-primary" data-signup="Navigator" href="https://tally.so/r/4aKj1k">Sign up for Navigator</a></div>
-        </article>
-      </div>
-    </div>
-
-    <div class="pkg-group">
-      <p class="pkg-label">With you the whole way</p>
-      <div class="pkg-row">
-        <article class="pkg" id="pkg-full">
-          <span class="picked-tag" aria-hidden="true">this one, probably</span>
-          <h3>Full Journey</h3>
-          <p class="price">$489 <small>6 months</small> &middot; $899 <small>12 months</small></p>
-          <p class="for">For juniors who want one person with them from planning to submit.</p>
-          <p class="runs"><b>How it runs:</b> 1:1 calls twice a month + chat support.</p>
-          <div class="gets"><p class="gets-h">You receive</p><ul><li>Everything in Navigator</li><li>Your personal statement and supplements, finished</li><li>Everything in EC ReFind Plus</li><li>A school direction plan from your 1:1 calls</li></ul></div>
-          <p class="not">Can be split into 2 payments: half to start, half before your final submission.</p>
-          <div class="pkg-cta"><a class="btn btn-primary" data-signup="Full Journey 6 months" href="https://tally.so/r/4aKj1k">Sign up: 6 months</a><a class="btn btn-primary" data-signup="Full Journey 12 months" href="https://tally.so/r/4aKj1k">Sign up: 12 months</a></div>
-        </article>
-      </div>
-    </div>
-
-    <div class="pkg-group">
-      <p class="pkg-label">Your own route</p>
-      <div class="pkg-row">
-        <article class="pkg feature route" id="pkg-reroute">
-          <span class="picked-tag" aria-hidden="true">this one, probably</span>
-          <span class="pkg-flag" aria-hidden="true">made just for you</span>
-          <h3>Reroute <small class="muted">(custom)</small></h3>
-          <p class="price">Price set after your Profile Check</p>
-          <p class="for">For situations that don't fit a box: one dream school with a close deadline, joining mid-season, a portfolio, or aid only.</p>
-          <p class="runs"><b>How it runs:</b> a Profile Check first, then a written plan within 48 hours. You say yes or no.</p>
-          <div class="gets"><p class="gets-h">You receive</p><ul><li>A written plan: what we do, week by week, and the price</li><li>Then every output listed in that plan</li></ul></div>
-          <p class="example"><b>Example:</b> a full NYUAD ED2 package (all essays, CV, portfolio guidance, application support, weekly calls for 5 weeks) is $349.</p>
-          <div class="pkg-cta"><a class="btn btn-primary" data-book href="#call">Start with a Profile Check</a><a class="btn btn-ghost" data-signup="Reroute" href="https://tally.so/r/4aKj1k">Already had it? Sign up</a></div>
-        </article>
-      </div>
-    </div>
-
-    <div class="signup-band" id="signup">
-      <div class="signup-text">
-        <p class="hand">had your Profile Check?</p>
-        <h3>Sign up for a package</h3>
-        <p>Fill in the sign-up form and pick your package. We send a PayPal invoice and book your first session.</p>
-      </div>
-      <a class="btn btn-signup" data-signup href="https://tally.so/r/4aKj1k">Sign up now
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
-    </div>
-
-    <div class="info-grid">
-      <div class="rules pay">
-        <h3>Paying</h3>
+    <div class="good-to-know">
+      <details class="gtk">
+        <summary><span>How paying works</span><i class="plus" aria-hidden="true"></i></summary>
         <ul>
           <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.3L19 6.5"/></svg><span>You pay once per package, by PayPal invoice. A card or UPI works, no PayPal account needed.</span></li>
           <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.3L19 6.5"/></svg><span><b>Under $100:</b> paid in full before we start.</span></li>
           <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.3L19 6.5"/></svg><span><b>$100 and above:</b> can be split in 2, half to start and half before your final submission.</span></li>
           <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.3L19 6.5"/></svg><span><b>Not included in any package:</b> application fees and CSS Profile fees.</span></li>
         </ul>
-      </div>
-      <div class="rules">
-        <h3>The rules, for every package</h3>
+      </details>
+      <details class="gtk">
+        <summary><span>The rules, for every package</span><i class="plus" aria-hidden="true"></i></summary>
         <ul>
           <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.3L19 6.5"/></svg><span><b>Your work stays yours.</b> We comment, ask questions and push, but never write it for you. You approve every change before anything is final.</span></li>
           <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.3L19 6.5"/></svg><span><b>No guarantees.</b> Nobody can honestly promise an admission, so we don't.</span></li>
@@ -999,10 +923,10 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
           <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.3L19 6.5"/></svg><span><b>Stopping.</b> You can stop anytime. If you stop before a second payment, you don't owe it. Payments already made are not refunded once work has started.</span></li>
           <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.3L19 6.5"/></svg><span><b>Privacy.</b> Everything you share stays between you and us.</span></li>
         </ul>
-      </div>
+      </details>
     </div>
 
-    <div class="price-help">
+    <div class="price-help" id="price-help">
       <p class="hand pink">is the price the problem?</p>
       <p>Then tell us your budget and a little about your situation. We either lower the price or make the package smaller and keep the parts you need most.</p>
       <div class="btn-row">
@@ -1080,7 +1004,6 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
     <p class="foot-brand">Prep Pal</p>
     <p class="foot-made">Made by a student who did it the hard way.</p>
     <ul class="sources">
-      <li><a href="https://schoolcounselor.org/getmedia/efe644ea-e26c-4531-82e9-ddbab422227a/24-25-Ratios.pdf" target="_blank" rel="noopener">ASCA student-to-school-counselor ratio data 2024 to 2025</a></li>
       <li><a href="https://commonapp.org/files/recommender-resources/Resource_REC_School_Profile_ENG_2025.07.08.pdf" target="_blank" rel="noopener">Common App, Developing a school profile</a></li>
       <li><a href="https://www.commonapp.org/static/86c21eb1e58b9961d498aa931e04d31c/Resource_FY_International_ENG_2025.06.24_0.pdf" target="_blank" rel="noopener">Common App for international students</a></li>
       <li><a href="https://commonapp.org/files/webinar_decks/Whats-New-with-Common-App-First-Year-2026-2027.pdf" target="_blank" rel="noopener">Common App, What's new 2026 to 2027</a></li>
@@ -1088,8 +1011,6 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
       <li><a href="https://brynmawr.edu/inside/offices-services/financial-aid/undergraduate-students/apply-international-student-instructions" target="_blank" rel="noopener">Bryn Mawr College, international aid instructions</a></li>
       <li><a href="https://sfs.mit.edu/undergraduate-students/apply-for-aid/international" target="_blank" rel="noopener">MIT Student Financial Services, international aid</a></li>
       <li><a href="https://www.mtholyoke.edu/admission/apply-undergraduate-first-year/application-process/international-admission/international-student-financial-aid-application-faq" target="_blank" rel="noopener">Mount Holyoke, international aid FAQ</a></li>
-      <li><a href="https://orieladmissions.com/need-blind-need-aware-international-students/" target="_blank" rel="noopener">Oriel Admissions, need-blind list 2026</a></li>
-      <li><a href="https://thecollegeinvestor.com/77443/colleges-are-requiring-sat-and-act-scores-again-heres-the-full-list-for-2027/" target="_blank" rel="noopener">The College Investor, test-required list for 2027</a></li>
     </ul>
     <p class="tiny">Policies change every year, so always check each college's own website.</p>
   </div>
@@ -1187,251 +1108,13 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
   }
   $$("button", seg).forEach(function(b){ b.addEventListener("click", function(){ setMode(b.getAttribute("data-mode")); }); });
 
-  /* count-up numbers: rest state shows the real value; animate from 0 only when scrolled into view */
-  if (hasIO && !reduce) {
-    var cIO = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){
-        if (!en.isIntersecting) return;
-        cIO.unobserve(en.target);
-        var el = en.target, to = parseFloat(el.getAttribute("data-to")) || 0;
-        if (!to) return;
-        var start = null, dur = 1300;
-        el.textContent = "0";
-        function step(t){
-          if (!start) start = t;
-          var p = Math.min(1, (t - start) / dur), e = 1 - Math.pow(1 - p, 3);
-          el.textContent = String(Math.round(to * e));
-          if (p < 1) requestAnimationFrame(step);
-        }
-        requestAnimationFrame(step);
-      });
-    }, {threshold:.6});
-    $$(".count").forEach(function(el){ cIO.observe(el); });
-  }
-
-  /* the full map */
-  var MAP = [
-    {id:"you", title:"You", sub:"", items:[
-      ["profile","Common App profile, family and education sections",
-        "The basics: you, your parents, your school, your courses and grades. Boring, but every school sees it.",
-        "You. Common App opens August 1, so aim to finish this between August and October.",
-        "Leaving the courses and grades part for the last night. It takes way longer than it looks."],
-      ["activities","Activities and Experiences, up to 10",
-        "Up to 10 things you do outside class, each with a short description. It got renamed this year, and the position field is now optional.",
-        "You. Draft it in summer, polish it in September.",
-        "Spending the 150 characters on what the club is, instead of what you actually did in it."],
-      ["honors","Honors, up to 5",
-        "Up to 5 awards, each with the level: school, state or regional, national, international.",
-        "You, around the same time as your activities.",
-        "Leaving it empty because your school doesn't hand out awards. Class rank, scholarships and competition results all count."],
-      ["ps","Personal statement, 250 to 650 words, one of 7 prompts",
-        "One essay that goes to every school on your Common App. It's the main place they hear your voice.",
-        "You. Start in summer, because a good one takes a lot of drafts.",
-        "Writing what you think admissions wants to hear, instead of something only you could have written."],
-      ["supps","Supplements for each school",
-        "Extra essays each school asks for. Some have none, some have five.",
-        "You, from August, as soon as the prompts come out.",
-        "Starting them the week before. Ten schools can easily mean twenty more essays."],
-      ["addinfo","Additional information, optional",
-        "A box for anything the rest of the application doesn't explain.",
-        "You, near the end, once you can see what's missing.",
-        "Skipping it when it's the best place to explain your school's grading, like why a 9.6 out of 10 is a big deal."],
-      ["tests","SAT or ACT",
-        "The standardized test. Some schools require it again, some are optional, a few don't look at it at all.",
-        "You. Ideally in grade 11, so there's time for a retake.",
-        "Assuming everywhere is still test-optional. A lot of schools switched back."],
-      ["english","IELTS, TOEFL or Duolingo",
-        "Proof of English, if it isn't your first language or your school's language.",
-        "You, before senior fall. Check each school's minimum score and which tests it takes.",
-        "Booking it so late that the scores aren't ready for early deadlines."],
-      ["interviews","Interviews",
-        "A chat with an alum or someone from admissions, usually online if you're abroad. Some schools offer them, many don't.",
-        "You. Some schools ask you to sign up yourself, sometimes before you even apply.",
-        "Missing the sign-up window because nobody told you it existed."],
-      ["portfolio","Portfolio for art, film or music, often on SlideRoom",
-        "Extra work you upload if you're applying for art, film, music or similar.",
-        "You. The portfolio deadline can be earlier than the application deadline.",
-        "Finding out about that earlier deadline too late."],
-      ["list","Your school list",
-        "The schools you apply to, ideally a mix of reaches, targets and likelies that can actually fund you.",
-        "You, the summer before senior year. A counselor would usually help here. Without one, it's on you.",
-        "Using Early Decision on a school that can't fund you. ED is binding."]
-    ]},
-    {id:"school", title:"Your school", sub:"Someone has to do this, and without a counselor it's on you to set it up.", items:[
-      ["counselor","Choose your “counselor”",
-        "Common App needs one school official to send your school's half. It can be any school official with access to your records, like a principal, vice principal, dean or teacher.",
-        "You ask, they say yes. Do it in summer or right at the start of senior year.",
-        "Asking someone who's too busy to answer emails in November."],
-      ["report","School report, plus the international supplement",
-        "A form about your school and where you stand in it, with an extra part for schools outside the US.",
-        "Your counselor fills it in on Common App before your first deadline.",
-        "Your counselor won't know what half the questions mean. Sit down and go through it together."],
-      ["counselorrec","Counselor recommendation",
-        "A letter from your counselor about who you are as a student and a person.",
-        "Your counselor, before your first deadline.",
-        "No brag sheet, so the letter ends up generic."],
-      ["profile-doc","School profile, 1 to 2 pages",
-        "A short document about your school: grading scale, courses, class size, how grades are spread. It's how a reader in the US makes sense of your transcript.",
-        "Officially your school. In real life, you draft it and your counselor checks it and uploads it, by August to October.",
-        "Not having one at all."],
-      ["transcript","Official transcript, plus a certified English translation",
-        "Your grades from high school, from the school, with an English version.",
-        "Your school issues it and your counselor uploads it, before your first deadline.",
-        "Translating it yourself when the school wants it certified."],
-      ["midyear","Mid-year report",
-        "Your first-semester senior grades, sent after you've already applied.",
-        "Your counselor, around January.",
-        "Everyone forgets this one."],
-      ["final","Final report",
-        "Your final grades and proof you graduated, sent to the school you choose.",
-        "Your counselor, in June.",
-        "Thinking it doesn't matter once you're in. Offers can be taken back if grades drop a lot."],
-      ["waiver","Fee waiver confirmation, if you use one",
-        "If application fees are too much, you can ask Common App for a waiver, and your counselor confirms it.",
-        "You request it, your counselor confirms it, before you submit.",
-        "Asking on deadline night, when your counselor is asleep in your time zone."],
-      ["ed","Early Decision agreement",
-        "A form saying you'll go if they admit you. Signed by you, a parent and your counselor.",
-        "All three of you, before the ED deadline.",
-        "Chasing three signatures the day before. Your parent signs online, so they need to be ready too."]
-    ]},
-    {id:"teachers", title:"Your teachers", sub:"", items:[
-      ["recs","Usually 2 teacher recommendations, ideally from core subjects",
-        "Letters from teachers who taught you, ideally in subjects like math, science, English or history.",
-        "Your teachers, through Common App, before your first deadline.",
-        "Picking the teacher who gave you the best grade instead of the one who knows you best."],
-      ["brag","Brag sheet, deadlines and a short guide for them",
-        "A page about you, your deadlines, and how US letters work. They're longer and more personal than most teachers expect.",
-        "You, about a month before you need the letter.",
-        "Asking the week before."]
-    ]},
-    {id:"family", title:"Your family", sub:"Financial aid. This was the part that scared me most.", items:[
-      ["policy","Check each school's aid policy for international students first",
-        "Whether a school gives international students aid at all, whether asking affects admission, and how much it usually covers.",
-        "You and your parents, before your list is final.",
-        "Falling in love with a school that gives international students almost nothing."],
-      ["css","CSS Profile, opens October 1",
-        "College Board's financial aid form that many private colleges use. $25 for the first school, $16 for each extra one.",
-        "You and your parents, from October 1.",
-        "Doing it in one night with numbers your parents haven't checked. Currency conversion trips everyone up."],
-      ["ncp","Noncustodial parent profile, or a waiver request",
-        "If your parents live apart, many schools want the other parent's finances too, or a request explaining why that's not possible.",
-        "The other parent, or you with the waiver request, around the same time as the CSS Profile.",
-        "Assuming you can skip it. A waiver takes time and usually needs supporting letters."],
-      ["tax","Parents' tax return or income papers, translated into English",
-        "Proof of what your parents earn. If they don't file taxes the US way, schools usually accept other income papers.",
-        "Your parents find them, someone translates them, usually November to February.",
-        "Uploading them in Vietnamese, or whatever your language is, with no translation."],
-      ["bank","Bank statements",
-        "Recent statements showing your family's savings. You'll need them again for the visa.",
-        "Your parents, from the bank, when a school asks.",
-        "Sending a phone screenshot when the school wants an official statement."],
-      ["idoc","IDOC or each school's own portal",
-        "Where all those money documents get uploaded. Many schools use College Board's IDOC, some use their own portal. Mount Holyoke uses its own portal instead of IDOC.",
-        "You and your parents, after the CSS Profile.",
-        "Putting everything in IDOC for a school that never looks there."],
-      ["ownform","The school's own international aid form, for some schools",
-        "Some schools have their own aid form for international applicants, on top of the CSS Profile.",
-        "You and your parents, by that school's aid deadline.",
-        "Not seeing it, because it's buried three clicks deep on the aid website."],
-      ["aiddl","Aid deadlines",
-        "Each school's financial aid deadline. It's separate from the application deadline.",
-        "You, tracked in one place.",
-        "They're often earlier than you think, like January 10 for some ED2 rounds."]
-    ]},
-    {id:"after", title:"After you submit", sub:"", items:[
-      ["portals","Check every applicant portal within a week",
-        "Each school sends you a login to its own portal, with a checklist of what it has received.",
-        "You, within a week of submitting, then every couple of weeks.",
-        "Not checking, and finding out in March that something was missing since November."],
-      ["updates","Send updates if a school allows them",
-        "New grades, awards or big news, sent to schools that accept updates.",
-        "You, only where the school says it's okay.",
-        "Sending updates to schools that ask you not to."],
-      ["compare","Compare aid offers",
-        "Putting every offer side by side to see what your family would really pay.",
-        "You and your parents, in March and April.",
-        "Comparing only the scholarship number instead of the total cost, flights and insurance included."],
-      ["deposit","Decide and pay the deposit, usually by May 1",
-        "Saying yes to one school and paying to hold your spot.",
-        "You and your parents, usually by May 1.",
-        "Missing it because May 1 in the US is already May 2 at home."],
-      ["i20","Proof of funds for your I-20 and visa",
-        "After you're admitted, the school needs to see your family can cover what aid doesn't, before it sends the I-20 you need for a student visa.",
-        "You and your parents, after you're admitted.",
-        "Leaving it until summer, when visa appointments are hard to get."]
-    ]}
-  ];
-
-  var groupsEl = $("#groups"), ticks = load("ka-map-ticks") || {}, total = 0;
-  var chev = '<svg viewBox="0 0 24 24" class="chev" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
-  function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
-  var html = "";
-  MAP.forEach(function(g, gi){
-    total += g.items.length;
-    var open = gi === 0;
-    html += '<div class="group" data-g="' + g.id + '">' +
-      '<button type="button" class="group-btn" aria-expanded="' + open + '" aria-controls="grp-' + g.id + '">' +
-      '<span class="group-titles"><h3>' + esc(g.title) + '</h3>' + (g.sub ? '<span class="group-sub">' + esc(g.sub) + '</span>' : '') + '</span>' +
-      '<span class="group-count" data-count="' + g.id + '">0/' + g.items.length + '</span>' + chev + '</button>' +
-      '<ul class="items" id="grp-' + g.id + '"' + (open ? '' : ' hidden') + '>';
-    g.items.forEach(function(it){
-      var id = "m-" + it[0];
-      html += '<li><div class="item-row">' +
-        '<input type="checkbox" class="tick-input" id="' + id + '" data-k="' + it[0] + '"' + (ticks[it[0]] ? ' checked' : '') + '>' +
-        '<label class="tick" for="' + id + '"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.3L19 6.5"/></svg><span class="sr">Done: ' + esc(it[1]) + '</span></label>' +
-        '<button type="button" class="item-btn" aria-expanded="false" aria-controls="' + id + '-d"><span>' + esc(it[1]) + '</span>' + chev + '</button>' +
-        '</div><dl class="item-detail" id="' + id + '-d" hidden>' +
-        '<div><dt>What it is</dt><dd>' + esc(it[2]) + '</dd></div>' +
-        '<div><dt>Who does it, and when</dt><dd>' + esc(it[3]) + '</dd></div>' +
-        '<div class="slip"><dt>Where people slip</dt><dd>' + esc(it[4]) + '</dd></div>' +
-        '</dl></li>';
+  /* package menu: "What's included" */
+  $$(".mi-more").forEach(function(b){
+    b.addEventListener("click", function(){
+      var d = document.getElementById(b.getAttribute("aria-controls"));
+      var open = b.getAttribute("aria-expanded") === "true";
+      b.setAttribute("aria-expanded", String(!open)); d.hidden = open;
     });
-    html += '</ul></div>';
-  });
-  groupsEl.innerHTML = html;
-
-  var progText = $("#progText"), progFill = $("#progFill"), progBar = $("#progBar"), progMood = $("#progMood");
-  progBar.setAttribute("aria-valuemax", String(total));
-  function moodFor(n){
-    if (n === 0) return "start anywhere";
-    if (n === total) return "okay wow. go to sleep.";
-    var p = n / total;
-    if (p < .25) return "nice, keep going";
-    if (p < .5) return "look at you";
-    if (p < .8) return "more than half. seriously.";
-    return "almost there";
-  }
-  function updateProgress(){
-    var n = 0;
-    MAP.forEach(function(g){
-      var c = 0;
-      g.items.forEach(function(it){ if (ticks[it[0]]) c++; });
-      n += c;
-      var badge = $('[data-count="' + g.id + '"]');
-      badge.textContent = c + "/" + g.items.length;
-      badge.classList.toggle("done", c === g.items.length);
-    });
-    progText.innerHTML = "You've done <b>" + n + "</b> of " + total;
-    progFill.style.width = (n / total * 100) + "%";
-    progBar.setAttribute("aria-valuenow", String(n));
-    progMood.textContent = moodFor(n);
-  }
-  updateProgress();
-  groupsEl.addEventListener("change", function(e){
-    var t = e.target;
-    if (!t.matches(".tick-input")) return;
-    if (t.checked) ticks[t.getAttribute("data-k")] = 1; else delete ticks[t.getAttribute("data-k")];
-    save("ka-map-ticks", ticks);
-    updateProgress();
-  });
-  groupsEl.addEventListener("click", function(e){
-    var b = e.target.closest(".group-btn, .item-btn");
-    if (!b) return;
-    var panel = document.getElementById(b.getAttribute("aria-controls"));
-    var open = b.getAttribute("aria-expanded") === "true";
-    b.setAttribute("aria-expanded", String(!open));
-    panel.hidden = open;
   });
 
   /* which one fits me */
@@ -1453,10 +1136,10 @@ footer{border-top:1px solid var(--line);background:var(--card);padding-block:48p
       var q = c.getAttribute("data-q");
       $$(".chip", c).forEach(function(b){ b.setAttribute("aria-pressed", String(answers[q] === b.getAttribute("data-v"))); });
     });
-    $$(".pkg.picked").forEach(function(p){ p.classList.remove("picked"); });
+    $$(".mi.picked").forEach(function(p){ p.classList.remove("picked"); });
     if (answers.grade && answers.worry && answers.time) {
-      var k = pick(answers), card = document.getElementById("pkg-" + k);
-      if (card) card.classList.add("picked");
+      var k = pick(answers);
+      $$('.mi[data-pkg="' + k + '"]').forEach(function(m){ m.classList.add("picked"); });
       var cta = k === "reroute"
         ? '<a class="btn btn-primary" href="' + (/^https?:/.test(TALLY_LINK) ? TALLY_LINK : "#call") + '" target="_blank" rel="noopener">Start with a Profile Check</a>'
         : '<a class="btn btn-primary" href="' + signupHref(NAMES[k]) + '" target="_blank" rel="noopener">Sign up for ' + NAMES[k] + '</a>';
